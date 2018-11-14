@@ -48,7 +48,6 @@ body{
 
 li a {
   text-decoration: none;
-  text-align: center;
   padding: 5px 10px;
   display: block;
   text-align: left;
@@ -117,28 +116,22 @@ ul.second-menu {
 
 #left {
   background-color:purple; 
-<<<<<<< HEAD
 
   width: 20%;
-=======
 
   width: 33%;
 
   width: 33%;
->>>>>>> parent of 14c2ef0... navbar
 
   height: 500px;
   float: left;}
 #main {
   background-color:green; 
-<<<<<<< HEAD
 
 
   width: 60%;
-=======
 
   width: 34%;
->>>>>>> parent of 14c2ef0... navbar
 
 
   width: 34%;
@@ -149,13 +142,10 @@ ul.second-menu {
 #right{
   background-color:blue;
   float: left;
-<<<<<<< HEAD
 
   width: 20%;
-=======
 
   width: 33%;
->>>>>>> parent of 14c2ef0... navbar
 
   height: 500px;}
 
