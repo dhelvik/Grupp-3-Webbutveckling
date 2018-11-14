@@ -115,19 +115,19 @@ ul.second-menu {
 
 #left {
   background-color:purple; 
-  width: 33%;
+  width: 20%;
   height: 500px;
   float: left;}
 #main {
   background-color:green; 
-  width: 34%;
+  width: 60%;
   height: 500px;
   float: left;}
 
 #right{
   background-color:blue;
   float: left;
-  width: 33%;
+  width: 20%;
   height: 500px;}
 
 
