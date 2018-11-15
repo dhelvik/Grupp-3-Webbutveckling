@@ -13,7 +13,7 @@
 #footer {
     background-color: #f3c3d1;
     height: 100%;
-    width: 100%;
+    width: 80%;
     clear: both;
     padding-left: 20%;
     color: #f4376d;
@@ -34,7 +34,6 @@
 @media only screen and (min-width: 1024px) {
 
     #container {
-        position: relative;
         background-color: transparent;
         width: 100%;
         margin: 20px auto;
