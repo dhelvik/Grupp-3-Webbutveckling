@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="css\css.css">
 <link rel="stylesheet" type="text/css" href="css\nav.css">
 <link rel="shortcut icon" type="image/png" href="bilder\favicon.png">
+
 <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 <script> 
  $(function(){
@@ -29,8 +30,32 @@
 
 <div id='main'>
 	<h1>Main</h1>
-	<p>Även om årets karneval just tagit slut är det redan dags att påbörja förberedelser inför 2022 års Lundakarneval........
-	</p>
+	<form class="my-form">
+  <div class="form-group">
+    <label>Förnamn*</label>
+    <input type="text" name="firstname">
+
+  </div>
+  <div class="form-group">
+    <label>Efternamn*</label>
+    <input type="text" name="lastname">
+
+  </div>
+
+  <div class="form-group">
+    <label>E-post*</label>
+
+    <input type="text" name="epost">
+  </div>
+  <div class="form-group">
+    <label>Telefonnummer</label>
+
+    <input type="text" name="telefonnummer">
+  </div>
+  <input type="submit" value="Ansök">
+
+</form>
+
 </div>
 <aside id="right">
 </aside>
