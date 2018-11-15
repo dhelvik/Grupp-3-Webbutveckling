@@ -16,7 +16,7 @@
 
 *{
 	font-family: 'Ubuntu', sans-serif;
-
+    
 }
 
 
@@ -38,7 +38,8 @@
 		margin:0px;
 	}
     #container-main{
-        height: 1200px;
+        height: box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0
+		rgba(0, 0, 0, 0.30);
     }
 
 
@@ -58,6 +59,7 @@
 		float: left;
         box-sizing: border-box;
         padding: 8px;
+        color:#f4376d;
 	}
 
 	#right{
@@ -67,6 +69,7 @@
 		height: 100%;
         box-sizing: border-box;
         padding-left:8px;
+        color:#f4376d;
 	}
 
 	.karnevalstaget{
@@ -95,6 +98,12 @@
         text-align:left;
         
 	}
+    .news img{
+        max-width:70%;
+        max-height:auto;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0
+		rgba(0, 0, 0, 0.30);
+    }
 }
 
 @media only screen and (max-width: 1023px) {
@@ -132,12 +141,17 @@
 
 	}
 	.news{
-		width: 50%;
+		width: 100%;
 		margin: 0 auto;
 		margin-bottom:5%;
-		height:100px;
+		height:100%;
 		background-color:transparent;
 	}
+    .news img{
+        max-width:50%;
+        max-height:auto;
+        margin: auto;
+    }
 }
 @media only screen and (max-width: 768px) {
 
