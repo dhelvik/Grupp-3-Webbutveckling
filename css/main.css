@@ -1,12 +1,25 @@
-#main-content{
-    background-image: url(/bilder/day.jpg);
-    background-size: cover;
-    width 100%;
-    overflow: hidden;
-    height: 450px;
-    padding: 8px;
+#main-content {
     box-sizing: border-box;
+    background-image: url(/bilder/day.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    overflow: hidden;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#main-content img{
-    max-width: 100%;
+
+
+button {
+    background-color: orange;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
