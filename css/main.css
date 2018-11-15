@@ -1,0 +1,12 @@
+#main-content{
+    background-image: url(/bilder/day.jpg);
+    background-size: cover;
+    width 100%;
+    overflow: hidden;
+    height: 450px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+#main-content img{
+    max-width: 100%;
+}
