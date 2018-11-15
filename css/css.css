@@ -132,10 +132,10 @@
 
 	}
 	.news{
-		width: 50%;
+		width: 100%;
 		margin: 0 auto;
 		margin-bottom:5%;
-		height:100px;
+		height:100%;
 		background-color:transparent;
 	}
 }
