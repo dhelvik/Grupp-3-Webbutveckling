@@ -27,18 +27,32 @@
 
 <div id='main'>
 	<h1>Main</h1>
-	<form>
-Förnamn*<br>
-<input type="text" name="firstname"><br>
-Efternamn*<br>
-<input type="text" name="lastname"><br>
-E-post*<br>
-<input type="text" name="epost"><br>
-Telefonnummer<br>
-<input type="text" name="telefonnummer"><br>
+	<form class="my-form">
+  <div class="form-group">
+    <label>Förnamn*</label>
+    <input type="text" name="firstname">
+
+  </div>
+  <div class="form-group">
+    <label>Efternamn*</label>
+    <input type="text" name="lastname">
+
+  </div>
+
+  <div class="form-group">
+    <label>E-post*</label>
+
+    <input type="text" name="epost">
+  </div>
+  <div class="form-group">
+    <label>Telefonnummer</label>
+
+    <input type="text" name="telefonnummer">
+  </div>
   <input type="submit" value="Ansök">
 
 </form>
+
 </div>
 <aside id="right">
 </aside>
