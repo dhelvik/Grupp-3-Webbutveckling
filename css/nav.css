@@ -1,6 +1,8 @@
 @media only screen and (min-width: 1024px) {
   #nav {
     float:clear;
+    padding-left:20%;
+    background-color: #FBBCCC
   }
   .navClass>ul {
     background-color: #FBBCCC;
