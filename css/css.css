@@ -88,29 +88,7 @@ body{
 	background-color:green;
 }
 }
-@media only screen and (max-width: 1023px) {
-	
-	
 
-#karnevalstaget{
-	width: 50%;
-	margin: 0 auto;
-	margin-bottom:5%;
-	
-}
-#karnevalister{
-	width: 50%;
-	margin: 0 auto;
-	
-}
-.news{
-	width: 50%;
-	margin: 0 auto;
-	margin-bottom:5%;
-	height:100px;
-	background-color:green;
-}
-}
 @media only screen and (max-width: 1023px) {
 	
 	
@@ -124,16 +102,17 @@ body{
 	#left{
 		display:none;
 	}
+	
 	#main {
 	  background-color:green; 
-	  width: 50%;
+	  width: 60%;
 	  height: 500px;
 	  float: left;}
 
 	#right{
 	  background-color:blue;
 	  float: left;
-	  width: 50%;
+	  width: 40%;
 	  height: 500px;}
 	.news{
 		width: 50%;
@@ -159,12 +138,6 @@ body{
 	#right{
 		display:none;
 	}
-	.news{
-		width: 50%;
-		margin: 0 auto;
-		margin-bottom:5%;
-		height:100px;
-		background-color:green;
-}
+	
 	
 }
