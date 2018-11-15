@@ -47,14 +47,10 @@ body{
   float: left;}
 #main {
   background-color:green; 
-
-
   width: 60%;
-
-
-
   height: 500px;
-  float: left;}
+  float: left;
+  }
 
 #right{
   background-color:blue;
@@ -107,7 +103,9 @@ body{
 	  background-color:green; 
 	  width: 60%;
 	  height: 500px;
-	  float: left;}
+	  float: left;
+	  }
+	  
 
 	#right{
 	  background-color:blue;
@@ -133,8 +131,8 @@ body{
 	  background-color:green; 
 	  width: 100%;
 	  height: 500px;
-	  float: left;}
-
+	  float: left;
+}
 	#right{
 		display:none;
 	}
