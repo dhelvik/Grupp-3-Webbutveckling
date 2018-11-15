@@ -61,10 +61,10 @@
 	}
 
 	#right{
-		background-color:blue;
+		background-color:transparent;
 		float: left;
 		width: 20%;
-		height: 500px;
+		height: 100%;
         box-sizing: border-box;
         padding: 8px;
 	}
