@@ -9,9 +9,16 @@
 }
 #footer{
 	background-color:#f3c3d1;
-	height:50px;
+	height:100%;
 	width:100%;
 	clear:both;
+    padding-left:20%;
+    color:#f4376d;
+
+}
+#footer a{
+    color:#f4376d;
+
 }
 
 *{
@@ -99,7 +106,7 @@
         
 	}
     .news img{
-        max-width:70%;
+        max-width:100%;
         max-height:auto;
         box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0
 		rgba(0, 0, 0, 0.30);
