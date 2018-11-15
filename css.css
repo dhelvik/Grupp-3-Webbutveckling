@@ -6,44 +6,46 @@
 #header {
   background-color:#f3c3d1;
   height:130px;}
+  height:130px;
+}
 #footer{
   background-color:#f3c3d1;
   height:50px;
   width:100%;
   clear:both;}
-  
+
   *{
-	  font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
 
-}
-#container-left{
-	padding:1em, 2em;
-}
+ }
+ #container-left{
+   padding:1em, 2em;
+ }
 
-@media only screen and (min-width: 1024px) {
-#nav {
-  float:clear;
-}
-#container{
-	position: relative;
-    border: 2px solid white;
-    background-color: #000000;
-    width: 1200px;
-    margin: 20px auto;
-}
-body{
-	background-color:#fbbccc4d;
-	padding:0px;
-	margin:0px;
-}
-.navClass>ul {
+ @media only screen and (min-width: 1024px) {
+  #nav {
+    float:clear;
+  }
+  #container{
+   position: relative;
+   border: 2px solid white;
+   background-color: #000000;
+   width: 1200px;
+   margin: 20px auto;
+ }
+ body{
+   background-color:#fbbccc4d;
+   padding:0px;
+   margin:0px;
+ }
+ .navClass>ul {
   background-color: #FBBCCC;
   color: #f4376d;
   font-size: 1em;
   font-family: sans-serif;
   margin:0;
   padding:0;
-  
+
 }
 
 li a {
@@ -51,7 +53,7 @@ li a {
   padding: 5px 10px;
   display: block;
   text-align: left;
-  
+
 }
 
 .navClass a {
@@ -75,8 +77,8 @@ ul.first-menu {
   display: none;
   margin:0;
   padding:0;
-   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 ul.first-menu>li:hover{
@@ -91,7 +93,7 @@ ul.second-menu>li:hover{
 
 .navClass li:hover .first-menu {
   display: block;
-    width:100%;
+  width:100%;
 
 
 }
@@ -103,36 +105,29 @@ ul.second-menu {
   display: none;
   margin:0;
   padding:0;
-   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
- 
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
 }
 
 .navClass li>.first-menu li:hover .second-menu {
   display: inline-block;
   margin-left:50px;
-   
+
 }
 
 #left {
-  background-color:purple; 
-
+  background-color:purple;
   width: 20%;
-
-  
-
   height: 500px;
-  float: left;}
+  float: left;
+}
 #main {
   background-color:green; 
-
-
   width: 60%;
-
-
-
   height: 500px;
-  float: left;}
+  float: left;
+}
 
 #right{
   background-color:blue;
@@ -147,39 +142,39 @@ ul.second-menu {
 
 
 
-#karnevalstaget{
-	width: 50%;
-	margin: 0 auto;
-	margin-bottom:5%;
-	
-}
-#karnevalister{
-	width: 50%;
-	margin: 0 auto;
-	
-}
-.news{
-	width: 50%;
-	margin: 0 auto;
-	margin-bottom:5%;
-	height:100px;
-	background-color:green;
-}
+  #karnevalstaget{
+   width: 50%;
+   margin: 0 auto;
+   margin-bottom:5%;
+
+ }
+ #karnevalister{
+   width: 50%;
+   margin: 0 auto;
+
+ }
+ .news{
+   width: 50%;
+   margin: 0 auto;
+   margin-bottom:5%;
+   height:100px;
+   background-color:green;
+ }
 }
 @media only screen and (max-width: 1023px) {
-	
-	#nav {
-}
-  
-	
-.navClass>ul {
+
+ #nav {
+ }
+
+
+ .navClass>ul {
   background-color: #D36200;
   color: #D8D8D8;
   font-size: 2em;
   font-family: sans-serif;
   margin:0;
   padding:0;
-  
+
 }
 
 li a {
@@ -193,38 +188,37 @@ li a {
 }
 
 #karnevalstaget{
-	width: 50%;
-	margin: 0 auto;
-	margin-bottom:5%;
-	
+ width: 50%;
+ margin: 0 auto;
+ margin-bottom:5%;
+
 }
 #karnevalister{
-	width: 50%;
-	margin: 0 auto;
-	
+ width: 50%;
+ margin: 0 auto;
+
 }
 .news{
-	width: 50%;
-	margin: 0 auto;
-	margin-bottom:5%;
-	height:100px;
-	background-color:green;
+ width: 50%;
+ margin: 0 auto;
+ margin-bottom:5%;
+ height:100px;
+ background-color:green;
 }
 }
 @media only screen and (max-width: 1023px) {
-	
-	#nav {
-}
-  
-	
-.navClass>ul {
+
+ #nav {
+ }
+
+
+ .navClass>ul {
   background-color: #D36200;
   color: #D8D8D8;
   font-size: 2em;
   font-family: sans-serif;
   margin:0;
   padding:0;
-  
 }
 
 li a {
@@ -269,9 +263,7 @@ ul.second-menu>li:hover{
 
 .navClass li:hover .first-menu {
   display: block;
-    width:100%;
-
-
+  width:100%;
 }
 
 ul.second-menu {
@@ -281,57 +273,57 @@ ul.second-menu {
   display: none;
   margin:0;
   padding:0;
- 
+
 }
 
 .navClass li>.first-menu li:hover .second-menu {
   display: inline-block;
   margin-left:50px;
-   
+
 }
 #container{
-	position: relative;
-    border: 2px solid white;
-    background-color: #000000;
-    width: 1200px;
-    margin: 20px auto;
+ position: relative;
+ border: 2px solid white;
+ background-color: #000000;
+ width: 1200px;
+ margin: 20px auto;
 }
-	#left{
-		display:none;
-	}
-	#main {
-	  background-color:green; 
-	  width: 50%;
-	  height: 500px;
-	  float: left;}
+#left{
+  display:none;
+}
+#main {
+ background-color:green; 
+ width: 50%;
+ height: 500px;
+ float: left;}
 
-	#right{
-	  background-color:blue;
-	  float: left;
-	  width: 50%;
-	  height: 500px;}
-	.news{
-		width: 50%;
-		margin: 0 auto;
-		margin-bottom:5%;
-		height:100px;
-		background-color:green;
-}
+ #right{
+   background-color:blue;
+   float: left;
+   width: 50%;
+   height: 500px;}
+   .news{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom:5%;
+    height:100px;
+    background-color:green;
+  }
 }
 @media only screen and (max-width: 768px) {
-	
-	#nav {
 
-}
-	
-.navClass>ul {
+ #nav {
+
+ }
+
+ .navClass>ul {
   background-color: #D36200;
   color: #D8D8D8;
   font-size: 2em;
   font-family: sans-serif;
   margin:0;
   padding:0;
-  
+
 }
 
 li a {
@@ -375,10 +367,24 @@ ul.second-menu>li:hover{
 
 .navClass li:hover .first-menu {
   display: block;
-    width:100%;
-
+  width:100%;
+}
+ul.second-menu {
+  position: absolute;
+  background-color: #D36200;
+  list-style-type: none;
+  display: none;
+  margin:0;
+  padding:0;
 
 }
+
+.navClass li>.first-menu li:hover .second-menu {
+  display: inline-block;
+  margin-left:50px;
+
+}
+
 
 
 ul.second-menu {
@@ -388,51 +394,33 @@ ul.second-menu {
   display: none;
   margin:0;
   padding:0;
- 
+
 }
 
 .navClass li>.first-menu li:hover .second-menu {
   display: inline-block;
   margin-left:50px;
-   
+
 }
 
+#left{
+  display:none;
+}
+#main {
+ background-color:green; 
+ width: 100%;
+ height: 500px;
+ float: left;}
 
-
-ul.second-menu {
-  position: absolute;
-  background-color: #D36200;
-  list-style-type: none;
-  display: none;
-  margin:0;
-  padding:0;
- 
+ #right{
+  display:none;
+}
+.news{
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom:5%;
+  height:100px;
+  background-color:green;
 }
 
-.navClass li>.first-menu li:hover .second-menu {
-  display: inline-block;
-  margin-left:50px;
-   
-}
-
-	#left{
-		display:none;
-	}
-	#main {
-	  background-color:green; 
-	  width: 100%;
-	  height: 500px;
-	  float: left;}
-
-	#right{
-		display:none;
-	}
-	.news{
-		width: 50%;
-		margin: 0 auto;
-		margin-bottom:5%;
-		height:100px;
-		background-color:green;
-}
-	
 }
