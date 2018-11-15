@@ -17,13 +17,12 @@
 </script> 
 </head>
 <body>
-<div id="container">
+<div id="container" class="container-shadow">
 
 <header id="header">
 </header>
 <nav id="nav">
 </nav>
-
 <aside id="left">
 </aside>
 
@@ -39,5 +38,18 @@
 
 </div>
 </body>
+<script>
+window.onscroll = function() {myFunction()};
 
+var navbar = document.getElementById("nav");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 </html>

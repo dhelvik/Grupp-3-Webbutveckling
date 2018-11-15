@@ -20,16 +20,21 @@
  #container-left{
    padding:1em, 2em;
  }
+ .container-shadow{
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0
+    rgba(0, 0, 0, 0.19)
+ }
 
  @media only screen and (min-width: 1024px) {
   #nav {
     float:clear;
   }
+
   #container{
    position: relative;
    border: 2px solid white;
    background-color: #000000;
-   width: 1200px;
+   width: 80%;
    margin: 20px auto;
  }
  body{
