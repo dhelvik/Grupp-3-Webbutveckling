@@ -1,57 +1,64 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css\css.css">
-<link rel="stylesheet" type="text/css" href="css\nav.css">
-<link rel="shortcut icon" type="image/png" href="bilder\favicon.png">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-<script> 
- $(function(){
-  $("#nav").load("nav.html"); 
-  $("#header").load("header.html");
-  $("#footer").load("footer.html");
-  $("#left").load("section.html");
-  $("#right").load("aside.html");
-  });
-</script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css\css.css">
+    <link rel="stylesheet" type="text/css" href="css\nav.css">
+    <link rel="shortcut icon" type="image/png" href="bilder\favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <script>
+        $(function() {
+            $("#nav").load("nav.html");
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+            $("#left").load("section.html");
+            $("#right").load("aside.html");
+        });
+
+    </script>
 </head>
+
 <body>
-<div id="container" class="container-shadow">
+    <div id="container" class="container-shadow">
 
-<header id="header">
-</header>
-<nav id="nav">
-</nav>
-<div id="container-main">
-<aside id="left">
-</aside>
+        <header id="header">
+        </header>
+        <nav id="nav">
+        </nav>
+        <div id="container-main">
+            <aside id="left">
+            </aside>
 
-<div id='main'>
-	<h1>Main</h1>
-	<p>Även om årets karneval just tagit slut är det redan dags att påbörja förberedelser inför 2022 års Lundakarneval........
-	</p>
-</div>
-<aside id="right">
-</aside>
-</div>
-<footer id="footer">
-</footer>
+            <div id='main'>
+                <h1>Main</h1>
+                <p>Även om årets karneval just tagit slut är det redan dags att påbörja förberedelser inför 2022 års Lundakarneval........
+                </p>
+            </div>
+            <aside id="right">
+            </aside>
+        </div>
+        <footer id="footer">
+        </footer>
 
-</div>
+    </div>
 </body>
 <script>
-window.onscroll = function() {myFunction()};
+    window.onscroll = function() {
+        myFunction()
+    };
 
-var navbar = document.getElementById("nav");
-var sticky = navbar.offsetTop;
+    var navbar = document.getElementById("nav");
+    var sticky = navbar.offsetTop;
 
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+
 </script>
+
 </html>
