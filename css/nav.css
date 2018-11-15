@@ -10,6 +10,7 @@
     color: #f4376d;
     letter-spacing: 1.5px;
 }
+
 /*Level 1*/
 .navClass,
 .navClass ul {
@@ -81,11 +82,11 @@
     display: block;
 }
 
-.dropDownMenu ul ul li {}
+.navClass ul ul li {}
 
-.dropDownMenu ul ul li a {}
+.navClass ul ul li a {}
 
-.dropDownMenu ul ul li a:hover {}
+.navClass ul ul li a:hover {}
 
 
 .sticky {
@@ -94,8 +95,8 @@
     width: 100%;
 }
 
-.sticky + .content {
-    padding-top: 60px;
+.sticky + #container-main {
+    padding-top: 45px;
 }
 
 }
@@ -106,6 +107,13 @@
     #nav {
         padding-left: 0;
     }
+    .sticky + #container-main {
+        padding-top: 37px;
+    }
 }
 
-@media only screen and (max-width: 1023px) {}
+@media only screen and (max-width: 768px) {
+        .sticky + #container-main {
+        padding-top: 37px;
+    }
+}
