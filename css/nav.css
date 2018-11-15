@@ -10,7 +10,7 @@
     font-size: 1em;
     font-family: sans-serif;
     margin:0;
-    padding:0;
+    padding:0px;
 
   }
   .sticky {
@@ -39,6 +39,7 @@
     list-style-type: none;
     display: inline-block;
     position: relative;
+    padding: 10px;
   }
 
   .navClass>ul>li:hover {
@@ -120,6 +121,7 @@
     list-style-type: none;
     display: inline-block;
     position: relative;
+    padding:10px
   }
 
   .navClass>ul>li:hover {
