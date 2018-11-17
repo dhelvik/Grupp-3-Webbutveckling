@@ -1,23 +1,21 @@
 #main-content {
-    box-sizing: border-box;
     background-image: url(/bilder/day.jpg);
     background-position: center;
-    background-size:cover;
+    background-size: cover;
     box-sizing: border-box;
     background-repeat: no-repeat;
     width: 100%;
     height: 50vh;
-    overflow: hidden;
-    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+#main-content:hover > button{
+    display: block;
+}
 
 button {
-    background-color: orange;
-    /* Green */
+    background-color: #f4376d;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -25,4 +23,55 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    display: none;
 }
+
+button:hover {
+    background-color: #fbbccc;
+}
+
+.main-info {
+    margin: 30px 0;
+    height: 100%;
+    padding: 25px 80px;
+    text-align: center;
+    word-spacing: 2px;
+    line-height: 1.8;
+    background-color: white;
+    float: left;
+
+}
+
+#main-map {
+    background-image: url(/bilder/karta.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#main-map:hover > button{
+    display: block;
+}
+
+
+.half-div {
+    width: 50%;
+    float: left;
+    padding: 0 10px;
+    height: 100%;
+}
+
+.main-list li {
+    text-align: left;
+}
+
+
+
+
+@media only screen and (max-width: 1023px) {}
+
+@media only screen and (max-width: 768px) {}

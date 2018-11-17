@@ -4,6 +4,7 @@
     font-size: 14px;
     text-align: left;
     font-family: sans-serif;
+    text-transform: uppercase;
 }
 
 .navClass a {
@@ -11,7 +12,7 @@
     letter-spacing: 1.5px;
 }
 
-/*Level 1*/
+/*Level 1 - NavBar*/
 .navClass,
 .navClass ul {
     list-style: none;
@@ -101,7 +102,6 @@
 
 }
 
-@media only screen and (min-width: 1024px) {}
 
 @media only screen and (max-width: 1023px) {
     #nav {

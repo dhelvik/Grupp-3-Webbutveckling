@@ -1,0 +1,39 @@
+    .news {
+        width: 90%;
+        font-size: 0.8em;
+        height: 100%;
+        line-height: 1.8;
+        text-align: left;
+
+    }
+
+    .news img {
+        max-width: 100%;
+        max-height: auto;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.30);
+    }
+
+    .imgAside {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        align-items: center;
+        height: 20vh;
+    }
+
+    #img1 {
+        background-image: url(/bilder/karnevaltag2.jpg)
+    }
+
+    #img2 {
+        background-image: url(/bilder/opera.jpg)
+    }
+
+    #img3 {
+        background-image: url(/bilder/cirkus.jpg)
+    }
+
+    @media only screen and (max-width: 1023px) {}
+
+    @media only screen and (max-width: 768px) {}
