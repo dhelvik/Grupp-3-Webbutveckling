@@ -55,7 +55,6 @@ button:hover {
     display: block;
 }
 
-
 .half-div {
     width: 50%;
     float: left;
@@ -70,6 +69,14 @@ button:hover {
 
 
 
-@media only screen and (max-width: 1023px) {}
+@media only screen and (max-width: 1023px) {
+    .half-div{
+        width: 100%;
+    }
+}
 
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    .half-div{
+        width: 100%;
+    }
+}
