@@ -18,11 +18,6 @@
     color: #f4376d;
 }
 
-#footer a {
-    color: #f4376d;
-
-}
-
 * {
     font-family: 'Ubuntu', sans-serif;
     box-sizing: border-box;
@@ -47,6 +42,7 @@ body {
 #container-main {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.30);
 }
+
 #left {
     background-color: transparent;
     padding-top: 10px;
@@ -92,10 +88,41 @@ body {
 #karnevalister {
     width: 50%;
     margin: 0 auto;
-
 }
 
+.contact-info {
+    display: flex;
+    padding: 20px 0px;
+}
 
+.contact {
+    float: left;
+    margin: auto;
+    width: 30%;
+}
+.contact img {
+    display: block;
+    width: 30px;
+    height: auto;
+    margin: 10px auto;
+}
+.contact img:hover{
+    width: 35px;
+}
+
+.contact a {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #f4376d;
+}
+.contact a:hover{
+    color: #f4360d;
+}
+
+#footer p{
+    text-align: center;
+}
 @media only screen and (max-width: 1023px) {
 
     #left {
@@ -105,6 +132,7 @@ body {
     #main {
         width: 70%;
     }
+
     #right {
         width: 30%;
         height: 100%;
