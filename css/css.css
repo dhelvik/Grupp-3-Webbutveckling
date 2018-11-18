@@ -18,6 +18,17 @@
     color: #f4376d;
 }
 
+<<<<<<< HEAD
+=======
+#footer a {
+    color: #f4376d;
+
+}
+iframe{
+    display:block;
+    margin: 0 auto;
+}
+>>>>>>> 125d5410aeee94905223315714fb6976b392e1cf
 * {
     font-family: 'Ubuntu', sans-serif;
     box-sizing: border-box;
