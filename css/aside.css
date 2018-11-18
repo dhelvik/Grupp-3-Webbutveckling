@@ -4,7 +4,6 @@
         height: 100%;
         line-height: 1.8;
         text-align: left;
-
     }
 
     .news img {
@@ -34,6 +33,12 @@
         background-image: url(/bilder/cirkus.jpg)
     }
 
-    @media only screen and (max-width: 1023px) {}
+    @media only screen and (max-width: 1023px) {
+        .news img {
+            max-width: 50%;
+            max-height: auto;
+            margin: auto;
+        }
+    }
 
     @media only screen and (max-width: 768px) {}
