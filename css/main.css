@@ -31,6 +31,7 @@ button:hover {
 }
 
 .main-info {
+    margin-bottom: 30px;
     height: 100%;
     padding: 20px 40px;
     text-align: center;
