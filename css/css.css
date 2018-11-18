@@ -22,7 +22,10 @@
     color: #f4376d;
 
 }
-
+iframe{
+    display:block;
+    margin: 0 auto;
+}
 * {
     font-family: 'Ubuntu', sans-serif;
     box-sizing: border-box;
