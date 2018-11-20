@@ -1,0 +1,44 @@
+.contact-info {
+    display: flex;
+    padding: 20px 0px;
+}
+
+.contact {
+    float: left;
+    margin: auto;
+    width: 30%;
+}
+.contact img {
+    display: block;
+    width: 30px;
+    height: auto;
+    margin: 10px auto;
+}
+.contact img:hover{
+    width: 35px;
+    margin:7px auto;
+}
+.contact-text{
+    display: block;
+}
+
+.contact a {
+    text-align: center;
+    text-decoration: none;
+}
+.contact a:hover{
+    color: #f4360d;
+}
+
+#footer p{
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .contact-text{
+        display: none;
+    }
+    .contact img{
+        width: 40px;
+    }
+}

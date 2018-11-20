@@ -8,6 +8,19 @@
 #header {
     background-color: transparent;
     height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#header a {
+    font-size: 40px;
+    position: absolute;
+    text-decoration: none;
+    display: block;
+    color: orange;
+    letter-spacing: 3px;
 }
 
 #footer {
@@ -22,12 +35,13 @@
     color: #f4376d;
 
 }
-iframe{
-    display:block;
+
+iframe {
+    display: block;
     margin: 0 auto;
-    width:100%;
+    width: 100%;
     max-height: auto;
-    
+
 }
 
 * {
@@ -102,42 +116,8 @@ body {
     margin: 0 auto;
 }
 
-.contact-info {
-    display: flex;
-    padding: 20px 0px;
-}
-
-.contact {
-    float: left;
-    margin: auto;
-    width: 30%;
-}
-.contact img {
-    display: block;
-    width: 30px;
-    height: auto;
-    margin: 10px auto;
-}
-.contact img:hover{
-    width: 35px;
-    margin:7px auto;
-}
-
-.contact a {
-    text-align: center;
-    display: block;
-    text-decoration: none;
-    color: #f4376d;
-}
-.contact a:hover{
-    color: #f4360d;
-}
-
-#footer p{
-    text-align: center;
-}
-
-input[type=text], select {
+input[type=text],
+select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -187,6 +167,7 @@ input[type=submit]:hover {
 
     #main {
         width: 100%;
+        padding: 0;
     }
 
     #right {
