@@ -173,4 +173,7 @@ input[type=submit]:hover {
     #right {
         display: none;
     }
+    #header a{
+        font-size: 26px;
+    }
 }
