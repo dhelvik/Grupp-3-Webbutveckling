@@ -7,13 +7,24 @@
     text-transform: uppercase;
 }
 
+/*Phone Bar*/
+.phone-bar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.phone-bar a {
+    display: none;
+}
+
+/*Level 1 - NavBar*/
+.navClass,
 .navClass a {
     color: #f4376d;
     letter-spacing: 1.5px;
 }
 
-/*Level 1 - NavBar*/
-.navClass,
 .navClass ul {
     list-style: none;
     margin: 0;
@@ -22,7 +33,7 @@
 
 .navClass li {
     position: relative;
-    z-index:1;
+    z-index: 1;
 }
 
 .navClass a {
@@ -101,20 +112,72 @@
     padding-top: 45px;
 }
 
-
-
-
 @media only screen and (max-width: 1023px) {
     #nav {
         padding-left: 0;
+        background-color: #FBBCCC;
     }
+
     .sticky + #container-main {
         padding-top: 37px;
     }
+
+    .navClass {
+        display: none;
+        background-color: #FBBCCC;
+    }
+
+    /*TOP NAV*/
+    .phone-bar {
+        width: 100%;
+        position: absolute;
+    }
+
+    .phone-bar a {
+        display: block;
+        padding: 40px 25px;
+        width: 100%;
+        background-color: #FBBCCC;
+        text-decoration: none;
+    }
+
+    .phone-bar > li:hover > .navClass {
+        display: contents;
+    }
+
+    .phone-bar > li > .navClass > #home {
+        display: none
+    }
+
+    .navClass > li {
+        width: 100%;
+        z-index: 1;
+    }
+
+    .phone-bar > li > .navClass > li > ul {
+        position: relative;
+    }
+
+    .phone-bar > li > .navClass > li > a {
+        padding-left: 5%;
+    }
+
+    .phone-bar > li > .navClass > li{
+        margin: 0;
+        padding: 0;
+    }
+    .phone-bar > li > .navClass > li > ul > li > a {
+        padding-left: 10%;
+    }
+
+    .phone-bar li .navClass li a {}
+
+    .phone-bar li .navClass ul li a:hover {}
 }
 
 @media only screen and (max-width: 768px) {
-        .sticky + #container-main {
+
+    .sticky + #container-main {
         padding-top: 37px;
     }
 }
