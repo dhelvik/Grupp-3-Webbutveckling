@@ -5,7 +5,7 @@ function validateForm(){
     var phonenumber = document.getElementById("inputPhoneNbr").value;
     var email = document.getElementById("inputEmail").value;
     if(firstname == ""){
- 
+    
         return false;
     }else if(lastname == ""){
         return false;
