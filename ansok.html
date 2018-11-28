@@ -28,26 +28,26 @@
         <aside id="left"></aside>
         <div id='main'>
             <h1>Ansök</h1>
-            <form class="my-form" onsubmit="return validateForm()">
+            <form class="my-form" />
                 <div class="form-group">
                     <label>Förnamn*</label>
-                    <input id="inputFirstName" type="text" name="firstname">
+                    <input id="inputFirstName" type="text" name="firstname" required>
 
                 </div>
                 <div class="form-group">
                     <label>Efternamn*</label>
-                    <input id="inputLastName" type="text" name="lastname">
+                    <input id="inputLastName" type="text" name="lastname" required>
 
                 </div>
 
                 <div class="form-group">
                     <label>E-post*</label>
 
-                    <input id="inputEmail"type="email" name="epost">
+                    <input id="inputEmail"type="email" name="epost" required>
                 </div>
                 <div class="form-group">
                     <label>Telefonnummer</label>
-                    <input id="inputPhoneNbr"type="text" name="telefonnummer">
+                    <input id="inputPhoneNbr"type="text" name="telefonnummer" required>
                 </div>
                 <select id="poster" name="poster">
                     <option value="adminsterit">ADMINSTERIT</option>
