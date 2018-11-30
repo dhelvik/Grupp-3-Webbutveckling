@@ -12,7 +12,7 @@
 </div>
 <div id="location" class="contact">
     <a href="/hitta-hit.html"><img src="icons_img/location.png"></a>
-    <a class="contact-text" href="/hitta-hit.html">HITTA HIT</a>
+    <a class="contact-text" href="/hitta-hit.php">HITTA HIT</a>
 </div>
 </div>
     <p id="countdown"></p>

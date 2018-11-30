@@ -11,12 +11,12 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <script>
         $(function(){
-  $("#nav").load("nav.html"); 
+  /* $("#nav").load("nav.html"); 
   $("#header").load("header.html");
   $("#footer").load("footer.html");
   $("#left").load("section.html");
   $("#right").load("aside.html");
-  });
+  */});
 </script>
 </head>
 
@@ -24,11 +24,18 @@
     <div id="container">
 
         <header id="header">
+            <?php 
+              include("header.php");
+        ?>
         </header>
-        <nav id="nav">
-        </nav>
+             <?php
+            include("nav.php");
+            ?>
 
         <aside id="left">
+            <?php
+                    include("section.php");
+                ?>
         </aside>
 
         <div id='main'>
@@ -46,8 +53,14 @@
            
         </div>
         <aside id="right">
+            <?php
+                    include("aside.php");
+                ?>
         </aside>
         <footer id="footer">
+             <?php
+                include("footer.php");
+            ?>
         </footer>
 
     </div>

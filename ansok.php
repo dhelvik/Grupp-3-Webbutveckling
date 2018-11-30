@@ -12,20 +12,29 @@
     <script src="js/form-validation.js"></script>
     <script>
         $(function(){
-  $("#nav").load("nav.html"); 
+ /* $("#nav").load("nav.html"); 
   $("#header").load("header.html");
   $("#footer").load("footer.html");
   $("#left").load("section.html");
   $("#right").load("aside.html");
-  });
+  */});
 </script>
 </head>
 
 <body>
     <div id="container">
-        <header id="header"></header>
-        <nav id="nav"></nav>
-        <aside id="left"></aside>
+        <header id="header">
+        <?php 
+              include("header.php");
+        ?></header>
+         <?php
+            include("nav.php");
+            ?>
+        <aside id="left">
+        <?php
+                    include("section.php");
+                ?>
+        </aside>
         <div id='main'>
             <h1>Ansök</h1>
             <form class="my-form" />
@@ -59,8 +68,14 @@
             </form>
         </div>
         <aside id="right">
+            <?php
+                    include("aside.php");
+                ?>
         </aside>
         <footer id="footer">
+             <?php
+                include("footer.php");
+            ?>
         </footer>
 
     </div>
