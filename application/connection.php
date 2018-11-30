@@ -1,6 +1,5 @@
 <?php
- 
-Class Connection {
+class Connection {
     private  $server = "mysql:host=localhost;dbname=Webbutveckling";
     private  $user = "root";
     private  $pass = "root";
