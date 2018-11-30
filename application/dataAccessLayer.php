@@ -39,57 +39,49 @@ class DataAccessLayer{
 //    public function getKarnevalist($mail){
 //
 //    }
-//    public function setSection($sectionName){
-//        try{
-//            $con = createConnection();
-//            $stmt = $con->prepare('INSERT INTO SECTION VALUES(:sectionName)');
-//            $stmt->execute(array(
-//                ':sectionName' => $sectionName
-//            ));
-//        }catch{}
-//    }
+    public function setSection($section){
+        try{ 
+            $con = $this->createConnection();
+            $stmt = $con->prepare('INSERT INTO Section VALUES(:sectionName)');
+            $stmt->execute(array(
+                ':sectionName' => $section->sectionName
+            ));
+           }catch(PDOException $e){
+               echo 'Error: ' . $e->getMessage();
+           }
+    }
 //    public function getSection($sectionName){
 //
 //    }
-//    public function setKarnevalistSection($karnevalist, $section){
-//        try{
-//            $con = createConnection();
-//            $stmt = $con->prepare('INSERT INTO KARNEVALISTSECTION VALUES(:mail, :section)');
-//            $stmt->execute(array(
-//                ':mail' => $karnevalist['mail'],
-//                ':section' => $section['sectionName']
-//            ));
-//        }catch{}
-//    }
+    public function setKarnevalistSection($karnevalist, $section){
+        try{ 
+            $con = $this->createConnection();
+            $stmt = $con->prepare('INSERT INTO KarnevalistSection VALUES(:mail,:sectionName)');
+            $stmt->execute(array(
+                ':mail' => $karnevalist->maill,
+                ':sectionName' => $section->sectionName
+            ));
+           }catch(PDOException $e){
+               echo 'Error: ' . $e->getMessage();
+           }
+    }
 //    public function getKarnevalistSection($karnevalist, $section){
 //
 //    }
-//    public function setUser($user){
-//        try{
-//            $con = createConnection();
-//            $stmt = $con->prepare('INSERT INTO USER VALUES(:username, :password)');
-//            $stmt->execute(array(
-//                ':username' => $user['user'],
-//                ':lastName' => $user['password'],
-//            ));
-//        }catch{}
-//    }
+    public function setUser($user){
+        try{ 
+            $con = $this->createConnection();
+            $stmt = $con->prepare('INSERT INTO User VALUES(:username,:password)');
+            $stmt->execute(array(
+                ':username' => $user->username,
+                ':password' => $user->password
+            ));
+           }catch(PDOException $e){
+               echo 'Error: ' . $e->getMessage();
+           }
+    }
 //    public function getUser($username, $password){
 //
-//    }
-//    try{
-//        $database = new Connection();
-//        $db = $database->openConnection();
-//        $sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES" ;
-// 
-//        foreach ($db->query($sql) as $row) {
-//            echo " ID: ".$row['TABLE_NAME'] . "<br>";
-//            echo " Name: ".$row['TABLE_TYPE'] . "<br>"; 
-//        }
-//        $db->closeConnection();
-//    }
-//    catch (PDOException $e){
-//        echo "There is some problem in connection: " . $e->getMessage();
 //    }
 }
 ?>
