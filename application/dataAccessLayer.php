@@ -2,8 +2,6 @@
 include_once 'connection.php';
 class DataAccessLayer{
     
-    function __counstruct(){}
-    
     public function createConnection(){
         $database = new Connection();
         $con = $database->openConnection();
@@ -25,7 +23,7 @@ class DataAccessLayer{
 //
 //    }
     public function setKarnevalist($karnevalist){
-           try{ 
+        try{ 
             $con = $this->createConnection();
             $stmt = $con->prepare('INSERT INTO Karnevalist VALUES(:firstName,:lastName,:mail,:phoneNumber)');
             $stmt->execute(array(
@@ -34,9 +32,11 @@ class DataAccessLayer{
                 ':mail' => $karnevalist->mail,
                 ':phoneNumber' => $karnevalist->phoneNumber
             ));
-           }catch(PDOException $e){
-               echo 'Error: ' . $e->getMessage();
-           }
+        }catch(PDOException $e){
+            echo 'Error: ' . $e->getMessage();
+        }finally{
+            $con->closeConnection();
+        }
     }
     public function getKarnevalist($karnevalist){
         try {
@@ -46,8 +46,10 @@ class DataAccessLayer{
                 while($row = $stmt->fetch()) {
                     print_r($row);
                 }
-          }catch(PDOException $e) {
-              echo 'ERROR: ' . $e->getMessage();
+        }catch(PDOException $e) {
+            echo 'ERROR: ' . $e->getMessage();
+        }finally{
+            $con->closeConnection();
         }
     }
     public function setSection($section){
@@ -57,9 +59,11 @@ class DataAccessLayer{
             $stmt->execute(array(
                 ':sectionName' => $section->sectionName
             ));
-           }catch(PDOException $e){
-               echo 'Error: ' . $e->getMessage();
-           }
+        }catch(PDOException $e){
+            echo 'Error: ' . $e->getMessage();
+        }finally{
+            $con->closeConnection();
+        }
     }
     public function getSection($sectionName){
         try {
@@ -71,6 +75,8 @@ class DataAccessLayer{
                 }
           }catch(PDOException $e) {
               echo 'ERROR: ' . $e->getMessage();
+        }finally{
+            $con->closeConnection();
         }
     }
     public function setKarnevalistSection($karnevalist, $section){
@@ -83,7 +89,9 @@ class DataAccessLayer{
             ));
            }catch(PDOException $e){
                echo 'Error: ' . $e->getMessage();
-           }
+           }finally{
+            $con->closeConnection();
+        }
     }
     public function getKarnevalistSection($karnevalist, $section){
         try {
@@ -98,6 +106,8 @@ class DataAccessLayer{
                 }
           }catch(PDOException $e) {
               echo 'ERROR: ' . $e->getMessage();
+        }finally{
+            $con->closeConnection();
         }
     }
     public function setUser($user){
@@ -110,7 +120,9 @@ class DataAccessLayer{
             ));
            }catch(PDOException $e){
                echo 'Error: ' . $e->getMessage();
-           }
+           }finally{
+            $con->closeConnection();
+        }
     }
     public function getUser($user){
         try {
@@ -120,8 +132,10 @@ class DataAccessLayer{
                 while($row = $stmt->fetch()) {
                     print_r($row);
                 }
-          }catch(PDOException $e) {
+        }catch(PDOException $e) {
               echo 'ERROR: ' . $e->getMessage();
+        }finally{
+            $con->closeConnection();
         }
     }
 }

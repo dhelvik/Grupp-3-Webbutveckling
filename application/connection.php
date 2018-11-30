@@ -17,7 +17,6 @@ class Connection {
             echo "There is some problem in connection: " . $e->getMessage();
         }
     }
- 
     public function closeConnection() {
         $this->con = null;
     }
