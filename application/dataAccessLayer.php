@@ -10,16 +10,18 @@ class DataAccessLayer{
         return $con;
     }
 
-//    public function mapToKarnevalist($result){
+//    public function mapToKarnevalist($stmt){
+//        while($stmt->fetch()){
+//            
+//        }
+//    }
+//    public function mapToSection($stmt){
 //
 //    }
-//    public function mapToSection($result){
+//    public function mapToKarnevalistSection($stmt)){
 //
 //    }
-//    public function mapToKarnevalistSection($result){
-//
-//    }
-//    public function mapToUser($result){
+//    public function mapToUser($stmt){
 //
 //    }
     public function setKarnevalist($karnevalist){
@@ -29,16 +31,25 @@ class DataAccessLayer{
             $stmt->execute(array(
                 ':firstName' => $karnevalist->firstName,
                 ':lastName' => $karnevalist->lastName,
-                ':mail' => $karnevalist->maill,
+                ':mail' => $karnevalist->mail,
                 ':phoneNumber' => $karnevalist->phoneNumber
             ));
            }catch(PDOException $e){
                echo 'Error: ' . $e->getMessage();
            }
     }
-//    public function getKarnevalist($mail){
-//
-//    }
+    public function getKarnevalist($karnevalist){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT * FROM Karnevalist WHERE mail = :mail');
+            $stmt->execute(array(':mail' => $karnevalist->mail));
+                while($row = $stmt->fetch()) {
+                    print_r($row);
+                }
+          }catch(PDOException $e) {
+              echo 'ERROR: ' . $e->getMessage();
+        }
+    }
     public function setSection($section){
         try{ 
             $con = $this->createConnection();
@@ -50,24 +61,45 @@ class DataAccessLayer{
                echo 'Error: ' . $e->getMessage();
            }
     }
-//    public function getSection($sectionName){
-//
-//    }
+    public function getSection($sectionName){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT * FROM Section WHERE sectionName = :sectionName');
+            $stmt->execute(array(':sectionName' => $section->sectionName));
+                while($row = $stmt->fetch()) {
+                    print_r($row);
+                }
+          }catch(PDOException $e) {
+              echo 'ERROR: ' . $e->getMessage();
+        }
+    }
     public function setKarnevalistSection($karnevalist, $section){
         try{ 
             $con = $this->createConnection();
             $stmt = $con->prepare('INSERT INTO KarnevalistSection VALUES(:mail,:sectionName)');
             $stmt->execute(array(
-                ':mail' => $karnevalist->maill,
+                ':mail' => $karnevalist->mail,
                 ':sectionName' => $section->sectionName
             ));
            }catch(PDOException $e){
                echo 'Error: ' . $e->getMessage();
            }
     }
-//    public function getKarnevalistSection($karnevalist, $section){
-//
-//    }
+    public function getKarnevalistSection($karnevalist, $section){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT * FROM KarnevalistSection WHERE mail = :mail AND sectionName = :sectionName');
+            $stmt->execute(array(
+                ':mail' => $karnevalist->mail,
+                ':sectionName' => $section->sectionName
+            ));
+                while($row = $stmt->fetch()) {
+                    print_r($row);
+                }
+          }catch(PDOException $e) {
+              echo 'ERROR: ' . $e->getMessage();
+        }
+    }
     public function setUser($user){
         try{ 
             $con = $this->createConnection();
@@ -80,8 +112,17 @@ class DataAccessLayer{
                echo 'Error: ' . $e->getMessage();
            }
     }
-//    public function getUser($username, $password){
-//
-//    }
+    public function getUser($user){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT * FROM User WHERE username = :username');
+            $stmt->execute(array(':username' => $user->username));
+                while($row = $stmt->fetch()) {
+                    print_r($row);
+                }
+          }catch(PDOException $e) {
+              echo 'ERROR: ' . $e->getMessage();
+        }
+    }
 }
 ?>
