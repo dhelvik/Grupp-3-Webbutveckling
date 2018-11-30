@@ -116,7 +116,7 @@ body {
     margin: 0 auto;
 }
 
-input[type=text],[type=email],
+input[type=text],[type=email],[type=password],
 select {
     width: 100%;
     padding: 12px 20px;
