@@ -1,12 +1,12 @@
 <?php
 include 'dataAccessLayer.php';
 include 'model.php';
-//require 'model.php';
 echo 'hej';
-$karnevalist = new Karnevalist("Björ","Kalle","mail@mail.com","0768020690");
+$karnevalist = new Karnevalist("Björ","Kalle","mail2@mail.com","0768020690");
 $dal = new DataAccessLayer();
+echo $karnevalist;
 echo 'hejheej';
 //$dal->setKarnevalist($karnevalist);
 //$dal->getKarnevalist($karnevalist);
-echo 'hejhejehjehej';
+echo $karnevalist->firstName;
 ?>
