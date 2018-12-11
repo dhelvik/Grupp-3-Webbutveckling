@@ -1,6 +1,5 @@
 <?php
-include_once 'connection.php';
-include_once 'model.php';
+include 'connection.php';
 class DataAccessLayer{
     
     public function createConnection(){
@@ -9,11 +8,13 @@ class DataAccessLayer{
         return $con;
     }
 
-//    public function mapToKarnevalist($stmt){
-//        while($stmt->fetch()){
-//            
-//        }
-//    }
+    function mapToKarnevalist($result){
+        $firstName = $result['firstName'];
+        $lastName = $result['lastName'];
+        $mail = $result['mail'];
+        $phoneNumber = $result['phoneNumber'];
+        return new Karnevalist($firstName, $lastName, $mail, $phoneNumber);
+   }
 //    public function mapToSection($stmt){
 //
 //    }
@@ -23,7 +24,7 @@ class DataAccessLayer{
 //    public function mapToUser($stmt){
 //
 //    }
-    public function setKarnevalist($karnevalist){
+    function setKarnevalist($karnevalist){
         try{ 
             $con = $this->createConnection();
             $stmt = $con->prepare('INSERT INTO Karnevalist VALUES(:firstName,:lastName,:mail,:phoneNumber)');
@@ -39,19 +40,22 @@ class DataAccessLayer{
             $con->closeConnection();
         }
     }
-    public function getKarnevalist($karnevalist){
+    function getKarnevalist($karnevalist){
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT * FROM Karnevalist WHERE mail = :mail');
             $stmt->execute(array(':mail' => $karnevalist->mail));
-                while($row = $stmt->fetch()) {
-                    print_r($row);
-                }
+            $result = $stmt->fetch();
+            $karne = $this->mapToKarnevalist($result);
+//             return $karne;
         }catch(PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
-        }finally{
-            $con->closeConnection();
         }
+        finally{
+            return $karne;
+            $con->closeConnection();  
+        }
+        
     }
     public function setSection($section){
         try{ 
@@ -139,18 +143,12 @@ class DataAccessLayer{
             $con->closeConnection();
         }
     }
-    public function getKarnevalistTest($karnevalist){
-        try {
-            $con = $this->createConnection();
-            $stmt = $con->prepare('SELECT * FROM Karnevalist WHERE mail = :mail');
-            $stmt->execute(array(':mail' => $karnevalist->mail));
-            $user = $stmt->fetchObject('Karnevalist');
-            return $user;
-        }catch(PDOException $e) {
-            echo 'ERROR: ' . $e->getMessage();
-        }finally{
-            $con->closeConnection();
-        }
+    public function returnString($text){
+        return $this->sentext($text);
     }
+    public function sentext($text){
+        return $text;
+    }
+
 }
 ?>

@@ -2,13 +2,14 @@
 class Karnevalist{
     public $firstName;
     public $lastName;
-    public $maill;
+    public $mail;
     public $phoneNumber;
+    
     
     public function __construct($firstName, $lastName, $mail, $phoneNumber){
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->maill = $mail;
+        $this->mail = $mail;
         $this->phoneNumber = $phoneNumber;
     }
 }
@@ -16,7 +17,7 @@ class KarnevalistSection{
     public $mail;
     public $sectionName;
     
-        public function __construct($mail, $sectionName){
+    public function __construct($mail, $sectionName){
         $this->mail = $mail;
         $this->sectionName = $sectionName;
     }
