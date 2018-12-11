@@ -67,7 +67,16 @@
 				<option value="Cirkus">CIRKUS</option>
 				<option value="Kabarén">KABARÉN</option>
 				<option value="Spexet">SPEXET</option>
-			</select> <select id="ticketAmount" name="ticketAmount">
+			</select> 
+			<select id="date" name="date">
+				<option value="2018-05-19">19:e maj</option>
+				<option value="2018-05-20">20:e maj</option>
+
+				<option value="2018-05-21">21:e maj</option>
+				<option value="2018-05-22">22:e maj</option>			
+
+			</select> 
+			<select id="ticketAmount" name="ticketAmount">
 				<option value="1">1 Biljett</option>
 				<option value="2">2 Biljetter</option>
 
@@ -76,7 +85,8 @@
 				<option value="5">5 Biljetter</option>
 				<option value="6">6 Biljetter</option>
 
-			</select> <input type="submit" value="Reservera">
+			</select> 
+			<input type="submit" value="Reservera">
 			</form>
 		</div>
 		<aside id="right">
