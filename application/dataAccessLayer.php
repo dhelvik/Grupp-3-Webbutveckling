@@ -1,5 +1,6 @@
 <?php
 include_once 'connection.php';
+include_once 'model.php';
 class DataAccessLayer{
     
     public function createConnection(){
@@ -65,7 +66,7 @@ class DataAccessLayer{
             $con->closeConnection();
         }
     }
-    public function getSection($sectionName){
+    public function getSection($section){
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT * FROM Section WHERE sectionName = :sectionName');
@@ -134,6 +135,19 @@ class DataAccessLayer{
                 }
         }catch(PDOException $e) {
               echo 'ERROR: ' . $e->getMessage();
+        }finally{
+            $con->closeConnection();
+        }
+    }
+    public function getKarnevalistTest($karnevalist){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT * FROM Karnevalist WHERE mail = :mail');
+            $stmt->execute(array(':mail' => $karnevalist->mail));
+            $user = $stmt->fetchObject('Karnevalist');
+            return $user;
+        }catch(PDOException $e) {
+            echo 'ERROR: ' . $e->getMessage();
         }finally{
             $con->closeConnection();
         }

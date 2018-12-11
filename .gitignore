@@ -352,3 +352,8 @@
 .metadata/.plugins/org.eclipse.wst.validation/dep.index
 .metadata/version.ini
 .project
+.buildpath
+.metadata/.plugins/org.eclipse.core.resources/.root/3.tree
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/.workspace/2018/12/50/refactorings.history
+.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/.workspace/2018/12/50/refactorings.index
+.metadata/.plugins/org.eclipse.ltk.ui.refactoring/dialog_settings.xml

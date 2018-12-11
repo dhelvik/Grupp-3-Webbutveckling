@@ -2,13 +2,13 @@
 class Karnevalist{
     public $firstName;
     public $lastName;
-    public $mail;
+    public $maill;
     public $phoneNumber;
     
     public function __construct($firstName, $lastName, $mail, $phoneNumber){
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->mail = $mail;
+        $this->maill = $mail;
         $this->phoneNumber = $phoneNumber;
     }
 }
