@@ -7,6 +7,6 @@ $karnevalist = new Karnevalist("Björ","Kalle","mail@mail.com","0768020690");
 $dal = new DataAccessLayer();
 echo 'hejheej';
 //$dal->setKarnevalist($karnevalist);
-$dal->getKarnevalist($karnevalist);
+//$dal->getKarnevalist($karnevalist);
 echo 'hejhejehjehej';
 ?>
