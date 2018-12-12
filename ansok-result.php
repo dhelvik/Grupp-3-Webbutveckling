@@ -15,12 +15,14 @@
         $firstName = $_POST["firstname"];
         $lastName = $_POST["lastname"];
         $mail = $_POST["epost"];
-        $phoneNumber = $_POST["telefonnummer"];       
-        $karnevalist = new Karnevalist($firstName, $lastName, $mail, $phoneNumber);    
+        $phoneNumber = $_POST["telefonnummer"]; 
+        $sectionName = $_POST["poster"];
+        $karnevalist = new Karnevalist($firstName, $lastName, $mail, $phoneNumber);  
+        $section = new Section($sectionName);
         $dal = new DataAccessLayer();
         $dal->setKarnevalist($karnevalist);
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+        $dal->setKarnevalistSection($karnevalist, $section);      
+       
 ?>
 </head>
 

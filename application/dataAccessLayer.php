@@ -3,7 +3,7 @@ include 'connection.php';
 
 class DataAccessLayer
 {
-
+    
     public function createConnection()
     {
         $database = new Connection();
@@ -55,7 +55,7 @@ class DataAccessLayer
                 ':phoneNumber' => $karnevalist->phoneNumber
             ));
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+            //echo 'Error: ' . $e->getMessage();
         } finally{
             $con = null;
         }
