@@ -22,22 +22,14 @@
 
 <body>
     <div id="container">
-
-        <header id="header">
-            <?php 
-              include("header.php");
+        <?php 
+        include("header.php");
+        include("nav.php");
         ?>
-        </header>
-             <?php
-            include("nav.php");
-            ?>
-
-        <aside id="left">
-            <?php
-                    include("section.php");
-                ?>
-        </aside>
-
+        <div id="container-main">
+        	<?php
+        	include("section.php");
+        	?>
         <div id='main'>
             <div class="main-info">
                 <h1>Hitta hit</h1>
@@ -45,17 +37,13 @@
             <p>Vi rekommenderar alla besökare att använda sig av kollektivtrafik för att ta sig till och från karnevalsområdet. Information om detta hittar ni på <a href="https://skanetrafiken.se">Skånetrafikens</a> hemsida.</p>  
         </div>
             </div>
-        <aside id="right">
-            <?php
-                    include("aside.php");
-                ?>
-        </aside>
-        <footer id="footer">
-             <?php
-                include("footer.php");
-            ?>
-        </footer>
-
+        <?php 
+        include("aside.php");
+        ?>
+        </div>
+  		<?php 
+  		include("footer.php"); 
+  		?>
     </div>
 </body>
 

@@ -21,22 +21,15 @@
 </head>
 
 <body>
-    <div id="container">
-
-        <header id="header">
-            <?php 
-              include("header.php");
+<div id="container">
+        <?php 
+        include("header.php");
+        include("nav.php");
         ?>
-        </header>
-             <?php
-            include("nav.php");
-            ?>
-
-        <aside id="left">
-            <?php
-                    include("section.php");
-                ?>
-        </aside>
+        <div id="container-main">
+        	<?php
+        	include("section.php");
+        	?>
         <div id="main">
         <div class="main-info">
            <h1>Lundakarnevalen har en handfull olika sektioner för att kunna skapa den bästa karnevalen hitills! Däribland:</h1>
@@ -49,16 +42,13 @@
             </ul>
         </div>
         </div>
-        <aside id="right">
-            <?php
-                    include("aside.php");
-                ?>
-        </aside>
-        <footer id="footer">
-             <?php
-                include("footer.php");
-            ?>
-        </footer>
+        <?php 
+        include("aside.php");
+        ?>
+        </div>
+  		<?php 
+  		include("footer.php"); 
+  		?>
 
     </div>
 </body>

@@ -22,22 +22,14 @@
 
 <body>
     <div id="container">
-
-        <header id="header">
-            <?php 
-              include("header.php");
+        <?php 
+        include("header.php");
+        include("nav.php");
         ?>
-        </header>
-             <?php
-            include("nav.php");
-            ?>
-
-        <aside id="left">
-            <?php
-                    include("section.php");
-                ?>
-        </aside>
-
+        <div id="container-main">
+        	<?php
+        	include("section.php");
+        	?>
         <div id='main'>
         <div class="main-info">
             <h1>Nöjen</h1>
@@ -72,17 +64,13 @@
             <p>På kvällarna under Lundakarnevalen slår Dansen upp dörrarna till AF-Borgen. Över 2000 personer får biljett hit per kväll och förgyller de karnevalistiska nätterna med dans och fest. Ett tips är att prata ihop sig med sin sektion om att köpa biljetter till samma kväll då biljetterna är kvällspecifika. Dansgolv i Stora Salen, Festvåningen, Tegnérs och Café Athen. Imaginalt!</p>
             </div> 
         </div>
-        <aside id="right">
-            <?php
-                    include("aside.php");
-                ?>
-        </aside>
-        <footer id="footer">
-             <?php
-                include("footer.php");
-            ?>
-        </footer>
-
+        <?php 
+        include("aside.php");
+        ?>
+        </div>
+  		<?php 
+  		include("footer.php"); 
+  		?>
     </div>
 </body>
 

@@ -24,22 +24,14 @@
 
 <body>
     <div id="container">
-
-        <header id="header">
-            <?php 
-              include("header.php");
+        <?php 
+        include("header.php");
+        include("nav.php");
         ?>
-        </header>
-             <?php
-            include("nav.php");
-            ?>
-
-        <aside id="left">
-            <?php
-                    include("section.php");
-                ?>
-        </aside>
-
+        <div id="container-main">
+        	<?php
+        	include("section.php");
+        	?>
         <div id='main'>
            <video width="100%" max-heigth="auto" autoplay loop>
             <source src="https://www.lundakarnevalen.se/wp-content/themes/Imaginal-WPtheme/img/webfilm.mp4" type="video/mp4">
@@ -56,17 +48,13 @@
                 </ul>
             </div>
         </div>
-        <aside id="right">
-            <?php
-                    include("aside.php");
-                ?>
-        </aside>
-        <footer id="footer">
-             <?php
-                include("footer.php");
-            ?>
-        </footer>
-
+        <?php 
+        include("aside.php");
+        ?>
+        </div>
+  		<?php 
+  		include("footer.php"); 
+  		?>
     </div>
 </body>
 

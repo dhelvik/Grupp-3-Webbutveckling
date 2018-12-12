@@ -54,19 +54,15 @@
 </head>
 
 <body>
-    <div id="container">
-        <header id="header">
+   <div id="container">
         <?php 
-              include("header.php");
-        ?></header>
-         <?php
-            include("nav.php");
-            ?>
-        <aside id="left">
-        <?php
-                    include("section.php");
-                ?>
-        </aside>
+        include("header.php");
+        include("nav.php");
+        ?>
+        <div id="container-main">
+        	<?php
+        	include("section.php");
+        	?>
         <div id='main'>
             <h1>Ansök</h1>
             <form class="my-form"  />
@@ -99,17 +95,13 @@
                 <input type="submit" id="btnAnsök" value="Ansök">
             </form>
         </div>
-        <aside id="right">
-            <?php
-                    include("aside.php");
-                ?>
-        </aside>
-        <footer id="footer">
-             <?php
-                include("footer.php");
-            ?>
-        </footer>
-
+        <?php 
+        include("aside.php");
+        ?>
+        </div>
+  		<?php 
+  		include("footer.php"); 
+  		?>
     </div>
 </body>
 

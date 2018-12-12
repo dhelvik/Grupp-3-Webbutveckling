@@ -22,22 +22,14 @@
 
 <body>
     <div id="container">
-
-        <header id="header">
-            <?php 
-              include("header.php");
+        <?php 
+        include("header.php");
+        include("nav.php");
         ?>
-        </header>
-             <?php
-            include("nav.php");
-            ?>
-
-        <aside id="left">
-            <?php
-                    include("section.php");
-                ?>
-        </aside>
-
+        <div id="container-main">
+        	<?php
+        	include("section.php");
+        	?>
         <div id='main'>
            <div class="main-info">
                   <iframe width="560" height="315"   src="https://www.youtube.com/embed/DdYgGZBKVR4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -46,17 +38,13 @@
          
             </div>
         </div>
-        <aside id="right">
-            <?php
-                    include("aside.php");
-                ?>
-        </aside>
-        <footer id="footer">
-             <?php
-                include("footer.php");
-            ?>
-        </footer>
-
+        <?php 
+        include("aside.php");
+        ?>
+        </div>
+  		<?php 
+  		include("footer.php"); 
+  		?>
     </div>
 </body>
 

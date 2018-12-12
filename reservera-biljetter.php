@@ -24,25 +24,17 @@
 
 <body>
 	<div id="container">
-
-		<header id="header">
-            <?php
-            include ("header.php");
-            ?>
-        </header>
-             <?php
-            include ("nav.php");
-            ?>
-
-        <aside id="left">
-            <?php
-            include ("section.php");
-            ?>
-        </aside>
-
+        <?php 
+        include("header.php");
+        include("nav.php");
+        ?>
+        <div id="container-main">
+        	<?php
+        	include("section.php");
+        	?>
 		<div id='main'>
 			<h1>Reservera Biljetter</h1>
-			<form class="my-form" method="post" action="application/form.php" />
+			<form class="my-form" method="post" action="application/form.php">
 			<div class="form-group">
 				<label>Förnamn*</label> <input id="inputFirstName" type="text"
 					name="firstname" required>
@@ -89,16 +81,13 @@
 			<input type="submit" value="Reservera">
 			</form>
 		</div>
-		<aside id="right">
-            <?php
-            include ("aside.php");
-            ?>
-        </aside>
-		<footer id="footer">
-             <?php
-            include ("footer.php");
-            ?>
-        </footer>
+		<?php 
+        include("aside.php");
+        ?>
+        </div>
+  		<?php 
+  		include("footer.php"); 
+  		?>
 
 	</div>
 </body>

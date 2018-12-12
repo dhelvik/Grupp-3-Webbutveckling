@@ -23,22 +23,14 @@
 
 <body>
     <div id="container">
-        <header id="header">
-            <?php 
-              include("header.php");
+        <?php 
+        include("header.php");
+        include("nav.php");
         ?>
-        </header>
-
-        <?php
-            include("nav.php");
-            ?>
-
         <div id="container-main">
-            <aside id="left">
-                <?php
-                    include("section.php");
-                ?>
-            </aside>
+        	<?php
+        	include("section.php");
+        	?>
             <div id="main">
                 <div id="login">
                     <h2>Admin Login</h2>
@@ -53,17 +45,13 @@
                     </form>
                 </div>
             </div>
-            <aside id="right">
-                <?php
-                    include("aside.php");
-                ?>
-            </aside>
+            <?php 
+        include("aside.php");
+        ?>
         </div>
-        <footer id="footer">
-            <?php
-                include("footer.php");
-            ?>
-        </footer>
+  		<?php 
+  		include("footer.php"); 
+  		?>
     </div>
 </body>
 
