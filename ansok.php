@@ -65,7 +65,7 @@
         	?>
         <div id='main'>
             <h1>Ansök</h1>
-            <form class="my-form"  />
+            <form class="my-form">
                 <div class="form-group">
                     <label>Förnamn*</label>
                     <input id="inputFirstName" type="text" name="firstname" required>
