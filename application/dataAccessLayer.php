@@ -8,23 +8,31 @@ class DataAccessLayer{
         return $con;
     }
 
-    function mapToKarnevalist($result){
-        $firstName = $result['firstName'];
-        $lastName = $result['lastName'];
-        $mail = $result['mail'];
-        $phoneNumber = $result['phoneNumber'];
-        return new Karnevalist($firstName, $lastName, $mail, $phoneNumber);
+   public function mapToKarnevalist($stmt){
+       $a = array();
+       while($row = $stmt->fetch())
+           array_push($a, new Karnevalist($row['firstName'], $row['lastName'], $row['mail'], $row['phoneNumber']));
+      return(sizeof($a) == 1 ? $a[0]:$a);
    }
-//    public function mapToSection($stmt){
-//
-//    }
-//    public function mapToKarnevalistSection($stmt)){
-//
-//    }
-//    public function mapToUser($stmt){
-//
-//    }
-    function setKarnevalist($karnevalist){
+   public function mapToSection($stmt){
+       $a = array();
+       while ($row = $stmt->fetch())
+           array_push($a, new Section($row['sectionName']));
+       return(sizeof($a) == 1 ? $a[0]:$a);
+   }
+   public function mapToKarnevalistSection($stmt){
+       $a = array();
+       while($row = $stmt->fetch())
+           array_push($a, new KarnevalistSection($row['mail'], $row['sectionName']));
+       return(sizeof($a) == 1 ? $a[0]:$a);
+   }
+   public function mapToUser($stmt){
+       $a = array();
+       while($row = $stmt->fetch())
+           array_push($a, new User($row['username'], $row['password']));
+       return(sizeof($a) == 1 ? $a[0]:$a);
+   }
+   public function setKarnevalist($karnevalist){
         try{ 
             $con = $this->createConnection();
             $stmt = $con->prepare('INSERT INTO Karnevalist VALUES(:firstName,:lastName,:mail,:phoneNumber)');
@@ -40,19 +48,17 @@ class DataAccessLayer{
             $con->closeConnection();
         }
     }
-    function getKarnevalist($karnevalist){
+    public function getKarnevalist($karnevalist){
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT * FROM Karnevalist WHERE mail = :mail');
             $stmt->execute(array(':mail' => $karnevalist->mail));
-            $result = $stmt->fetch();
-            $karne = $this->mapToKarnevalist($result);
-//             return $karne;
+            $karnevalist = $this->mapToKarnevalist($stmt);
         }catch(PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
         }
         finally{
-            return $karne;
+            return $karnevalist;
             $con->closeConnection();  
         }
         
@@ -61,9 +67,7 @@ class DataAccessLayer{
         try{ 
             $con = $this->createConnection();
             $stmt = $con->prepare('INSERT INTO Section VALUES(:sectionName)');
-            $stmt->execute(array(
-                ':sectionName' => $section->sectionName
-            ));
+            $stmt->execute(array(':sectionName' => $section->sectionName));
         }catch(PDOException $e){
             echo 'Error: ' . $e->getMessage();
         }finally{
@@ -75,12 +79,11 @@ class DataAccessLayer{
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT * FROM Section WHERE sectionName = :sectionName');
             $stmt->execute(array(':sectionName' => $section->sectionName));
-                while($row = $stmt->fetch()) {
-                    print_r($row);
-                }
+            $section = $this->mapToSection($stmt);
           }catch(PDOException $e) {
               echo 'ERROR: ' . $e->getMessage();
         }finally{
+            return $section;
             $con->closeConnection();
         }
     }
@@ -88,10 +91,7 @@ class DataAccessLayer{
         try{ 
             $con = $this->createConnection();
             $stmt = $con->prepare('INSERT INTO KarnevalistSection VALUES(:mail,:sectionName)');
-            $stmt->execute(array(
-                ':mail' => $karnevalist->mail,
-                ':sectionName' => $section->sectionName
-            ));
+            $stmt->execute(array(':mail' => $karnevalist->mail,':sectionName' => $section->sectionName));
            }catch(PDOException $e){
                echo 'Error: ' . $e->getMessage();
            }finally{
@@ -102,16 +102,12 @@ class DataAccessLayer{
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT * FROM KarnevalistSection WHERE mail = :mail AND sectionName = :sectionName');
-            $stmt->execute(array(
-                ':mail' => $karnevalist->mail,
-                ':sectionName' => $section->sectionName
-            ));
-                while($row = $stmt->fetch()) {
-                    print_r($row);
-                }
+            $stmt->execute(array(':mail' => $karnevalist->mail,':sectionName' => $section->sectionName));
+            $karevalistSection = $this->mapToKarnevalistSection($stmt);
           }catch(PDOException $e) {
               echo 'ERROR: ' . $e->getMessage();
         }finally{
+            return $karevalistSection;
             $con->closeConnection();
         }
     }
@@ -119,10 +115,7 @@ class DataAccessLayer{
         try{ 
             $con = $this->createConnection();
             $stmt = $con->prepare('INSERT INTO User VALUES(:username,:password)');
-            $stmt->execute(array(
-                ':username' => $user->username,
-                ':password' => $user->password
-            ));
+            $stmt->execute(array(':username' => $user->username,':password' => $user->password));
            }catch(PDOException $e){
                echo 'Error: ' . $e->getMessage();
            }finally{
@@ -134,21 +127,13 @@ class DataAccessLayer{
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT * FROM User WHERE username = :username');
             $stmt->execute(array(':username' => $user->username));
-                while($row = $stmt->fetch()) {
-                    print_r($row);
-                }
+            $user = $this->mapToUser($stmt);
         }catch(PDOException $e) {
               echo 'ERROR: ' . $e->getMessage();
         }finally{
+            return $user;
             $con->closeConnection();
         }
     }
-    public function returnString($text){
-        return $this->sentext($text);
-    }
-    public function sentext($text){
-        return $text;
-    }
-
 }
 ?>
