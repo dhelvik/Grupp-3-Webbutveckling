@@ -1,10 +1,19 @@
 <?php
 include 'dataAccessLayer.php';
-include 'model.php';
-$karnevalist = new Karnevalist("Björ","Kalle","mail","0768020690");
-$dal = new DataAccessLayer();
-//$dal->setKarnevalist($karnevalist);
-$kalle = $dal->getKarnevalist($karnevalist);
-echo $kalle->firstName ." " .$kalle->lastName;
-
+class Controller
+{
+    public function registerApplication($karnevalist, $section){
+        $dal = new DataAccessLayer();
+        if(is_null($dal->getKarnevalistSection($karnevalist, $section))){
+            if(is_null($dal->getKarnevalist($karnevalist))) {
+                $dal->setKarnevalist($karnevalist);
+                $dal->setKarnevalistSection($karnevalist, $section);
+            }else{
+                $dal->setKarnevalistSection($karnevalist, $section);
+            }
+        }else{
+            return null;
+        }
+    }
+}
 ?>

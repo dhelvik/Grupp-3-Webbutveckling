@@ -16,7 +16,7 @@ class DataAccessLayer
         $a = array();
         while ($row = $stmt->fetch())
             array_push($a, new Karnevalist($row['firstName'], $row['lastName'], $row['mail'], $row['phoneNumber']));
-        return (sizeof($a) == 1 ? $a[0] : $a);
+        return (sizeof($a) <= 1 ? $a[0] : $a);
     }
 
     public function mapToSection($stmt)
@@ -24,7 +24,7 @@ class DataAccessLayer
         $a = array();
         while ($row = $stmt->fetch())
             array_push($a, new Section($row['sectionName']));
-        return (sizeof($a) == 1 ? $a[0] : $a);
+        return (sizeof($a) <= 1 ? $a[0] : $a);
     }
 
     public function mapToKarnevalistSection($stmt)
@@ -32,7 +32,7 @@ class DataAccessLayer
         $a = array();
         while ($row = $stmt->fetch())
             array_push($a, new KarnevalistSection($row['mail'], $row['sectionName']));
-        return (sizeof($a) == 1 ? $a[0] : $a);
+        return (sizeof($a) <= 1 ? $a[0] : $a);
     }
 
     public function mapToUser($stmt)
@@ -40,7 +40,7 @@ class DataAccessLayer
         $a = array();
         while ($row = $stmt->fetch())
             array_push($a, new User($row['username'], $row['password']));
-        return (sizeof($a) == 1 ? $a[0] : $a);
+        return (sizeof($a) <= 1 ? $a[0] : $a);
     }
 
     public function setKarnevalist($karnevalist)
