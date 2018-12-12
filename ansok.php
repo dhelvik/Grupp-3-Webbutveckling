@@ -10,6 +10,38 @@
     <link rel="stylesheet" type="text/css" href="css\main.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <script src="js/form-validation.js"></script>
+    <script type="text/javascript">
+    $(function(){
+		$("#btnAnsök").on('click', function(){
+		var firstName = $("#inputFirstName").val();
+		var lastName = $("#inputLastName").val();
+		var email = $("#inputEmail").val();
+		var phoneNumber = $("#inputPhoneNbr").val();
+		$.ajax({
+			method: "POST",
+			url: "/ansok_result.php", 
+			datatype: 'json',
+			data: {"firstName": firstName,"lastName": lastName, "email": email, "phoneNumber":phoneNumber}, 
+			success: function(response){
+//Ge feedback om att ansökan lades in
+				myJson = JSON.parse(response);
+				alert(myJson.firstName);
+
+			//Tömma fälten från information
+				},
+			error: function(xhr, status, error, response){
+					alert(xhr.statusText);
+					alert(response);
+				
+				
+			}
+			});
+
+			}
+        );
+    });
+
+    </script>
     <script>
         $(function(){
  /* $("#nav").load("nav.html"); 
@@ -37,7 +69,7 @@
         </aside>
         <div id='main'>
             <h1>Ansök</h1>
-            <form class="my-form" method="post" action="ansok-result.php"/>
+            <form class="my-form"  />
                 <div class="form-group">
                     <label>Förnamn*</label>
                     <input id="inputFirstName" type="text" name="firstname" required>
@@ -64,7 +96,7 @@
                     <option value="bladderiet">BLÄDDERIET</option>
                     <option value="dansen">DANSEN</option>
                 </select>
-                <input type="submit" value="Ansök">
+                <input type="submit" id="btnAnsök" value="Ansök">
             </form>
         </div>
         <aside id="right">

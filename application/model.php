@@ -26,7 +26,7 @@ class Section{
     public $sectionName;
     
     public function __construct($sectionName){
-        $this->section = $sectionName;
+        $this->sectionName = $sectionName;
     }
 }
 class User{
