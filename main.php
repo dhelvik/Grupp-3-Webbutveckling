@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="css\main.css">
+<div id="main">
+<link rel="stylesheet" type="text/css" href="\css\main.css">
 <div id="main-content">
     <button class="container-shadow">KÖP BILJETTER</button>
 </div>
@@ -27,4 +28,5 @@
             <li>Musikanläggningar med externt ljud</li>
         </ul>
     </div>
+</div>
 </div>

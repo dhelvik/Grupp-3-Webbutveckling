@@ -17,41 +17,24 @@
             //$("#right").load("aside.html");
           //  $("#main").load("main.html");
         });
-    </script>
-    
+    </script>    
 </head>
 <body>
-    <div id="container">
-        <header id="header">
+	<div id="container">
         <?php 
-              include("header.php");
+        include("header.php");
+        include("nav.php");
         ?>
-        </header>
-        
-        <?php
-            include("nav.php");
-            ?>
-            
         <div id="container-main">
-            <aside id="left">
-                <?php
-                    include("section.php");
-                ?>
-            </aside>
-            <div id="main">
-            <?php
-                    include("main.php");
-                ?></div>
-            <aside id="right">
-            <?php
-                    include("aside.php");
-                ?>
-            </aside>
+        	<?php
+        	include("section.php");
+            include("main.php");
+            include("aside.php");
+            ?>
         </div>
-        <footer id="footer">
-        <?php
-                include("footer.php");
-            ?></footer>
-    </div>    
+  		<?php 
+  		include("footer.php"); 
+  		?>
+  	</div>
 </body>
 </html>

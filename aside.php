@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="css\aside.css">
+<aside id="right">
+<link rel="stylesheet" type="text/css" href="\css\aside.css">
 <h1>Kommande Evenemang</h1>
 <div id='news1' class='news'>
     <div id="img1" class="imgAside"></div>
@@ -19,3 +20,4 @@
     <p>En studentikos - och mycket generös - tolkning av konceptet Cirkus, där storheten i framträdandena inte grundar sig så mycket i talang, som i avsaknaden av den samma. En cirkusparodi du sent lär glömma!
     </p>
 </div>
+</aside>

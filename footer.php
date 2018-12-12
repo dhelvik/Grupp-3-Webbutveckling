@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="css\footer.css">
+<footer id="footer">
+<link rel="stylesheet" type="text/css" href="\css\footer.css">
 <script src="js/countdown.js"></script>
 <script src="js/lastUpdated.js"></script>
 <div class="contact-info">
@@ -19,3 +20,4 @@
 
 <p>Lundakarnevalen - © 2018</p>
     <p id="lastUpdated"></p>
+</footer>
