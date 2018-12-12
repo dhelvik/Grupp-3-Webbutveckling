@@ -18,7 +18,7 @@ class Connection {
         }
     }
     public function closeConnection() {
-        $this->con = null;
+            $this->con = null;
     }
 }
 ?>

@@ -57,7 +57,7 @@ class DataAccessLayer
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         } finally{
-            $con->closeConnection();
+            $con = null;
         }
     }
 
@@ -74,7 +74,7 @@ class DataAccessLayer
             echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $karnevalist;
-            $con->closeConnection();
+            $con = null;
         }
     }
 
@@ -89,7 +89,7 @@ class DataAccessLayer
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         } finally{
-            $con->closeConnection();
+            $con = null;
         }
     }
 
@@ -106,7 +106,7 @@ class DataAccessLayer
             echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $section;
-            $con->closeConnection();
+            $con = null;
         }
     }
 
@@ -122,7 +122,7 @@ class DataAccessLayer
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         } finally{
-            $con->closeConnection();
+            $con = null;
         }
     }
 
@@ -140,7 +140,7 @@ class DataAccessLayer
             echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $karevalistSection;
-            $con->closeConnection();
+            $con = null;
         }
     }
 
@@ -156,7 +156,7 @@ class DataAccessLayer
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         } finally{
-            $con->closeConnection();
+            $con = null;
         }
     }
 
@@ -173,7 +173,7 @@ class DataAccessLayer
             echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $user;
-            $con->closeConnection();
+            $con = null;
         }
     }
 }
