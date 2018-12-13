@@ -5,6 +5,6 @@ include 'application/model.php';
     $sectionName = new Section($_POST["sectionName"]);
     $dal = new DataAccessLayer();
     $dal->setKarnevalist($karnevalist);
-    $myJson = json_encode($karnevalist);
-    echo $myJson;
+    /*$myJson = json_encode($karnevalist);
+    echo $myJson;*/
 ?>
