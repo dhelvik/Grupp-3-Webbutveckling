@@ -14,9 +14,9 @@
         include 'application/model.php';
         $firstName = $_POST["firstname"];
         $lastName = $_POST["lastname"];
-        $mail = $_POST["epost"];
-        $phoneNumber = $_POST["telefonnummer"]; 
-        $sectionName = $_POST["poster"];
+        $mail = $_POST["mail"];
+        $phoneNumber = $_POST["phoneNumber"]; 
+        $sectionName = $_POST["sectionName"];
         $karnevalist = new Karnevalist($firstName, $lastName, $mail, $phoneNumber);  
         $section = new Section($sectionName);
         $dal = new DataAccessLayer();

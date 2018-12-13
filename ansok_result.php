@@ -1,16 +1,10 @@
 <?php
 include 'application/dataAccessLayer.php';
-include 'application/model.php';
-
-    $firstName = $_POST['firstName'];   
-    $lastName = $_POST['lastName'];
-    $mail = $_POST['email'];
-    $phoneNumber = $_POST['phoneNumber'];    
-   // $sectionName = $_POST["poster"];
-    $karnevalist = new Karnevalist($firstName, $lastName, $mail, $phoneNumber);
-   $dal = new DataAccessLayer();
-   $dal->setKarnevalist($karnevalist);
-   $myJson = json_encode($karnevalist);
+include 'application/model.php';  
+    $karnevalist = new Karnevalist($_POST['firstName'], $_POST['lastName'], $_POST['mail'], $_POST['phoneNumber']);
+    $sectionName = new Section($_POST["sectionName"]);
+    $dal = new DataAccessLayer();
+    $dal->setKarnevalist($karnevalist);
+    $myJson = json_encode($karnevalist);
     echo $myJson;
-
 ?>

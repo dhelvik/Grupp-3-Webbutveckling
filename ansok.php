@@ -15,13 +15,13 @@
 		$("#btnAnsök").on('click', function(){
 		var firstName = $("#inputFirstName").val();
 		var lastName = $("#inputLastName").val();
-		var email = $("#inputEmail").val();
+		var mail = $("#inputEmail").val();
 		var phoneNumber = $("#inputPhoneNbr").val();
 		$.ajax({
 			method: "POST",
 			url: "/ansok_result.php", 
 			datatype: 'json',
-			data: {"firstName": firstName,"lastName": lastName, "email": email, "phoneNumber":phoneNumber}, 
+			data: {"firstName": firstName,"lastName": lastName, "mail": mail, "phoneNumber":phoneNumber}, 
 			success: function(response){
 //Ge feedback om att ansökan lades in
 				myJson = JSON.parse(response);
@@ -68,25 +68,25 @@
             <form class="my-form">
                 <div class="form-group">
                     <label>Förnamn*</label>
-                    <input id="inputFirstName" type="text" name="firstname" required>
+                    <input id="inputFirstName" type="text" name="firstName" required>
 
                 </div>
                 <div class="form-group">
                     <label>Efternamn*</label>
-                    <input id="inputLastName" type="text" name="lastname" required>
+                    <input id="inputLastName" type="text" name="lastName" required>
 
                 </div>
 
                 <div class="form-group">
                     <label>E-post*</label>
 
-                    <input id="inputEmail"type="email" name="epost" required>
+                    <input id="inputEmail"type="email" name="mail" required>
                 </div>
                 <div class="form-group">
                     <label>Telefonnummer</label>
-                    <input id="inputPhoneNbr"type="text" name="telefonnummer">
+                    <input id="inputPhoneNbr"type="text" name="phoneNumber">
                 </div>
-                <select id="poster" name="poster">
+                <select id="sectionName" name="sectionName">
                     <option value="adminsterit">ADMINSTERIT</option>
                     <option value="biljonsen">BILJONSEN</option>
                     <option value="bladderiet">BLÄDDERIET</option>
