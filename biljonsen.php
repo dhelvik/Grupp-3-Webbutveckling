@@ -9,15 +9,6 @@
     <link rel="shortcut icon" type="image/png" href="bilder\favicon.png">
     <link rel="stylesheet" type="text/css" href="css\main.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <script>
-        $(function(){
-   /* $("#nav").load("nav.html"); 
-  $("#header").load("header.html");
-  $("#footer").load("footer.html");
-  $("#left").load("section.html");
-  $("#right").load("aside.html");
-  */});
-</script>
 </head>
 
 <body>
