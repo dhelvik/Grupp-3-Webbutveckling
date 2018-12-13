@@ -6,18 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css\css.css">
     <link rel="shortcut icon" type="image/png" href="bilder\favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <meta http-equiv="content-type" content="text/html" charset="ISO-8859-1" />
-    
-    <script>
-        $(function() {
-           //$("#nav").load("nav.php");
-           // $("#header").load("header.html");
-          //  $("#footer").load("footer.html");
-           // $("#left").load("section.html");
-            //$("#right").load("aside.html");
-          //  $("#main").load("main.html");
-        });
-    </script>    
+    <meta http-equiv="content-type" content="text/html" charset="ISO-8859-1" />   
 </head>
 <body>
 	<div id="container">

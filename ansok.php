@@ -40,17 +40,7 @@
 			}
         );
     });
-
     </script>
-    <script>
-        $(function(){
- /* $("#nav").load("nav.html"); 
-  $("#header").load("header.html");
-  $("#footer").load("footer.html");
-  $("#left").load("section.html");
-  $("#right").load("aside.html");
-  */});
-</script>
 </head>
 
 <body>

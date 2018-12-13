@@ -21,8 +21,7 @@
         $section = new Section($sectionName);
         $dal = new DataAccessLayer();
         $dal->setKarnevalist($karnevalist);
-        $dal->setKarnevalistSection($karnevalist, $section);      
-       
+        $dal->setKarnevalistSection($karnevalist, $section);            
 ?>
 </head>
 

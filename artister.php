@@ -10,16 +10,6 @@
     <link rel="stylesheet" type="text/css" href="css\main.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <meta http-equiv="content-type" content="text/html" charset="ISO-8859-1" />
-
-    <script>
-        $(function(){
-   /* $("#nav").load("nav.html"); 
-  $("#header").load("header.html");
-  $("#footer").load("footer.html");
-  $("#left").load("section.html");
-  $("#right").load("aside.html");
-  */});
-</script>
 </head>
 
 <body>
