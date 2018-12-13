@@ -19,14 +19,12 @@
 				datatype: 'json',
 				data: $("#registerForm").serialize(), 
 				success: function(response){
-// 					alert(response);
 					$("#labelRegisterResponse").empty();
-					$("#labelRegisterResponse").append('Tack för din ansökan' + response);
+					$("#labelRegisterResponse").append('Tack för ansökan ' + response);
 				},
-				error: function(response){
-// 					alert(response);
+				error: function(xhr, status, error){
 					$("#labelRegisterResponse").empty();
-					$("#labelRegisterResponse").append(response);
+					$("#labelRegisterResponse").append(error);
 				}
 			});
 
@@ -48,26 +46,14 @@
         <div id='main'>
             <h1>Ansök</h1>
             <form id="registerForm" class="my-form" >
-                <div class="form-group">
-                    <label>Förnamn*</label>
-                    <input id="inputFirstName" type="text" name="firstName" required>
-
-                </div>
-                <div class="form-group">
-                    <label>Efternamn*</label>
-                    <input id="inputLastName" type="text" name="lastName" required>
-
-                </div>
-
-                <div class="form-group">
-                    <label>E-post*</label>
-
-                    <input id="inputEmail"type="email" name="mail" required>
-                </div>
-                <div class="form-group">
-                    <label>Telefonnummer</label>
-                    <input id="inputPhoneNbr"type="text" name="phoneNumber">
-                </div>
+                <label>Förnamn*</label>
+				<input id="inputFirstName" type="text" name="firstName" required placeholder="Förnamn*">
+				<label>Efternamn*</label>
+				<input id="inputLastName" type="text" name="lastName" required placeholder="Efternamn*">
+				<label>E-post*</label>
+				<input id="inputEmail"type="email" name="mail" required placeholder="E-post*">
+				<label>Telefonnummer</label>
+				<input id="inputPhoneNbr"type="text" name="phoneNumber" placeholder="Telefonnummer">
                 <select id="sectionName" name="sectionName">
                     <option value="adminsterit">ADMINSTERIT</option>
                     <option value="biljonsen">BILJONSEN</option>
@@ -76,7 +62,6 @@
                 </select>
                 <input name="ACTION" value="registerApplication" type="hidden">
                 <input type="submit" id="btnRegister" value="Apply">
-                
             </form>
             <label id="labelRegisterResponse"></label>
         </div>

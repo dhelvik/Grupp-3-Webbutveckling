@@ -21,8 +21,6 @@ function registerApplication(){
         $section = new Section($_POST['sectionName']);
         $controller->registerApplication($karnevalist, $section);
         echo $_POST['firstName'];
-//         echo json_encode(array("success" => true, "error" => 'hej'));
-//         $dal->setKarnevalistSection($karnevalist, $section);
     } catch (PDOException $e) {
         echo 'Den här epostadressen har redan ansökt till vald sektion.';
     }
