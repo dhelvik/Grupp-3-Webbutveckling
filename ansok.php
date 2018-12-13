@@ -14,15 +14,12 @@
     $(function(){
 		$("#registerForm").submit(function(e){
 		e.preventDefault();
-		var firstName = $("#inputFirstName").val();
-		var lastName = $("#inputLastName").val();
-		var mail = $("#inputEmail").val();
-		var phoneNumber = $("#inputPhoneNbr").val();
+		
 		$.ajax({
 			method: "POST",
-			url: "/ansok_result.php", 
+			url: "application/requestHandler.php", 
 			datatype: 'json',
-			data: {"firstName": firstName,"lastName": lastName, "mail": mail, "phoneNumber":phoneNumber}, 
+			data: $("#registerForm").serialize(), 
 			success: function(response){
 //Ge feedback om att ansökan lades in
 				jsonResponse = JSON.parse(response);
@@ -94,6 +91,7 @@
                     <option value="dansen">DANSEN</option>
                 </select>
                 <input type="submit" id="btnRegister" value="Ansök">
+                <input id="ACTION" value="registerApplication" type="hidden">
             </form>
             <label id="labelRegisterResponse"></label>
         </div>

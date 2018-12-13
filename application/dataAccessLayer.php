@@ -55,8 +55,8 @@ class DataAccessLayer
                 ':phoneNumber' => $karnevalist->phoneNumber
             ));
         } catch (PDOException $e) {
-            
-            echo json_encode(array("success" => false, "error" => "PK Violation"));
+            throw $e;
+           // echo json_encode(array("success" => false, "error" => "PK Violation"));
             
         } finally{
             $con = null;
@@ -73,7 +73,7 @@ class DataAccessLayer
             ));
             $karnevalist = $this->mapToKarnevalist($stmt);
         } catch (PDOException $e) {
-            echo 'ERROR: ' . $e->getMessage();
+            //echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $karnevalist;
             $con = null;
@@ -89,7 +89,7 @@ class DataAccessLayer
                 ':sectionName' => $section->sectionName
             ));
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+           // echo 'Error: ' . $e->getMessage();
         } finally{
             $con = null;
         }
@@ -105,7 +105,7 @@ class DataAccessLayer
             ));
             $section = $this->mapToSection($stmt);
         } catch (PDOException $e) {
-            echo 'ERROR: ' . $e->getMessage();
+           // echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $section;
             $con = null;
@@ -122,7 +122,8 @@ class DataAccessLayer
                 ':sectionName' => $section->sectionName
             ));
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+           // echo 'Error: ' . $e->getMessage();
+           // echo json_encode(array("success" => false, "error" => $e->getMessage()));
         } finally{
             $con = null;
         }
@@ -139,7 +140,7 @@ class DataAccessLayer
             ));
             $karevalistSection = $this->mapToKarnevalistSection($stmt);
         } catch (PDOException $e) {
-            echo 'ERROR: ' . $e->getMessage();
+            //echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $karevalistSection;
             $con = null;
@@ -156,7 +157,7 @@ class DataAccessLayer
                 ':password' => $user->password
             ));
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+            //echo 'Error: ' . $e->getMessage();
         } finally{
             $con = null;
         }
@@ -172,7 +173,7 @@ class DataAccessLayer
             ));
             $user = $this->mapToUser($stmt);
         } catch (PDOException $e) {
-            echo 'ERROR: ' . $e->getMessage();
+           // echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $user;
             $con = null;
