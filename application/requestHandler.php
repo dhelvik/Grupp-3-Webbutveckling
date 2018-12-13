@@ -7,7 +7,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch ($_POST['ACTION']){
-        case '':
+        case 'registerApplication':
+            registerApplication();
     }
+}
+
+function registerApplication(){
+    $controller = new Controller();
+    $karnevalist = new Karnevalist($_POST['firstName'], $_POST['lastName'], $_POST['mail'], $_POST['phoneNumber']);
+    $section = new Section($_POST['sectionName']);
+    $controller->registerApplication($karnevalist, $section);
 }
 ?>
