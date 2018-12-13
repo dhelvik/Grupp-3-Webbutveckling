@@ -122,8 +122,8 @@ class DataAccessLayer
                 ':sectionName' => $section->sectionName
             ));
         } catch (PDOException $e) {
-           // echo 'Error: ' . $e->getMessage();
-           // echo json_encode(array("success" => false, "error" => $e->getMessage()));
+            throw $e;
+//             echo json_encode(array("success" => false, "error" => $e->getMessage()));
         } finally{
             $con = null;
         }

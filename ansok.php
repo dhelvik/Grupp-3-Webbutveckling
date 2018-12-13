@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8"/>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,39 +13,24 @@
     $(function(){
 		$("#registerForm").submit(function(e){
 		e.preventDefault();
-		
-		$.ajax({
-			method: "POST",
-			url: "application/requestHandler.php", 
-			datatype: 'json',
-			data: $("#registerForm").serialize(), 
-			success: function(response){
-//Ge feedback om att ansökan lades in
-				jsonResponse = JSON.parse(response);
-				//alert(myJson.firstName);
-				if(!jsonResponse.success){ 
-					$('#labelRegisterResponse').empty();
-					$('#labelRegisterResponse').append(jsonResponse.error);
-					}
-				else{
-					$('#labelRegisterResponse').empty();
-					$('#labelRegisterResponse').append('Tack för din ansökan '+firstName+'!');
-				}
-			//Tömma fälten från information
+			$.ajax({
+				method: "POST",
+				url: "application/requestHandler.php", 
+				datatype: 'json',
+				data: $("#registerForm").serialize(), 
+				success: function(response){
+// 					alert(response);
+					$("#labelRegisterResponse").empty();
+					$("#labelRegisterResponse").append('Tack för din ansökan' + response);
 				},
-			error: function(xhr, status, error, response){
-					//alert(xhr.statusText);
-					//alert(response);
-					$('#labelRegisterResponse').empty();
-					
-					//$('#labelRegisterResponse').append(response);
-					$('#labelRegisterResponse').append(xhr.responseText);
-				
-			}
+				error: function(response){
+// 					alert(response);
+					$("#labelRegisterResponse").empty();
+					$("#labelRegisterResponse").append(response);
+				}
 			});
 
-			}
-        );
+		});
     });
     </script>
 </head>
@@ -90,8 +74,9 @@
                     <option value="bladderiet">BLÄDDERIET</option>
                     <option value="dansen">DANSEN</option>
                 </select>
-                <input type="submit" id="btnRegister" value="Ansök">
-                <input id="ACTION" value="registerApplication" type="hidden">
+                <input name="ACTION" value="registerApplication" type="hidden">
+                <input type="submit" id="btnRegister" value="Apply">
+                
             </form>
             <label id="labelRegisterResponse"></label>
         </div>
