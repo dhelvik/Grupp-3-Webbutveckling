@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
-<?php include("head.php");?>
+<?php include("includes/head.php");?>
 <body>
     <?php 
-    include("header.php");
-    include("nav.php");
-    include("section.php");
+    include("includes/header.php");
+    include("includes/nav.php");
+    include("includes/section.php");
     ?>
     <div id='main'>
         <h1>Ansök</h1>
@@ -30,8 +30,8 @@
         <label id="labelRegisterResponse"></label>
     </div>
     <?php 
-    include("aside.php");
-	include("footer.php"); 
+    include("includes/aside.php");
+	include("includes/footer.php"); 
 	?>
 	<script type="text/javascript">
 	$(function(){
