@@ -12,7 +12,8 @@
     <script src="js/form-validation.js"></script>
     <script type="text/javascript">
     $(function(){
-		$("#btnAnsök").on('click', function(){
+		$("#registerForm").submit(function(e){
+		e.preventDefault();
 		var firstName = $("#inputFirstName").val();
 		var lastName = $("#inputLastName").val();
 		var mail = $("#inputEmail").val();
@@ -24,15 +25,19 @@
 			data: {"firstName": firstName,"lastName": lastName, "mail": mail, "phoneNumber":phoneNumber}, 
 			success: function(response){
 //Ge feedback om att ansökan lades in
-				myJson = JSON.parse(response);
-				alert(myJson.firstName);
-
+				//myJson = JSON.parse(response);
+				//alert(myJson.firstName);
+				$('#labelRegisterResponse').empty();
+				$('#labelRegisterResponse').append('Tack för din ansökan '+firstName+'!');
 			//Tömma fälten från information
 				},
 			error: function(xhr, status, error, response){
-					alert(xhr.statusText);
-					alert(response);
-				
+					//alert(xhr.statusText);
+					//alert(response);
+					$('#labelRegisterResponse').empty();
+					
+					//$('#labelRegisterResponse').append(response);
+					$('#labelRegisterResponse').append(xhr.responseText);
 				
 			}
 			});
@@ -55,7 +60,7 @@
         	?>
         <div id='main'>
             <h1>Ansök</h1>
-            <form class="my-form">
+            <form id="registerForm" class="my-form" >
                 <div class="form-group">
                     <label>Förnamn*</label>
                     <input id="inputFirstName" type="text" name="firstName" required>
@@ -82,8 +87,9 @@
                     <option value="bladderiet">BLÄDDERIET</option>
                     <option value="dansen">DANSEN</option>
                 </select>
-                <input type="submit" id="btnAnsök" value="Ansök">
+                <input type="submit" id="btnRegister" value="Ansök">
             </form>
+            <label id="labelRegisterResponse"></label>
         </div>
         <?php 
         include("aside.php");
