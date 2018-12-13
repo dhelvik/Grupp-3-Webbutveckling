@@ -25,10 +25,16 @@
 			data: {"firstName": firstName,"lastName": lastName, "mail": mail, "phoneNumber":phoneNumber}, 
 			success: function(response){
 //Ge feedback om att ansökan lades in
-				//myJson = JSON.parse(response);
+				jsonResponse = JSON.parse(response);
 				//alert(myJson.firstName);
-				$('#labelRegisterResponse').empty();
-				$('#labelRegisterResponse').append('Tack för din ansökan '+firstName+'!');
+				if(!jsonResponse.success){ 
+					$('#labelRegisterResponse').empty();
+					$('#labelRegisterResponse').append(jsonResponse.error);
+					}
+				else{
+					$('#labelRegisterResponse').empty();
+					$('#labelRegisterResponse').append('Tack för din ansökan '+firstName+'!');
+				}
 			//Tömma fälten från information
 				},
 			error: function(xhr, status, error, response){
