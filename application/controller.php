@@ -3,14 +3,15 @@ include 'dataAccessLayer.php';
 class Controller
 {
     public function registerApplication($karnevalist, $section){
+        $dal = new DataAccessLayer();
         try {
-            $dal = new DataAccessLayer();
-            $dal->setKarnevalist($karnevalist);
+            if (is_null($dal->getKarnevalist($karnevalist))) {
+                $dal->setKarnevalist($karnevalist);
+            }
             $dal->setKarnevalistSection($karnevalist, $section);
         } catch (PDOException $e) {
             throw $e;
-        }
-        
+        }  
     }
 }
 ?>
