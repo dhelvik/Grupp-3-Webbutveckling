@@ -55,12 +55,9 @@ class DataAccessLayer
                 ':phoneNumber' => $karnevalist->phoneNumber
             ));
         } catch (PDOException $e) {
-           // if($e->getCode()==1062){
-                echo 'Error: ' . $e->getMessage();
-          
-                echo 'Email redan registrerad till vald sektion.'; 
-                throw new Exception("");
-            //}
+            
+            echo json_encode(array("success" => false, "error" => "PK Violation"));
+            
         } finally{
             $con = null;
         }
