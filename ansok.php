@@ -18,13 +18,13 @@
 				url: "application/requestHandler.php", 
 				datatype: 'json',
 				data: $("#registerForm").serialize(), 
-				success: function(response){
-					$("#labelRegisterResponse").empty();
-					$("#labelRegisterResponse").append('Tack för ansökan ' + response);
+				success: function(result){
+					$('#labelRegisterResponse').text('');
+					$('#labelRegisterResponse').text(result);
 				},
 				error: function(xhr, status, error){
-					$("#labelRegisterResponse").empty();
-					$("#labelRegisterResponse").append(error);
+					$('#labelRegisterResponse').text('');
+					$('#labelRegisterResponse').text(status);
 				}
 			});
 

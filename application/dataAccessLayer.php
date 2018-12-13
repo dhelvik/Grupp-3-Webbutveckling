@@ -123,7 +123,6 @@ class DataAccessLayer
             ));
         } catch (PDOException $e) {
             throw $e;
-//             echo json_encode(array("success" => false, "error" => $e->getMessage()));
         } finally{
             $con = null;
         }
