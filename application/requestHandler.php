@@ -20,7 +20,7 @@ function registerApplication(){
         $karnevalist = new Karnevalist($_POST['firstName'], $_POST['lastName'], $_POST['mail'], $_POST['phoneNumber']);
         $section = new Section($_POST['sectionName']);
         $controller->registerApplication($karnevalist, $section);
-        echo 'Tack för ansökan' .$_POST['firstName'];
+        echo 'Tack för ansökan ' .$_POST['firstName'];
     } catch (PDOException $e) {
         echo 'Den här epostadressen har redan ansökt till vald sektion.';
     }
