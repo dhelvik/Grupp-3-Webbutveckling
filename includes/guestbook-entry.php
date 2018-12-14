@@ -23,14 +23,9 @@
 							<tr>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
-								<td><input type="submit" name="Submit" value="Submit" />
+								<td><input type="submit" name="Submit" value="Submit" /></td>
 							</tr>
-<<<<<<< HEAD:guestbook-entry.php
-						</table>
-					</td> 
-=======
-							
->>>>>>> dd11318b878668da73ba5076c4fae72e2cd17931:includes/guestbook-entry.php
+
 					
 					<input name="ACTION" value="registerEntry"
 						type="hidden">
