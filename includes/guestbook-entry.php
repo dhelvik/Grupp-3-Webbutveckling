@@ -1,11 +1,9 @@
 
    
     <div id="guestBookEntry">
-		<table width="60%"  align="center" cellpadding="0"
-			cellspacing="1" bgcolor="#CCCCCC">
-			<tr>
+		
 				<form id="guestBookForm" name="guestBookForm" method="post">
-					<td>
+					
 						<table>
 							<tr>
 								<td>Namn:</td>
@@ -27,8 +25,12 @@
 								<td>&nbsp;</td>
 								<td><input type="submit" name="Submit" value="Submit" />
 							</tr>
+<<<<<<< HEAD:guestbook-entry.php
 						</table>
 					</td> 
+=======
+							
+>>>>>>> dd11318b878668da73ba5076c4fae72e2cd17931:includes/guestbook-entry.php
 					
 					<input name="ACTION" value="registerEntry"
 						type="hidden">

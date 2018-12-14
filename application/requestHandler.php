@@ -49,7 +49,7 @@ function getEntries(){
         $entries = $controller->getEntries();
         echo json_encode($entries);    
     } catch(PDOException $e){
-        echo "error";
+        echo $e->getMessage();
     }
 }
 
