@@ -179,7 +179,7 @@ class DataAccessLayer
             ));
             $user = $this->mapToUser($stmt);
         } catch (PDOException $e) {
-           // echo 'ERROR: ' . $e->getMessage();
+           throw $e;
         } finally{
             return $user;
             $con = null;

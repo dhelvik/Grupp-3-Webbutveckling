@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html>
 <?php include("includes/head.php");?>
 <body>
@@ -10,7 +11,7 @@
     <div id="main">
 		<div id="login">
 			<h2>Admin Login</h2>
-			<form id="loginForm" action="" method="post">
+			<form id="loginForm" action="application/requestHandler.php" method="post">
 				<label>Användarnamn :</label> 
 				<input id="name" name="username" placeholder="username" type="text">
 				<label>Lösenord :</label>
@@ -18,32 +19,8 @@
 				<input name="submit" type="submit" value=" Login ">
 				<input name="ACTION" value="checkLogin" type="hidden">
 			</form>
-			<script>
-			$(function(){
-				$("#loginForm").submit(function(e){
-				e.preventDefault();
-			$.ajax({
-				method: "POST",
-				url: "application/requestHandler.php", 
-				data: $("#loginForm").serialize(),
-				datatype: 'json',
-				
-				success: function(result){
-					
-					
-						});
-					
-				},
-				error: function(xhr, status, error){
-					alert(status);
-					//$('#labelEntryResponse').text('');
-					//$('#labelEntryResponse').text(status);
-				}
-			});
-		});
-	
-	</script>
 		</div>
+    <lable><?php echo $_SESSION['user']; ?></lable>
 	</div>
     <?php
     include ("includes/aside.php");

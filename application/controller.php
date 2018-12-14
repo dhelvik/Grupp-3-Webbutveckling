@@ -26,5 +26,13 @@ class Controller
         $entries = $dal->getEntries();
         return $entries;
     }
+    public function signIn($user){
+        $dal = new DataAccessLayer();
+        try {
+            return $dal->getUser($user);
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
 }
 ?>

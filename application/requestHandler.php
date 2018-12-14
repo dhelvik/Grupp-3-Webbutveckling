@@ -11,15 +11,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         case 'registerApplication':
             registerApplication();
             break;
-    }
-    switch ($_POST['ACTION']){
         case 'registerEntry':
             registerEntry();
             break;
-    }
-    switch ($_POST['ACTION']){
         case 'getEntries':
             getEntries();
+            break;
+        case 'checkLogin':
+            header('Location: '.checkLogin().'');
+            die();
             break;
     }
 }
@@ -51,6 +51,18 @@ function getEntries(){
     } catch(PDOException $e){
         echo $e->getMessage();
     }
+}
+
+function checkLogin(){
+     $controller = new Controller();
+     $user = $controller->signIn(new User($_POST['username'], $_POST['password']));
+     if(is_null($user)){
+        $_SESSION['signInError'] = 'Fel användare eller lösenord.';
+        return '/admin.php';
+     }else {
+         $_SESSION['user'] = $user->username;
+         return "/admin.php";
+     }
 }
 
 ?>
