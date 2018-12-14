@@ -1,11 +1,9 @@
 
    
     <div id="guestBookEntry">
-		<table width="60%"  align="center" cellpadding="0"
-			cellspacing="1">
-			<tr>
+		
 				<form id="guestBookForm" name="guestBookForm" method="post">
-					<td>
+					
 						<table>
 							<tr>
 								<td>Namn:</td>
@@ -30,9 +28,6 @@
 							
 							</tr>
 							
-						
-						</table>
-					</td> 
 					
 					<input name="ACTION" value="registerEntry"
 						type="hidden">

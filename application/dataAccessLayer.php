@@ -213,7 +213,7 @@ class DataAccessLayer
             $entries = $stmt->fetchAll();
             
         } catch (PDOException $e) {
-            // echo 'ERROR: ' . $e->getMessage();
+            throw $e;
         } finally{
             return $entries;
             $con = null;
