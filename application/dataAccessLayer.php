@@ -172,7 +172,7 @@ class DataAccessLayer
     public function getUser($user)
     {       
         try {
-            $con = $this->createConnection();
+            $con = $this->createConnection(); 
             $stmt = $con->prepare('SELECT * FROM User WHERE username = :username');
             $stmt->execute(array(
                 ':username' => $user->username
@@ -209,13 +209,43 @@ class DataAccessLayer
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT name, comment FROM Entry ORDER BY datetime DESC LIMIT 10');
-           $stmt->execute();
+            $stmt->execute();
             $entries = $stmt->fetchAll();
             
         } catch (PDOException $e) {
             throw $e;
         } finally{
             return $entries;
+            $con = null;
+        }
+    }
+    public function getEventTypes(){
+        try{
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT DISTINCT eventName from Event');
+            $stmt->execute();
+            $eventTypes = $stmt->fetchAll();
+            
+        }   catch (PDOException $e) {
+            throw $e;
+        } finally{
+            return $eventTypes;
+            $con = null;
+        }
+    }
+    public function getEventForType($eventType)
+    {
+        
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT * FROM Event WHERE eventName =:eventName');
+            $stmt->execute();
+            $events = $stmt->fetchAll();
+            
+        } catch (PDOException $e) {
+            throw $e;
+        } finally{
+            return $events;
             $con = null;
         }
     }

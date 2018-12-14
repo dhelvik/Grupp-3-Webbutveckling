@@ -26,5 +26,15 @@ class Controller
         $entries = $dal->getEntries();
         return $entries;
     }
+    public function getEventTypes(){
+        $dal = new DataAccessLayer();
+        $eventTypes = $dal->getEventTypes();
+        return $eventTypes;
+    }
+    public function getEventsForType($eventType){
+        $dal = new DataAccessLayer();
+        $events = $dal->getEventForType($eventType);
+        return $events;
+    }
 }
 ?>
