@@ -44,7 +44,7 @@
 			
 		</table>
   	<?php
-include ("guestbook-entry.php");
+include ("includes/guestbook-entry.php");
 ?>
 	</div>
    <?php
