@@ -208,7 +208,7 @@ class DataAccessLayer
         
         try {
             $con = $this->createConnection();
-            $stmt = $con->prepare('SELECT name, comment FROM Entry');
+            $stmt = $con->prepare('SELECT name, comment FROM Entry ORDER BY datetime DESC LIMIT 10');
            $stmt->execute();
             $entries = $stmt->fetchAll();
             
