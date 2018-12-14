@@ -2,7 +2,7 @@
    
     <div id="guestBookEntry">
 		<table width="60%"  align="center" cellpadding="0"
-			cellspacing="1" bgcolor="#CCCCCC">
+			cellspacing="1">
 			<tr>
 				<form id="guestBookForm" name="guestBookForm" method="post">
 					<td>

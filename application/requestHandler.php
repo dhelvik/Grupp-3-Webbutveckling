@@ -54,7 +54,7 @@ function getEntries(){
         
         
     } catch(PDOException $e){
-        echo "error";
+        echo $e->getMessage();
     }
 }
 
