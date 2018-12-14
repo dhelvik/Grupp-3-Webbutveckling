@@ -42,7 +42,14 @@ class DataAccessLayer
             array_push($a, new User($row['username'], $row['password']));
         return (sizeof($a) <= 1 ? $a[0] : $a);
     }
-
+    public function mapToEntry($stmt)
+    {
+        $a = array();
+        while ($row = $stmt->fetch())
+            array_push($a, new Entry($row['name'], $row['email'], $row['comment'], $row['datetime']));
+            return (sizeof($a) <= 1 ? $a[0] : $a);
+    }
+    
     public function setKarnevalist($karnevalist)
     {
         try {
@@ -163,7 +170,7 @@ class DataAccessLayer
     }
 
     public function getUser($user)
-    {
+    {       
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT * FROM User WHERE username = :username');
@@ -175,6 +182,40 @@ class DataAccessLayer
            // echo 'ERROR: ' . $e->getMessage();
         } finally{
             return $user;
+            $con = null;
+        }
+    }
+    public function setEntry($entry)
+    {
+        try {
+            $con = $this->createConnection();   
+            $stmt = $con->prepare('INSERT INTO Entry(name, email, comment, datetime) VALUES(:name,:email,:comment,:datetime)');
+            $stmt->execute(array(
+                ':name' => $entry->name,
+                ':email' => $entry->email,
+                ':comment' => $entry->comment,
+                ':datetime' => $entry->datetime
+            ));
+           
+        } catch (PDOException $e) {
+            throw $e;
+        } finally{
+            $con = null;
+        }
+    }
+    public function getEntries()
+    {
+        
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT name, comment FROM Entry');
+           $stmt->execute();
+            $entries = $stmt->fetchAll();
+            
+        } catch (PDOException $e) {
+            // echo 'ERROR: ' . $e->getMessage();
+        } finally{
+            return $entries;
             $con = null;
         }
     }

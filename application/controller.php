@@ -13,5 +13,18 @@ class Controller
             throw $e;
         }  
     }
+    public function registerEntry($entry){
+        $dal = new DataAccessLayer();
+        try {
+            $dal->setEntry($entry);
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+    public function getEntries(){
+        $dal = new DataAccessLayer();
+        $entries = $dal->getEntries();
+        return $entries;
+    }
 }
 ?>

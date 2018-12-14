@@ -12,6 +12,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             registerApplication();
             break;
     }
+    switch ($_POST['ACTION']){
+        case 'registerEntry':
+            registerEntry();
+            break;
+    }
+    switch ($_POST['ACTION']){
+        case 'getEntries':
+            getEntries();
+            break;
+    }
 }
 
 function registerApplication(){
@@ -23,4 +33,29 @@ function registerApplication(){
         echo 'Den här epostadressen har redan ansökt till vald sektion.';
     }
 }
+function registerEntry(){
+    try {
+        
+        $controller = new Controller();
+        $datetime=date("y-m-d h:i:s");
+        $controller->registerEntry(new Entry($_POST['name'], $_POST['email'], $_POST['comment'], $datetime));
+        echo 'Tack för ditt inlägg ' .$_POST['name'];
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+function getEntries(){
+    try{
+        $controller = new Controller();
+        $entries = $controller->getEntries();
+        echo json_encode($entries);
+        
+        
+        
+        
+    } catch(PDOException $e){
+        echo "error";
+    }
+}
+
 ?>

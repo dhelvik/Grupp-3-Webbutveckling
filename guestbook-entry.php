@@ -1,0 +1,75 @@
+
+   
+    <div id="guestBookEntry">
+		<table width="60%"  align="center" cellpadding="0"
+			cellspacing="1" bgcolor="#CCCCCC">
+			<tr>
+				<form id="guestBookForm" name="guestBookForm" method="post">
+					<td>
+						<table>
+							<tr>
+								<td>Namn:</td>
+								<td>*</td>
+								<td><input id="entryName" name="name" type="text" id="name"
+								required /></td>
+							</tr>
+							<tr>
+								<td>Email:</td>
+								<td>*</td>
+								<td><input id="entryEmail" name="email" type="text" id="email"required/></td>
+							</tr>
+							<tr>
+								<td valign="top">Kommentar:</td>
+								<td valign="top">*</td>
+								<td><textarea id="entryComment" name="comment" cols="60" rows="6" id="comment" required></textarea></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td><input type="submit" name="Submit" value="Submit" />
+							
+							</tr>
+							
+						
+						</table>
+					</td> 
+					
+					<input name="ACTION" value="registerEntry"
+						type="hidden">
+				</form>
+			</tr>
+		</table>
+		<label id="labelEntryResponse">
+		<script type="text/javascript">
+	$(function(){
+		$("#guestBookForm").submit(function(e){
+		e.preventDefault();
+			$.ajax({
+				method: "POST",
+				url: "application/requestHandler.php", 
+				datatype: 'json',
+				data: $("#guestBookForm").serialize(),
+				success: function(result){
+					$('#labelEntryResponse').text('');
+					$('#labelEntryResponse').text(result);
+					$('#entryName').val('');
+					$('#entryEmail').val('');
+					$('#entryComment').val('');
+					setTimeout(function(){
+					location.reload();
+					}, 2000);
+					
+				},
+				error: function(xhr, status, error){
+					$('#labelEntryResponse').text('');
+					$('#labelEntryResponse').text(status);
+				}
+			});
+		});
+	});
+	</script>
+	</div>
+	
+	
+
+

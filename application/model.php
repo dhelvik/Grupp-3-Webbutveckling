@@ -38,4 +38,17 @@ class User{
         $this->password = $password;    
     }
 }
+class Entry{
+    public $name;
+    public $email;
+    public $comment;
+    public $datetime;
+    
+    public function __construct($name, $email, $comment, $datetime){
+        $this->name = $name;
+        $this->email = $email;
+        $this->comment = $comment;
+        $this->datetime = $datetime;
+    }
+}
 ?>

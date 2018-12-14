@@ -26,6 +26,8 @@
                     </ul>
                 </li>
                 <li><a href="reservera-biljetter.php">Reservera Biljetter</a></li>
+                <li><a href="guestbook.php">Gästbok</a></li>
+                
             </ul>
         </li>
     </ul>

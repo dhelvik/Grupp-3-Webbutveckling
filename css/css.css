@@ -1,179 +1,259 @@
-﻿#logo {
-    height: 100%;
-    margin-left: auto;
-    float: right;
-    display: inline;
+﻿#entries {
+	width: 100%;
+	border: 0;
+	padding-left: 5em;
+	padding-right: 5em; 
+	border-collapse : separate;
+	border-spacing: 0px 20px;
+}
+
+#entries tr th {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+
+#entries tr td {
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+
+#entries th {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+#entries td {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+
+#entries td:first-child {
+	width: 20%;
+	text-align: center;
+}
+
+#entries th:nth-child(2) {
+	text-align: left;
+}
+
+#entries tr {
+	background-color: white;
+}
+
+#guestBookEntry td:first-child{
+	padding-left:0.5em;
+	
+}
+#guestBookEntry {
+	margin-top: 2em;
+	padding-bottom: 4em;
+	width: 100%;
+	border: 0;
+	padding-right:5em;
+	padding-left:5em;
+}
+
+#guestBookEntry table {
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	background-color:white;
+	
+
+}
+
+#labelEntryResponse {
+	padding: 0;
+	padding-top: 1em; margin : 0;
+	text-align: center;
+	display: block;
+	margin: 0;
+}
+
+#logo {
+	height: 100%;
+	margin-left: auto;
+	float: right;
+	display: inline;
 }
 
 #header {
-    background-color: transparent;
-    height: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+	background-color: transparent;
+	height: 130px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #header a {
-    font-size: 40px;
-    position: absolute;
-    text-decoration: none;
-    display: block;
-    color: orange;
-    letter-spacing: 3px;
+	font-size: 40px;
+	position: absolute;
+	text-decoration: none;
+	display: block;
+	color: orange;
+	letter-spacing: 3px;
 }
 
 #footer {
-    background-color: #f3c3d1;
-    height: 100%;
-    width: 100%;
-    clear: both;
-    color: #f4376d;
+	background-color: #f3c3d1;
+	height: 100%;
+	width: 100%;
+	clear: both;
+	color: #f4376d;
 }
 
 #footer a {
-    color: #f4376d;
-
+	color: #f4376d;
 }
 
 iframe {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-height: auto;
-
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	max-height: auto;
 }
 
 * {
-    font-family: 'Ubuntu', sans-serif;
-    box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+	box-sizing: border-box;
 }
 
 #container {
-    background-color: transparent;
-    width: 100%;
-    margin: 20px auto;
+	background-color: transparent;
+	width: 100%;
+	margin: 20px auto;
 }
 
 .container-shadow {
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.30)
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0
+		rgba(0, 0, 0, 0.30)
 }
 
 body {
-    background-color: #fbbccc4d;
-    padding: 0px;
-    margin: 0px;
+	background-color: #fbbccc4d;
+	padding: 0px;
+	margin: 0px;
 }
 
 #container-main {
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.30);
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0
+		rgba(0, 0, 0, 0.30);
 }
 
 #left {
-    background-color: transparent;
-    padding-top: 10px;
-    width: 20%;
-    height: 100%;
-    float: left;
-    padding: 8px;
+	background-color: transparent;
+	padding-top: 10px;
+	width: 20%;
+	height: 100%;
+	float: left;
+	padding: 8px;
 }
 
 #main {
-    background-color: transparent;
-    width: 60%;
-    height: 100%;
-    float: left;
-    padding: 8px;
-    color: #f4376d;
+	background-color: transparent;
+	width: 60%;
+	height: 100%;
+	float: left;
+	padding: 8px;
+	color: #f4376d;
 }
 
 #right {
-    background-color: transparent;
-    float: left;
-    width: 20%;
-    height: 100%;
-    padding-left: 8px;
-    color: #f4376d;
+	background-color: transparent;
+	float: left;
+	width: 20%;
+	height: 100%;
+	padding-left: 8px;
+	color: #f4376d;
 }
 
 .karnevalstaget {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 12px;
-
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 12px;
 }
 
 .karnevalstaget img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    display: block;
+	max-width: 100%;
+	max-height: 100%;
+	height: auto;
+	display: block;
 }
 
 #karnevalister {
-    width: 50%;
-    margin: 0 auto;
+	width: 50%;
+	margin: 0 auto;
 }
 
-input[type=text],[type=email],[type=password],
-select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+input[type=text], [type=email], [type=password], select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
 
 input[type=submit] {
-    width: 100%;
-    background-color: #f4376d;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+	width: 100%;
+	background-color: #f4376d;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 input[type=submit]:hover {
-    background-color: #FBBCCC;
+	background-color: #FBBCCC;
 }
 
 @media only screen and (max-width: 1023px) {
-
-    #left {
-        display: none;
-    }
-
-    #main {
-        width: 70%;
-    }
-
-    #right {
-        width: 30%;
-        height: 100%;
-    }
-
+	#left {
+		display: none;
+	}
+	#main {
+		width: 70%;
+	}
+	#right {
+		width: 30%;
+		height: 100%;
+	}
 }
 
 @media only screen and (max-width: 768px) {
-
-    #left {
-        display: none;
-    }
-
-    #main {
-        width: 100%;
-        padding: 0;
-    }
-
-    #right {
-        display: none;
-    }
-    #header a{
-        font-size: 26px;
-    }
+	#left {
+		display: none;
+	}
+	#main {
+		width: 100%;
+		padding: 0;
+	}
+	#right {
+		display: none;
+	}
+	#header a {
+		font-size: 26px;
+	}
 }
