@@ -35,7 +35,6 @@ function registerApplication(){
 }
 function registerEntry(){
     try {
-        
         $controller = new Controller();
         $datetime=date("y-m-d h:i:s");
         $controller->registerEntry(new Entry($_POST['name'], $_POST['email'], $_POST['comment'], $datetime));
@@ -48,11 +47,7 @@ function getEntries(){
     try{
         $controller = new Controller();
         $entries = $controller->getEntries();
-        echo json_encode($entries);
-        
-        
-        
-        
+        echo json_encode($entries);    
     } catch(PDOException $e){
         echo "error";
     }

@@ -10,8 +10,7 @@
 							<tr>
 								<td>Namn:</td>
 								<td>*</td>
-								<td><input id="entryName" name="name" type="text" id="name"
-								required /></td>
+								<td><input id="entryName" name="name" type="text" id="name" required /></td>
 							</tr>
 							<tr>
 								<td>Email:</td>
@@ -27,10 +26,7 @@
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td><input type="submit" name="Submit" value="Submit" />
-							
 							</tr>
-							
-						
 						</table>
 					</td> 
 					
