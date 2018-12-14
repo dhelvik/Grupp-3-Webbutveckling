@@ -38,6 +38,9 @@
 	-webkit-border-bottom-right-radius: 5px;
 }
 
+textarea{
+	resize:vertical;
+}
 #entries th {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;

@@ -1,39 +1,31 @@
-
-   
-    <div id="guestBookEntry">
-		
-				<form id="guestBookForm" name="guestBookForm" method="post">
-					
-						<table>
-							<tr>
-								<td>Namn:</td>
-								<td>*</td>
-								<td><input id="entryName" name="name" type="text" id="name" required /></td>
-							</tr>
-							<tr>
-								<td>Email:</td>
-								<td>*</td>
-								<td><input id="entryEmail" name="email" type="text" id="email"required/></td>
-							</tr>
-							<tr>
-								<td valign="top">Kommentar:</td>
-								<td valign="top">*</td>
-								<td><textarea id="entryComment" name="comment" cols="60" rows="6" id="comment" required></textarea></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td><input type="submit" name="Submit" value="Submit" /></td>
-							</tr>
-
-					
-					<input name="ACTION" value="registerEntry"
-						type="hidden">
-				</form>
+<div id="guestBookEntry">
+	<form id="guestBookForm" name="guestBookForm" method="post">
+		<table>
+			<tr>
+				<td>Namn:</td>
+				<td>*</td>
+				<td><input id="entryName" name="name" type="text" id="name"required /></td>
 			</tr>
-		</table>
-		<label id="labelEntryResponse">
-		<script type="text/javascript">
+			<tr>
+				<td>Email:</td>
+				<td>*</td>
+				<td><input id="entryEmail" name="email" type="text" id="email"required /></td>
+			</tr>
+			<tr>
+				<td valign="top">Kommentar:</td>
+				<td valign="top">*</td>
+				<td><textarea id="entryComment" name="comment" cols="60" rows="6"> </textarea></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td><input type="submit" name="Submit" value="Submit" /></td>
+			</tr>
+			<input name="ACTION" value="registerEntry" type="hidden">
+	</form>
+	</tr>
+	</table>
+	<label id="labelEntryResponse"> <script type="text/javascript">
 	$(function(){
 		$("#guestBookForm").submit(function(e){
 		e.preventDefault();
@@ -61,8 +53,9 @@
 		});
 	});
 	</script>
-	</div>
-	
-	
+
+</div>
+
+
 
 
