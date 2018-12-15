@@ -233,19 +233,70 @@ class DataAccessLayer
             $con = null;
         }
     }
-    public function getEventForType($eventType)
+    public function getEventsForType($eventName)
     {
         
         try {
             $con = $this->createConnection();
-            $stmt = $con->prepare('SELECT * FROM Event WHERE eventName =:eventName');
-            $stmt->execute();
+            $stmt = $con->prepare("SELECT * FROM Event WHERE eventName = :eventName");
+             $stmt->execute(array(
+                ':eventName' => $eventName,
+            ));
+            
             $events = $stmt->fetchAll();
             
         } catch (PDOException $e) {
             throw $e;
         } finally{
             return $events;
+            $con = null;
+        }
+    }
+    public function getEventsForTypeDate($eventName, $eventDate)
+    {
+        
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare("SELECT * FROM Event WHERE eventName = :eventName AND date = :eventDate");
+            $stmt->execute(array(
+                ':eventName' => $eventName,
+                ':eventDate' => $eventDate,
+            ));
+            
+            $events = $stmt->fetchAll();
+            
+        } catch (PDOException $e) {
+            throw $e;
+        } finally{
+            return $events;
+            $con = null;
+        }
+    }
+    public function reserveTickets($customerName, $customerEmail, $customerPhoneNbr, $eventName, $eventDate, $eventTime, $ticketQuantity)
+    {
+        
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare("INSERT INTO Customer VALUES(:name,:email, :phoneNumber)");
+            $stmt->execute(array(
+                ':name' => $customerName,
+                ':email' => $customerEmail,
+                ':phoneNumber' => $customerPhoneNbr,
+               
+            )); 
+            $stmt = $con->prepare("INSERT INTO Ticket VALUES(:customerEmail,:eventName,:eventDate,:eventTime,:ticketQuantity)");
+            $stmt->execute(array(
+                ':customerEmail' => $customerEmail,
+                ':eventName' => $eventName,
+                ':eventDate' => $eventDate,
+                ':eventTime' => $eventTime,
+                ':ticketQuantity' => $ticketQuantity,
+            ));
+            
+            
+        } catch (PDOException $e) {
+            throw $e;
+        } finally{
             $con = null;
         }
     }

@@ -1,8 +1,11 @@
 <?php
 include 'dataAccessLayer.php';
+
 class Controller
 {
-    public function registerApplication($karnevalist, $section){
+
+    public function registerApplication($karnevalist, $section)
+    {
         $dal = new DataAccessLayer();
         try {
             if (is_null($dal->getKarnevalist($karnevalist))) {
@@ -11,9 +14,11 @@ class Controller
             $dal->setKarnevalistSection($karnevalist, $section);
         } catch (PDOException $e) {
             throw $e;
-        }  
+        }
     }
-    public function registerEntry($entry){
+
+    public function registerEntry($entry)
+    {
         $dal = new DataAccessLayer();
         try {
             $dal->setEntry($entry);
@@ -21,30 +26,65 @@ class Controller
             throw $e;
         }
     }
-    public function getEntries(){
+
+    public function getEntries()
+    {
         $dal = new DataAccessLayer();
         $entries = $dal->getEntries();
         return $entries;
     }
-<<<<<<< HEAD
-    public function signIn($user){
+
+    public function signIn($user)
+    {
         $dal = new DataAccessLayer();
         try {
             return $dal->getUser($user);
         } catch (PDOException $e) {
             throw $e;
         }
-=======
-    public function getEventTypes(){
-        $dal = new DataAccessLayer();
-        $eventTypes = $dal->getEventTypes();
-        return $eventTypes;
     }
-    public function getEventsForType($eventType){
-        $dal = new DataAccessLayer();
-        $events = $dal->getEventForType($eventType);
-        return $events;
->>>>>>> ba32c1975cd2a7e8a2018758e16258e08f997bdb
+
+    public function getEventTypes()
+    {
+        try {
+            $dal = new DataAccessLayer();
+            $eventTypes = $dal->getEventTypes();
+            return $eventTypes;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+
+    public function getEventsForType($eventName)
+    {
+        try {
+            $dal = new DataAccessLayer();
+            $events = $dal->getEventsForType($eventName);
+            return $events;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+
+    public function getEventsForTypeDate($eventName, $eventDate)
+    {
+        try {
+            $dal = new DataAccessLayer();
+            $events = $dal->getEventsForTypeDate($eventName, $eventDate);
+            return $events;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+
+    public function reserveTickets($customerName, $customerEmail, $customerPhoneNbr, $eventName, $eventDate, $eventTime, $ticketQuantity)
+    {
+        try {
+            $dal = new DataAccessLayer();
+            $dal->reserveTickets($customerName, $customerEmail, $customerPhoneNbr, $eventName, $eventDate, $eventTime, $ticketQuantity);
+        } catch (PDOException $e) {
+            throw $e;
+        }
     }
 }
 ?>
