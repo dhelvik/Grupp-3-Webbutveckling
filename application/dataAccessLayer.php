@@ -276,7 +276,9 @@ class DataAccessLayer
     {
         
         try {
+            
             $con = $this->createConnection();
+            if($this->getCustomer($customerEmail)){
             $stmt = $con->prepare("INSERT INTO Customer VALUES(:name,:email, :phoneNumber)");
             $stmt->execute(array(
                 ':name' => $customerName,
@@ -284,6 +286,7 @@ class DataAccessLayer
                 ':phoneNumber' => $customerPhoneNbr,
                
             )); 
+            }
             $stmt = $con->prepare("INSERT INTO Ticket VALUES(:customerEmail,:eventName,:eventDate,:eventTime,:ticketQuantity)");
             $stmt->execute(array(
                 ':customerEmail' => $customerEmail,
@@ -296,6 +299,25 @@ class DataAccessLayer
             
         } catch (PDOException $e) {
             throw $e;
+        } finally{
+            $con = null;
+        }
+    }
+   public function getCustomer($customerEmail)
+    {
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare("SELECT * FROM Customer WHERE email = :email");
+            $stmt->execute(array(
+                ':email' => $customerEmail,
+            ));
+            if($stmt->rowCount()>0){
+                return false;
+            } else{
+                return true;
+            }
+        } catch (PDOException $e) {
+            throw $e;;
         } finally{
             $con = null;
         }
