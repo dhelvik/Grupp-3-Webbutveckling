@@ -63,7 +63,6 @@ class DataAccessLayer
             ));
         } catch (PDOException $e) {
             throw $e;
-           // echo json_encode(array("success" => false, "error" => "PK Violation"));
             
         } finally{
             $con = null;
@@ -80,7 +79,7 @@ class DataAccessLayer
             ));
             $karnevalist = $this->mapToKarnevalist($stmt);
         } catch (PDOException $e) {
-            //echo 'ERROR: ' . $e->getMessage();
+            throw $e;
         } finally{
             return $karnevalist;
             $con = null;
@@ -96,7 +95,7 @@ class DataAccessLayer
                 ':sectionName' => $section->sectionName
             ));
         } catch (PDOException $e) {
-           // echo 'Error: ' . $e->getMessage();
+            throw $e;
         } finally{
             $con = null;
         }
@@ -112,7 +111,7 @@ class DataAccessLayer
             ));
             $section = $this->mapToSection($stmt);
         } catch (PDOException $e) {
-           // echo 'ERROR: ' . $e->getMessage();
+            throw $e;
         } finally{
             return $section;
             $con = null;
@@ -146,7 +145,7 @@ class DataAccessLayer
             ));
             $karevalistSection = $this->mapToKarnevalistSection($stmt);
         } catch (PDOException $e) {
-            //echo 'ERROR: ' . $e->getMessage();
+            throw $e;
         } finally{
             return $karevalistSection;
             $con = null;
@@ -163,7 +162,7 @@ class DataAccessLayer
                 ':password' => $user->password
             ));
         } catch (PDOException $e) {
-            //echo 'Error: ' . $e->getMessage();
+            throw $e;
         } finally{
             $con = null;
         }
@@ -278,6 +277,9 @@ class DataAccessLayer
         try {
             
             $con = $this->createConnection();
+            
+            
+           
             if($this->getCustomer($customerEmail)){
             $stmt = $con->prepare("INSERT INTO Customer VALUES(:name,:email, :phoneNumber)");
             $stmt->execute(array(
@@ -303,6 +305,7 @@ class DataAccessLayer
             $con = null;
         }
     }
+   
    public function getCustomer($customerEmail)
     {
         try {
@@ -322,5 +325,23 @@ class DataAccessLayer
             $con = null;
         }
     }
-}
+    public function getRemainingSeats($eventName, $eventDate, $eventTime){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare(" SELECT(SELECT maxCapacity FROM Event WHERE eventName = :eventName)-(SELECT SUM(ticketQuantity)FROM Event WHERE eventName = :$eventName AND eventDate = :eventDate AND eventTime = :eventTime)");   
+
+            $stmt->execute(array(
+                ':eventName' => $eventName,
+                ':eventDate' => $eventDate,
+                ':eventTime' => $eventTime,
+            ));
+            //Returnera värdet för antal lediga platser på denna föreställning
+        } catch (PDOException $e) {
+            throw $e;;
+        } finally{
+            $con = null;
+        }
+        
+    }
+   
 ?>
