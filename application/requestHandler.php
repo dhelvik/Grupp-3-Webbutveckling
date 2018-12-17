@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: '.checkLogin().'');
             die();
             break;
+
         case 'registerEntry':
             registerEntry();
             break;
@@ -31,6 +32,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'getEventTypes':
             getEventTypes();
 
+            break;
+            
+        case 'getEventsForType':
+            getEventsForType();
+            break;
+            
+        case 'getEventsForTypeDate':
+            getEventsForTypeDate();
+            break;
+            
+        case 'reserveTickets':
+            reserveTickets();
             break;
     }
 }
@@ -92,13 +105,44 @@ function getEventTypes()
     } 
 }
 
-function getEvents()
+function getEventsForType()
 {
     try {
-        $eventType = $_POST['eventName'];
+        $eventName = $_POST['eventName'];
         $controller = new Controller();
-        $events = $controller->getEventsForType($eventType);
-        echo json_envode($events);
+        $events = $controller->getEventsForType($eventName);
+        echo json_encode($events);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+function getEventsForTypeDate()
+{
+    try {
+        $eventName = $_POST['eventName'];
+        $eventDate = $_POST['eventDate'];
+        $controller = new Controller();
+        $events = $controller->getEventsForTypeDate($eventName, $eventDate);
+        echo json_encode($events);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+function reserveTickets()
+{
+    try {
+        $customerFirstName = $_POST['firstname'];
+        $customerLastName = $_POST['lastname'];
+        $customerName = $customerFirstName . " " . $customerLastName;
+        $customerEmail = $_POST['email'];        
+        $eventName = $_POST['event'];
+        $eventDate = $_POST['date'];
+        $eventTime = $_POST['time'];
+        $ticketQuantity = $_POST['ticketQuantity'];
+        $customerPhoneNbr = $_POST['phoneNbr'];
+        $controller = new Controller();
+        $controller->reserveTickets($customerName, $customerEmail, $customerPhoneNbr, $eventName, $eventDate, $eventTime, $ticketQuantity);
+        echo $customerName;
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
