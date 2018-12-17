@@ -1,6 +1,7 @@
 <?php
 include 'controller.php';
 include 'model.php';
+include 'sendEmail.php';
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {}
 
@@ -139,6 +140,10 @@ function reserveTickets()
         $customerPhoneNbr = $_POST['phoneNbr'];
         $controller = new Controller();
         $controller->reserveTickets($customerName, $customerEmail, $customerPhoneNbr, $eventName, $eventDate, $eventTime, $ticketQuantity);
+        
+        sendEmail($customerName, $customerEmail, $eventName, $eventDate, $eventTime, $ticketQuantity);
+        
+        
         echo $customerName;
     } catch (PDOException $e) {
         echo $e->getMessage();
