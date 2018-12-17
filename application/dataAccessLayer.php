@@ -172,9 +172,10 @@ class DataAccessLayer
     {       
         try {
             $con = $this->createConnection(); 
-            $stmt = $con->prepare('SELECT * FROM User WHERE username = :username');
+            $stmt = $con->prepare('SELECT * FROM User WHERE username = :username AND password =:password');
             $stmt->execute(array(
-                ':username' => $user->username
+                ':username' => $user->username,
+                ':password' => $user->password
             ));
             $user = $this->mapToUser($stmt);
         } catch (PDOException $e) {

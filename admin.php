@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?php session_start();
-//require_once 'application/model.php';
 $user = unserialize($_SESSION['user']);
-if ($user != false) header('Location: /index.php');
+if ($user != false){
+    header('Location: /index.php');
+    $_SESSION['signInError'] = '';
+}
 
 ?>
 <html>
