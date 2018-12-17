@@ -3,7 +3,6 @@
 $user = unserialize($_SESSION['user']);
 if ($user != false){
     header('Location: /index.php');
-    $_SESSION['signInError'] = '';
 }
 
 ?>
@@ -13,7 +12,7 @@ if ($user != false){
     <?php
     include ("includes/header.php");
     include ("includes/nav.php");
-    include ("includes/section.php");
+//     include ("includes/section.php");
     ?>
     <div id="main">
 		<div id="login">
@@ -30,7 +29,7 @@ if ($user != false){
     <lable><?php echo $_SESSION['signInError']?></lable>
 	</div>
     <?php
-    include ("includes/aside.php");
+//     include ("includes/aside.php");
     include ("includes/footer.php");
     ?>
 </body>
