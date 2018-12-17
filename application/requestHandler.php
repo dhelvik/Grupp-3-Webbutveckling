@@ -20,6 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: '.checkLogin().'');
             die();
             break;
+            
+        case 'signOut':
+            header('Location: '.signOut().'');
+            die();
+            break;
+            
         case 'registerEntry':
             registerEntry();
             break;
@@ -42,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
         case 'reserveTickets':
             reserveTickets();
-            break;
+            break;   
     }
 }
 
@@ -83,13 +89,18 @@ function getEntries()
 function checkLogin(){
      $controller = new Controller();
      $user = $controller->signIn(new User($_POST['username'], $_POST['password']));
+
      if(is_null($user)){
         $_SESSION['signInError'] = 'Fel användare eller lösenord.';
         return '/admin.php';
      }else {
-         $_SESSION['user'] = $user->username;
+         $_SESSION['user'] = serialize($user);
          return "/admin.php";
      }
+}
+function signOut(){
+    $_SESSION['user'] = null;
+    return "/index.php";
 }
 
 function getEventTypes()

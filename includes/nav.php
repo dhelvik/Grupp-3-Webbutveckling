@@ -1,4 +1,8 @@
-﻿<nav id='nav'>
+﻿<?php session_start();
+require_once 'application/model.php';
+$user = unserialize($_SESSION['user']);
+?>
+<nav id='nav'>
     <ul class="phone-bar">
         <li><a href="#"><img src="bilder/mobile-nav-icon.png"></a>
             <ul class="navClass">
@@ -27,10 +31,14 @@
                 </li>
                 <li><a href="reservera-biljetter.php">Reservera Biljetter</a></li>
                 <li><a href="guestbook.php">Gästbok</a></li>
-                
+                <?php if ($user != false) {
+                    echo '<li><a>'.$user->username .'</a><ul><li><a onclick=document.getElementById("signOut").submit();>Logga ut</a></li></ul></li>';
+                    echo '<form id="signOut" action="application/requestHandler.php" method="post"><input type="hidden" name="ACTION" value="signOut"/></form>';
+                }?>  
             </ul>
         </li>
     </ul>
+   
 </nav>
 <script>
     window.onscroll = function() {
@@ -47,5 +55,7 @@
             navbar.classList.remove("sticky");
         }
     }
+
+    
 
 </script>
