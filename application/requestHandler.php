@@ -94,6 +94,7 @@ function checkLogin(){
         $_SESSION['signInError'] = 'Fel användare eller lösenord.';
         return '/admin.php';
      }else {
+         $_SESSION['signInError'] = '';
          $_SESSION['user'] = serialize($user);
          return "/admin.php";
      }
