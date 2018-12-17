@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'registerApplication':
             registerApplication();
             break;
-<<<<<<< HEAD
+
         case 'registerEntry':
             registerEntry();
             break;
@@ -19,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'checkLogin':
             header('Location: '.checkLogin().'');
             die();
-=======
-
+            break;
         case 'registerEntry':
             registerEntry();
             break;
@@ -31,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         case 'getEventTypes':
             getEventTypes();
->>>>>>> ba32c1975cd2a7e8a2018758e16258e08f997bdb
+
             break;
     }
 }
@@ -70,7 +69,6 @@ function getEntries()
     }
 }
 
-<<<<<<< HEAD
 function checkLogin(){
      $controller = new Controller();
      $user = $controller->signIn(new User($_POST['username'], $_POST['password']));
@@ -83,7 +81,6 @@ function checkLogin(){
      }
 }
 
-=======
 function getEventTypes()
 {
     try {
@@ -106,5 +103,5 @@ function getEvents()
         echo $e->getMessage();
     }
 }
->>>>>>> ba32c1975cd2a7e8a2018758e16258e08f997bdb
+
 ?>

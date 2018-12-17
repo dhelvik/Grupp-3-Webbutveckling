@@ -15,7 +15,7 @@
 				<label>Användarnamn :</label> 
 				<input id="name" name="username" placeholder="username" type="text">
 				<label>Lösenord :</label>
-				<input id="password" name="password" placeholder="**********" type="password"> 
+				<input id="password" name="password" placeholder="password" type="password"> 
 				<input name="submit" type="submit" value=" Login ">
 				<input name="ACTION" value="checkLogin" type="hidden">
 			</form>

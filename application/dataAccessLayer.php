@@ -204,8 +204,7 @@ class DataAccessLayer
         }
     }
     public function getEntries()
-    {
-        
+    {       
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT name, comment FROM Entry ORDER BY datetime DESC LIMIT 10');
@@ -234,8 +233,7 @@ class DataAccessLayer
         }
     }
     public function getEventForType($eventType)
-    {
-        
+    {     
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT * FROM Event WHERE eventName =:eventName');
