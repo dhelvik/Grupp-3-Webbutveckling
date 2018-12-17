@@ -30,7 +30,7 @@ if(mysqli_num_rows($result) > 0)
 {
  $output .= '
   <div class="table-responsive">
-   <table class="table table bordered">
+   <table id="example" class="table table bordered">
     <tr>
      <th>Mail</th>
      <th>firstName</th>
@@ -47,7 +47,7 @@ if(mysqli_num_rows($result) > 0)
                      <td class="firstName" data-mail1="'.$row["mail"].'" contenteditable>'.$row["firstName"].'</td>  
                      <td class="lastName" data-mail2="'.$row["mail"].'" contenteditable>'.$row["lastName"].'</td>
                      <td class="sectionName" data-section1="'.$row["sectionName"].'"data-mail4="'.$row["mail"].'" contenteditable>'.$row["sectionName"].'</td>  
-  
+                    
                      <td><button type="button" name="delete_btn" data-mail3="'.$row["mail"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
 
 

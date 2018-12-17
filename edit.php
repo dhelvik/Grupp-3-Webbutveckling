@@ -10,6 +10,8 @@ if($column_name == "sectionName"){
     if(mysqli_query($connect, $sql))
     {
         echo 'Data Updated';
+    } else{
+        echo 'Sektion finns ej';
     }
 }
 else{

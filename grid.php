@@ -4,7 +4,7 @@
   <title>Webslesson Tutorial</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" >
  </head>
  <body>
   <div class="container">
@@ -22,12 +22,9 @@
  </body>
 </html>
  <script>  
- $(document).ready(function(){  
 	 $(document).ready(function(){
-
 		 load_data();
-
-		
+				
 		 $('#search_text').keyup(function(){
 		  var search = $(this).val();
 		  if(search != '')
@@ -39,7 +36,6 @@
 		   load_data();
 		  }
 		 });
-		});
 	 function load_data(query)
 	 {
 	  $.ajax({
@@ -52,9 +48,9 @@
 	   }
 	  });
 	 }  
-	 function edit_data(mail, currSectionName, text, column_name)  
+	 function edit_dataSection(mail, currSectionName, text, column_name)  
      {  
-         
+         alert("Inne i section edit");
           $.ajax({  
                url:"edit.php",  
                method:"POST",  
@@ -93,7 +89,7 @@
           var sectionName = $(this).text();
           var currentSection = $(this).data("section1");  
          
-          edit_data(mail, currentSection, sectionName, "sectionName");  
+          edit_dataSection(mail, currentSection, sectionName, "sectionName");  
      });  
       $(document).on('click', '.btn_delete', function(){  
            var mail = $(this).data("mail3");  
@@ -114,3 +110,4 @@
       });  
  });  
  </script>
+ 
