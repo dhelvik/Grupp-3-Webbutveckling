@@ -33,8 +33,7 @@ class Controller
         $entries = $dal->getEntries();
         return $entries;
     }
-
-    public function signIn($user){
+    
     public function signIn($user)
     {
         $dal = new DataAccessLayer();
@@ -50,10 +49,12 @@ class Controller
         $eventTypes = $dal->getEventTypes();
         return $eventTypes;
     }
+    
     public function getEventsForType($eventType){
         $dal = new DataAccessLayer();
         $events = $dal->getEventForType($eventType);
         return $events;
+
     }
 
     public function getEventTypes()

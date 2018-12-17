@@ -111,7 +111,6 @@ class DataAccessLayer
             ));
             $section = $this->mapToSection($stmt);
         } catch (PDOException $e) {
-           // echo 'ERROR: ' . $e->getMessage();
             throw $e;
         } finally{
             return $section;
@@ -146,7 +145,6 @@ class DataAccessLayer
             ));
             $karevalistSection = $this->mapToKarnevalistSection($stmt);
         } catch (PDOException $e) {
-            //echo 'ERROR: ' . $e->getMessage();
             throw $e;
         } finally{
             return $karevalistSection;
@@ -164,7 +162,6 @@ class DataAccessLayer
                 ':password' => $user->password
             ));
         } catch (PDOException $e) {
-            //echo 'Error: ' . $e->getMessage();
             throw $e;
         } finally{
             $con = null;
@@ -233,12 +230,10 @@ class DataAccessLayer
             return $eventTypes;
             $con = null;
         }
-    }
-    public function getEventForType($eventType)
-    {     
+    }   
+
     public function getEventsForType($eventName)
     {
-        
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare("SELECT * FROM Event WHERE eventName = :eventName");
@@ -255,6 +250,7 @@ class DataAccessLayer
             $con = null;
         }
     }
+    
     public function getEventsForTypeDate($eventName, $eventDate)
     {
         
@@ -276,14 +272,9 @@ class DataAccessLayer
         }
     }
     public function reserveTickets($customerName, $customerEmail, $customerPhoneNbr, $eventName, $eventDate, $eventTime, $ticketQuantity)
-    {
-        
+    {       
         try {
-            
             $con = $this->createConnection();
-            
-            
-           
             if($this->getCustomer($customerEmail)){
             $stmt = $con->prepare("INSERT INTO Customer VALUES(:name,:email, :phoneNumber)");
             $stmt->execute(array(
@@ -300,9 +291,7 @@ class DataAccessLayer
                 ':eventDate' => $eventDate,
                 ':eventTime' => $eventTime,
                 ':ticketQuantity' => $ticketQuantity,
-            ));
-            
-            
+            ));   
         } catch (PDOException $e) {
             throw $e;
         } finally{

@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'registerApplication':
             registerApplication();
             break;
-
         case 'registerEntry':
             registerEntry();
             break;
@@ -20,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: '.checkLogin().'');
             die();
             break;
-
         case 'registerEntry':
             registerEntry();
             break;
@@ -31,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         case 'getEventTypes':
             getEventTypes();
-
             break;
             
         case 'getEventsForType':
