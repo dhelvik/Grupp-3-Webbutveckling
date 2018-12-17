@@ -203,8 +203,7 @@ class DataAccessLayer
         }
     }
     public function getEntries()
-    {
-        
+    {       
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare('SELECT name, comment FROM Entry ORDER BY datetime DESC LIMIT 10');
@@ -231,10 +230,10 @@ class DataAccessLayer
             return $eventTypes;
             $con = null;
         }
-    }
+    }   
+
     public function getEventsForType($eventName)
     {
-        
         try {
             $con = $this->createConnection();
             $stmt = $con->prepare("SELECT * FROM Event WHERE eventName = :eventName");
@@ -251,6 +250,7 @@ class DataAccessLayer
             $con = null;
         }
     }
+    
     public function getEventsForTypeDate($eventName, $eventDate)
     {
         
@@ -274,14 +274,9 @@ FROM Event e WHERE e.eventName = :eventName AND e.date = :eventDate");
         }
     }
     public function reserveTickets($customerName, $customerEmail, $customerPhoneNbr, $eventName, $eventDate, $eventTime, $ticketQuantity)
-    {
-        
+    {       
         try {
-            
             $con = $this->createConnection();
-            
-            
-           
             if($this->getCustomer($customerEmail)){
             $stmt = $con->prepare("INSERT INTO Customer VALUES(:name,:email, :phoneNumber)");
             $stmt->execute(array(
@@ -298,9 +293,7 @@ FROM Event e WHERE e.eventName = :eventName AND e.date = :eventDate");
                 ':eventDate' => $eventDate,
                 ':eventTime' => $eventTime,
                 ':ticketQuantity' => $ticketQuantity,
-            ));
-            
-            
+            ));   
         } catch (PDOException $e) {
             throw $e;
         } finally{

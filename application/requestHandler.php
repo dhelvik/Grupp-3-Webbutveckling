@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'checkLogin':
             header('Location: '.checkLogin().'');
             die();
-
+            break;
         case 'registerEntry':
             registerEntry();
             break;
@@ -144,4 +144,5 @@ function reserveTickets()
         echo $e->getMessage();
     }
 }
+
 ?>

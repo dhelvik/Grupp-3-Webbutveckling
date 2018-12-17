@@ -33,7 +33,7 @@ class Controller
         $entries = $dal->getEntries();
         return $entries;
     }
-
+    
     public function signIn($user)
     {
         $dal = new DataAccessLayer();
@@ -42,6 +42,19 @@ class Controller
         } catch (PDOException $e) {
             throw $e;
         }
+    }
+
+    public function getEventTypes(){
+        $dal = new DataAccessLayer();
+        $eventTypes = $dal->getEventTypes();
+        return $eventTypes;
+    }
+    
+    public function getEventsForType($eventType){
+        $dal = new DataAccessLayer();
+        $events = $dal->getEventForType($eventType);
+        return $events;
+
     }
 
     public function getEventTypes()
