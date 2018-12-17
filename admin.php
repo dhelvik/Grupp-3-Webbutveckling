@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<?php session_start();?>
+<?php session_start();
+//require_once 'application/model.php';
+$user = unserialize($_SESSION['user']);
+if ($user != false) header('Location: /index.php');
+
+?>
 <html>
 <?php include("includes/head.php");?>
 <body>
@@ -20,7 +25,7 @@
 				<input name="ACTION" value="checkLogin" type="hidden">
 			</form>
 		</div>
-    <lable><?php echo $_SESSION['user']; ?></lable>
+    <lable><?php echo $_SESSION['signInError']?></lable>
 	</div>
     <?php
     include ("includes/aside.php");
