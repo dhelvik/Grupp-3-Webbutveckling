@@ -11,6 +11,7 @@ if(isset($_POST["query"]))
   WHERE Karnevalist.firstName LIKE '%".$search."%'
   OR Karnevalist.lastName LIKE '%".$search."%' 
   OR Karnevalist.mail LIKE '%".$search."%' 
+  OR KarnevalistSection.sectionName LIKE '%".$search."%'
  
  ";
 }
