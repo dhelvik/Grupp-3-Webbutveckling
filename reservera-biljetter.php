@@ -20,23 +20,24 @@
 			<input id="inputPhoneNbr" type="text" name="phoneNbr"> <select
 				id="event" name="event"><option>Välj Event:</option>
 
-			</select> 
-			
-			<select id="date" name="date" disabled="true">
-			<option>Välj Datum:</option>
-			</select> 
-			
-			<select id="time" name="time" disabled="true">
+			</select> <select id="date" name="date" disabled="true">
+				<option>Välj Datum:</option>
+			</select> <select id="time" name="time" disabled="true">
 				<option>Välj Tid:</option>
 			</select> <select id="ticketQuantity" name="ticketQuantity">
-				<option value="1">1 Biljett</option>
-				<option value="2">2 Biljetter</option>
-				<option value="3">3 Biljetter</option>
-				<option value="4">4 Biljetter</option>
-				<option value="5">5 Biljetter</option>
-				<option value="6">6 Biljetter</option>
-			</select> <input type="submit" value="Reservera">
-			 <input name="ACTION" value="reserveTickets" type="hidden">
+				<option value=1>1 Biljett</option>
+				<option value=2>2 Biljetter</option>
+
+				<option value=3>3 Biljetter</option>
+
+				<option value=4>4 Biljetter</option>
+
+				<option value=5>5 Biljetter</option>
+				<option value=6>6 Biljetter</option>
+
+
+			</select> <input type="submit" value="Reservera"> <input
+				name="ACTION" value="reserveTickets" type="hidden">
 		</form>
 		<script>
 	$(document).ready(function(){
@@ -68,6 +69,7 @@
 		<script>
 	$('#event').change(function() {	  
 		$('#date').empty();
+		$('#time').empty();
 		var eventName = this.value;
 		$.ajax({
 			method: "POST",
@@ -80,9 +82,13 @@
 				$('#date').append($('<option>', {
 					text: 'Välj Datum:'
 				}));
+				$('#time').append($('<option>', {
+					text: 'Välj Tid:'
+				}));
 				jsonObj.forEach(function(item){
 					
 					$('#date').append($('<option>', {
+						data: item.remainingTickets,
 						value: item.date,
 						text: item.date
 					}));
@@ -98,7 +104,7 @@
 		});
 		});
 	</script>
-	<script>
+		<script>
 	$('#date').change(function() {	  
 		$('#time').empty();
 		var e = document.getElementById("event");
@@ -117,11 +123,15 @@
 					text: 'Välj Tid:'
 				}));
 				jsonObj.forEach(function(item){
-					
+					//alert(item.remainingTickets);
 					$('#time').append($('<option>', {
+						id: item.remainingTickets,
 						value: item.time,
-						text: item.time
+						text: item.time + ' - ' +item.remainingTickets + ' Biljetter kvar' ,
+						
+						
 					}));
+					 
 					 $('#time').removeAttr("disabled");
 			});
 			},
@@ -134,9 +144,14 @@
 		});
 		});
 	</script>
-	<script type="text/javascript">
+		
+		<script>
 	$(function(){
 		$("#reserveTickets").submit(function(e){
+		var ticketsRemaining = $("#time option:selected").attr('id');	
+		
+		if(ticketsRemaining >= $("#ticketQuantity option:selected").val()){
+		
 		e.preventDefault();
 			$.ajax({
 				method: "POST",
@@ -145,12 +160,18 @@
 				data: $("#reserveTickets").serialize(),
 				success: function(result){
 					alert(result);
+
 				},
 				error: function(xhr, status, error){
 					$('#labelEntryResponse').text('');
 					$('#labelEntryResponse').text(status);
 				}
+			
 			});
+		} else {
+			e.preventDefault();
+			alert("Det finns bara " + ticketsRemaining + " kvar");
+			}
 		});
 	});
 	</script>

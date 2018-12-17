@@ -256,7 +256,9 @@ class DataAccessLayer
         
         try {
             $con = $this->createConnection();
-            $stmt = $con->prepare("SELECT * FROM Event WHERE eventName = :eventName AND date = :eventDate");
+            $stmt = $con->prepare("SELECT e.eventName, e.date, e.time, (e.maxCapacity-
+                                     (SELECT COALESCE(SUM(ticketQuantity),0) FROM ticket t WHERE e.eventName = t.eventName AND t.eventDate = e.date AND t.eventTime = e.time)) as remainingTickets
+FROM Event e WHERE e.eventName = :eventName AND e.date = :eventDate");
             $stmt->execute(array(
                 ':eventName' => $eventName,
                 ':eventDate' => $eventDate,
@@ -328,14 +330,14 @@ class DataAccessLayer
     public function getRemainingSeats($eventName, $eventDate, $eventTime){
         try {
             $con = $this->createConnection();
-            $stmt = $con->prepare(" SELECT(SELECT maxCapacity FROM Event WHERE eventName = :eventName)-(SELECT SUM(ticketQuantity)FROM Event WHERE eventName = :$eventName AND eventDate = :eventDate AND eventTime = :eventTime)");   
+            $stmt = $con->prepare("SELECT(SELECT maxCapacity FROM Event WHERE eventName = :eventName)-(SELECT SUM(ticketQuantity)FROM Event WHERE eventName = :eventName AND eventDate = :eventDate AND eventTime = :eventTime)");   
 
             $stmt->execute(array(
                 ':eventName' => $eventName,
                 ':eventDate' => $eventDate,
                 ':eventTime' => $eventTime,
             ));
-            //Returnera värdet för antal lediga platser på denna föreställning
+            echo $stmt->fetchAll();
         } catch (PDOException $e) {
             throw $e;;
         } finally{
