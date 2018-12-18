@@ -18,16 +18,7 @@
     </div>
    </div>
    <br />
-    <div class="table-responsive">
-   <table id="example" class="table table bordered">
-    <tr>
-     <th>Mail</th>
-     <th>firstName</th>
-     <th>lastName</th>
-     <th>sectionName</th>
-     
-    </tr>
-    </table>
+  
  </body>
 </html>
 <script>

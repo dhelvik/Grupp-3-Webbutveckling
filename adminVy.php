@@ -3,16 +3,43 @@ session_start();?>
 <!DOCTYPE html>
 <html>
 <?php include("includes/head.php");?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" >
+  
 <body>
     <?php 
     include("includes/header.php");
     include("includes/nav.php");
     ?>
-    <div class="main">
+    <div class="main" width="80%">
     <input type="text" name="search" id="search"/>
     
-	<div id="result"></div>
-		<table id="table"></table>
+	 <div class="container">
+   <br />
+   <h2 align="center">Adminverktyg för Karnevalister</h2><br />
+   <div class="form-group">
+    <div class="input-group">
+     <span class="input-group-addon">Sök</span>
+     <input type="text" name="search_text" id="search_text" placeholder="Namn, mail eller sektion" class="form-control" />
+    </div>
+   </div>
+   <br />
+    <div class="table-responsive">
+   <table id="example" class="table table bordered">
+    <tr>
+     <th>Mail</th>
+     <th>firstName</th>
+     <th>lastName</th>
+     <th>sectionName</th>
+     
+    </tr>
+    
+    </table>
+    
+     </div>
+    </div>
     </div>
     <?php
 	include("includes/footer.php"); 
@@ -20,37 +47,38 @@ session_start();?>
 </body>
 </html>
 <script>
-function fetchResult() {
+function fetchResult(search) {
 	$.ajax({
 		type : "POST",
-		url : "/Vart den ska",
+		url : "application/adminRequestHandler.php",
 		data : {
-			ACTION : "fetchResult",
-			search : "värdet från sökfälet"	
+			ACTION : "getKarnevelister",
+			search : search,	
 		},
-		success : function(result "sätt att det returneras som json på serversidan ex. header('Content-Type: application/json'); finns på guestbook") {
-			list = document.getElementById("ID för tabellen där resultatet ska läggas till");
-			list.innerHTML = "";
-			result.forEach(populateListItem);
+		success : function(result) {
+			$('#example tbody').empty();
+
+		  	
+			   result.forEach(function(item){
+				   
+					$('#example tbody').append('<tr><td>'+item.mail+'</td><td>'+item.firstName+'</td><td>'+item.lastName+'</td><td>'+item.sectionName+'</td>'+
+							'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td>'+
+							'<td><button type="button" class="editbtn">Edit</button></td></tr>')
+				});
 		},
 		error : function(result) {
 			alert('hej');
 		}
 	});
 }
-function populateListItem(students) {
-	list = document.getElementById("ID för tabellen där resultatet ska läggas till");
-	list.innerHTML = list.innerHTML
-			+"<tr id='"+student.mail+"'>"
-			+"<td>"+ student.mail +"</td>" 
-            +"<td class='edit'>"+ student.firstName +"</td>"
-            +"<td class='edit'>"+ student.lastName +"</td>"
-            +"<td class='edit'>"+ student.sectionName +"</td>"
-            +"<td><button class='edit' type='button' value'"+student.mail+"' name='edit_btn'>edit</button></td>";
-			+"<td><button class='delete' type='button' name='delete_btn'>x</button></td>";
+
+function populateListItem(student) {
+	$('#example tbody').append('<tr><td>'+student.mail+'</td><td>'+student.firstName+'</td><td>'+student.lastName+'</td><td>'+student.sectionName+'</td>'+
+			'<td><button type="button" name="delete_btn" data-mail3="'+student.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td>'+
+			'<td><button type="button" class="editbtn">Edit</button></td></tr>');
 }
 function editRow(){
-	$(this).parent().siblings('.edit').attr("contenteditable", "true");
+	$(this).parent().siblings('.editbtn').attr("contenteditable", "true");
 }
 $(document).keypress(function(e){
     if(e.which == 13) {
@@ -58,5 +86,25 @@ $(document).keypress(function(e){
     }
 })
 $(document).on('click', '.edit', editRow);
+$(document).ready(function(){
+	 fetchResult();
+
+	 $('#search_text').keyup(function(){
+		  var search = $(this).val();
+		  
+		  if(search != '')
+		  {
+		   fetchResult(search);
+		  }
+		  else
+		  {
+		   fetchResult();
+		  }
+		 });
+
+	
+	
+	
+});  		
 
 </script>
