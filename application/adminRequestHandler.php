@@ -11,7 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         case 'updateKarnevalist':
             updateKarnevalist();
-            
+            break;
+        case 'deleteKarnevalist':
+            deleteKarnevalist();
             break;
     }
 }
@@ -41,6 +43,15 @@ function updateKarnevalist(){
     }catch(PDOException $e){
             echo $e->getMessage();
         }
+}
+function deleteKarnevalist(){
+    try{
+        $adminController = new AdminController();
+        $mail = $_POST['mail'];
+        $adminController->deleteKarnevalist($mail);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
 }
 
 

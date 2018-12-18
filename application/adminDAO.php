@@ -16,20 +16,22 @@ public function getKarnevalists($search){
         $con = $this->createConnection();
         
         if(isset($search)){
-            $stmt = $con->prepare("SELECT Karnevalist.firstName, Karnevalist.lastName, Karnevalist.mail, KarnevalistSection.sectionName
+            $stmt = $con->prepare("SELECT Karnevalist.firstName, Karnevalist.lastName, Karnevalist.mail, Karnevalist.phoneNumber, KarnevalistSection.sectionName
                                   FROM KarnevalistSection
                                   INNER JOIN Karnevalist ON KarnevalistSection.mail=Karnevalist.mail
-                                  WHERE Karnevalist.firstName LIKE '%".$search."%'
-                                  OR Karnevalist.lastName LIKE '%".$search."%'
-                                  OR Karnevalist.mail LIKE '%".$search."%'
-                                  OR KarnevalistSection.sectionName LIKE '%".$search."%'");
-         
-            $stmt->execute();
-            $karnevalister = $stmt->fetchAll();
+                                  WHERE Karnevalist.firstName LIKE '%' :search '%'
+                                  OR Karnevalist.lastName LIKE '%' :search '%'
+                                  OR Karnevalist.mail LIKE '%' :search '%'
+                                  OR KarnevalistSection.sectionName LIKE '%' :search '%'");
             
+            $stmt->execute(array(
+                
+                ':search' => $search
+            ));
+            $karnevalister = $stmt->fetchAll();
         }
        else{
-            $stmt = $con->prepare("SELECT Karnevalist.firstName, Karnevalist.lastName, Karnevalist.mail, KarnevalistSection.sectionName
+            $stmt = $con->prepare("SELECT Karnevalist.firstName, Karnevalist.lastName, Karnevalist.mail, Karnevalist.phoneNumber, KarnevalistSection.sectionName
                                 FROM KarnevalistSection
                                 INNER JOIN Karnevalist ON KarnevalistSection.mail=Karnevalist.mail
                                 ORDER BY mail");
@@ -54,13 +56,25 @@ public function updateKarnevalist($firstName, $lastName, $mail, $sectionName){
             ':lastName' => $lastName,
             ':mail' => $mail
         ));
-       $stmt->execute();
     }catch(PDOException $e){
            throw $e;
     }finally{
        // $con=null;
     }
     
+    
+}
+public function deleteKarnevalist($mail){
+    try{
+        $con = $this->createConnection();
+        $stmt = $con->prepare("DELETE FROM Karnevalist WHERE mail = :mail");
+        $stmt->execute(array(
+            ':mail'=> $mail
+        ));
+        
+    }catch(PDOException $e){
+        throw $e;
+    }
     
 }
 }

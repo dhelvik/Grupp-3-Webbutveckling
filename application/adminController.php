@@ -23,6 +23,14 @@ class AdminController
             
         }
     }
+    public function deleteKarnevalist($mail){
+        try{
+            $dao = new AdminDao();
+            $dao->deleteKarnevalist($mail);
+        }catch(PDOException $e){
+            throw $e;
+        }
+    }
         
 }
 ?>
