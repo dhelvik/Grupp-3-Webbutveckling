@@ -59,7 +59,7 @@ function fetchResult(search) {
 function populateListItem(item) {
 	$('#example tbody').append(
 			'<tr><td>'+item.mail+'</td><td class="editable">'+item.firstName+'</td>'
-			+'<td class="editable">'+item.lastName+'</td><td class="editable">'+item.phoneNumber+'</td><td>'+item.sectionName+'</td>'
+			+'<td class="editable">'+item.lastName+'</td><td class="editable">'+item.phoneNumber+'</td><td><select disabled="true"><option>'+item.sectionName+'</select></td>'
 			+'<td><button id="editbtn" type="button" class="editbtn btn btn-xs btn-info">Edit</button></td>'
 			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td></tr>');
 }
@@ -67,16 +67,20 @@ function editRow(){
     if ($(this).html() == 'Edit') {
     	$(this).removeClass('btn-info');
     	$(this).addClass('btn-success');
+       	$(this).parent().siblings().filter(":nth(4)").parent().prop("disabled", false);
+       	
+    	
 		$(this).parent().siblings(".editable").attr("contenteditable", "true");
     }else {	
+       	$(this).parent().siblings().filter(":nth(4)").parent().prop("disabled", true);
+        
 		$(this).addClass('btn-info');
         $(this).removeClass('btn-success');
        	$(this).parent().siblings().attr("contenteditable", "false");
         var mail = $(this).parent().siblings().filter(":first").text();
         var firstName = $(this).parent().siblings().filter(":nth(1)").text();
         var lastName = $(this).parent().siblings().filter(":nth(2)").text();
-        var sectionName = $(this).parent().siblings().filter(":nth(3)").text();
-            
+        var sectionName = $(this).parent().siblings().filter(":nth(4)").text();
         updateKarnevalist(firstName, lastName, mail, sectionName);
             
         	

@@ -5,6 +5,7 @@
     text-align: left;
     font-family: sans-serif;
     text-transform: uppercase;
+    
 }
 
 /*Phone Bar*/
@@ -33,7 +34,7 @@
 
 .navClass li {
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
 .navClass a {
