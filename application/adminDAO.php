@@ -47,18 +47,18 @@ public function getKarnevalists($search){
 public function updateKarnevalist($firstName, $lastName, $mail, $sectionName){
     
     try{
-        $con = $this->createConnetion();
-        $stmt = $con->prepare('UPDATE Karnevalist SET firstName = :firstName, lastName = :lastName WHERE mail = :mail');
+        $con = $this->createConnection();
+        $stmt = $con->prepare("UPDATE Karnevalist SET firstName = :firstName, lastName = :lastName WHERE mail = :mail");
         $stmt->execute(array(
             ':firstName' => $firstName,
             ':lastName' => $lastName,
             ':mail' => $mail
         ));
-        
+       $stmt->execute();
     }catch(PDOException $e){
            throw $e;
     }finally{
-        $con=null;
+       // $con=null;
     }
     
     

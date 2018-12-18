@@ -77,10 +77,7 @@ function editRow(){
     
 }
 function updateKarnevalist(firstName, lastName, mail, sectionName) {
-	console.log(firstName);
-	console.log(lastName);
-	console.log(mail);
-	console.log(sectionName);
+	
 	$.ajax({
 		type : "POST",
 		url : "application/adminRequestHandler.php",
