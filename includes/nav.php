@@ -32,7 +32,7 @@ $user = unserialize($_SESSION['user']);
                 <li><a href="reservera-biljetter.php">Reservera Biljetter</a></li>
                 <li><a href="guestbook.php">Gästbok</a></li>
                 <?php if ($user != false) {
-                    echo '<li><a>'.$user->username .'</a><ul><li><a onclick=document.getElementById("signOut").submit();>Logga ut</a></li></ul></li>';
+                    echo '<li><a>'.$user->username .'</a><ul><li><a href="adminVy.php">Karnevalister</a></li><li><a onclick=document.getElementById("signOut").submit();>Logga ut</a></li></ul></li>';
                     echo '<form id="signOut" action="application/requestHandler.php" method="post"><input type="hidden" name="ACTION" value="signOut"/></form>';
                 }?>  
             </ul>
