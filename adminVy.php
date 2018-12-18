@@ -82,10 +82,8 @@ function editRow(){
         var firstName = $(this).parent().siblings().filter(":nth(1)").text();
         var lastName = $(this).parent().siblings().filter(":nth(2)").text();
         var phoneNumber = $(this).parent().siblings().filter(":nth(3)").text();
-        var sectionName = $(this).parent().siblings().filter(":nth(4)").text();
+        var sectionName = $(this).parent().siblings().find('select').val();
         updateKarnevalist(firstName, lastName, mail, sectionName, phoneNumber);
-            
-        	
         	
     }
 	$(this).html($(this).html() == 'Edit' ? 'Save' : 'Edit')

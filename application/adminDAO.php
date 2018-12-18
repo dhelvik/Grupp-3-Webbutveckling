@@ -57,6 +57,13 @@ public function updateKarnevalist($firstName, $lastName, $mail, $sectionName, $p
             ':mail' => $mail,
             ':phoneNumber' => $phoneNumber
         ));
+        
+        $stmt = $con->prepare("UPDATE KarnevalistSection SET sectionName = :sectionName WHERE mail = :mail");
+        $stmt->execute(array(
+            
+            ':sectionName' => $sectionName,
+            ':mail' => $mail
+        ));
     }catch(PDOException $e){
            throw $e;
     }finally{
