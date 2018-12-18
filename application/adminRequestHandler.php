@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         case 'updateKarnevalist':
             updateKarnevalist();
+            
             break;
     }
 }
@@ -27,12 +28,16 @@ function getKarnevalister(){
     }
 }
 function updateKarnevalist(){
+    echo 'Inne i updateKarnevalist request';
     try{
-        $adminController = new AdminController();
+       
+        
+       $adminController = new AdminController();
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
         $mail = $_POST['mail'];
         $sectionName= $_POST['sectionName'];
+        //var_dump($firstName, $lastName, $mail, $sectionName);
         $adminController->updateKarnevalist($firstName, $lastName, $mail, $sectionName);
         
     }catch(PDOException $e){

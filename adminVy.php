@@ -42,7 +42,7 @@ function fetchResult(search) {
 		},
 		success : function(result) {
 			$('#example').empty();
-			$('#example').append('<tr><th>Mail</th><th>firstName</th><th>lastName</th><th>sectionName</th><th>delete</th><th>edit</th></tr>');
+			$('#example').append('<tr><th>Mail</th><th>firstName</th><th>lastName</th><th>sectionName</th><th>edit</th><th>delete</th></tr>');
 			result.forEach(populateListItem);
 		},
 		error : function(result) {
@@ -54,11 +54,50 @@ function populateListItem(item) {
 	$('#example tbody').append(
 			'<tr><td>'+item.mail+'</td><td>'+item.firstName+'</td>'
 			+'<td>'+item.lastName+'</td><td>'+item.sectionName+'</td>'
-			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td>'
-			+'<td><button type="button" class="editbtn">Edit</button></td></tr>');
+			+'<td><button type="button" class="editbtn btn btn-xs btn-info">Edit</button></td>'
+			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td></tr>');
 }
 function editRow(){
+    if ($(this).html() == 'Edit') {
+    	
 	$(this).parent().siblings().attr("contenteditable", "true");
+    }else {
+        	$(this).parent().siblings().attr("contenteditable", "false");
+            var mail = $(this).parent().siblings().filter(":first").text();
+            var firstName = $(this).parent().siblings().filter(":nth(1)").text();
+            var lastName = $(this).parent().siblings().filter(":nth(2)").text();
+            var sectionName = $(this).parent().siblings().filter(":nth(3)").text();
+            
+            updateKarnevalist(firstName, lastName, mail, sectionName);
+            
+        	
+        	
+    }
+	$(this).html($(this).html() == 'Edit' ? 'Save' : 'Edit')
+    
+}
+function updateKarnevalist(firstName, lastName, mail, sectionName) {
+	console.log(firstName);
+	console.log(lastName);
+	console.log(mail);
+	console.log(sectionName);
+	$.ajax({
+		type : "POST",
+		url : "application/adminRequestHandler.php",
+		data : {
+			ACTION : "updateKarnevalist",
+			mail : mail,
+			firstName: firstName,
+			lastName: lastName,
+			sectionName: sectionName,	
+		},
+		success : function(result) {
+			alert(result);
+		},
+		error : function(result) {
+			alert('hej');
+		}
+	});
 }
 $(document).keypress(function(e){
     if(e.which == 13) {

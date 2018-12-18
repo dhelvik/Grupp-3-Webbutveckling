@@ -48,18 +48,18 @@ public function updateKarnevalist($firstName, $lastName, $mail, $sectionName){
     
     try{
         $con = $this->createConnetion();
-        $stmt = $con->prepare("UPDATE Karnevalist 
-                                SET firstName = :firstName,
-                                SET lastName = :lastName,
-                                WHERE mail = :mail ");
+        $stmt = $con->prepare('UPDATE Karnevalist SET firstName = :firstName, lastName = :lastName WHERE mail = :mail');
         $stmt->execute(array(
-                            ':firstName' => $firstName,
-                            ':firstName' => $lastName,
-            ));
+            ':firstName' => $firstName,
+            ':lastName' => $lastName,
+            ':mail' => $mail
+        ));
         
     }catch(PDOException $e){
-            
-        }$con=null;
+           throw $e;
+    }finally{
+        $con=null;
+    }
     
     
 }
