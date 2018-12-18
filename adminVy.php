@@ -68,12 +68,11 @@ function editRow(){
     if ($(this).html() == 'Edit') {
     	$(this).removeClass('btn-info');
     	$(this).addClass('btn-success');
-       	$(this).parent().siblings().filter(":nth(4)").parent().prop("disabled", false);
-       	
+        $(this).parent().siblings().find('select').prop("disabled", false);
     	
 		$(this).parent().siblings(".editable").attr("contenteditable", "true");
     }else {	
-       	$(this).parent().siblings().filter(":nth(4)").parent().prop("disabled", true);
+        $(this).parent().siblings().find('select').prop("disabled", true);
         
 		$(this).addClass('btn-info');
         $(this).removeClass('btn-success');
