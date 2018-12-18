@@ -59,9 +59,10 @@ function fetchResult(search) {
 function populateListItem(item) {
 	$('#example tbody').append(
 			'<tr><td>'+item.mail+'</td><td class="editable">'+item.firstName+'</td>'
-			+'<td class="editable">'+item.lastName+'</td><td class="editable">'+item.phoneNumber+'</td><td><select disabled="true"><option>'+item.sectionName+'</select></td>'
+			+'<td class="editable">'+item.lastName+'</td><td class="editable">'+item.phoneNumber+'</td><td><select id="'+item.sectionName.toUpperCase()+'"disabled="true"><option value="ADMINSTERIT">Adminsterit</option><option value="BILJONSEN">Biljonsen</option><option value="BLÄDDERIET">Blädderiet</option><option value="DANSEN">Dansen</option></select></td>'
 			+'<td><button id="editbtn" type="button" class="editbtn btn btn-xs btn-info">Edit</button></td>'
 			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td></tr>');
+	$("#"+item.sectionName.toUpperCase()).val(item.sectionName.toUpperCase());
 	
 }
 function editRow(){
