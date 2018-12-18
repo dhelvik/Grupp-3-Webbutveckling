@@ -32,7 +32,7 @@
 			$.ajax({
 				method: "POST",
 				url: "application/requestHandler.php", 
-				datatype: 'json',
+				datatype: 'application/json',
 				data: $("#guestBookForm").serialize(),
 				success: function(result){
 					$('#labelEntryResponse').text('');
