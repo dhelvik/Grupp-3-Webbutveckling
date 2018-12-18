@@ -44,17 +44,12 @@ if(mysqli_num_rows($result) > 0)
   $output .= '
                     <tr>
                      <td>'.$row["mail"].'</td>  
-                     <td class="firstName" data-mail1="'.$row["mail"].'" contenteditable>'.$row["firstName"].'</td>  
-                     <td class="lastName" data-mail2="'.$row["mail"].'" contenteditable>'.$row["lastName"].'</td>
-                     <td class="sectionName" data-section1="'.$row["sectionName"].'"data-mail4="'.$row["mail"].'" contenteditable>'.$row["sectionName"].'</td>  
+                     <td class="firstName" data-mail1="'.$row["mail"].' contenteditable="false" >'.$row["firstName"].'</td>  
+                     <td class="lastName" data-mail2="'.$row["mail"].' contenteditable="false" >'.$row["lastName"].'</td>
+                     <td class="sectionName" data-section1="'.$row["sectionName"].'"data-mail4='.$row["mail"].' contenteditable="false" >'.$row["sectionName"].'</td>  
                     
                      <td><button type="button" name="delete_btn" data-mail3="'.$row["mail"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
-
-
-
-
-   </tr>
-  ';
+                     <td><button type="button" class="editbtn">Edit</button></td> </tr>';
  }
  echo $output;
 }
