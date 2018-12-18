@@ -56,7 +56,7 @@ function registerApplication()
 {
     try {
         $controller = new Controller();
-        $controller->registerApplication(new Karnevalist($_POST['firstName'], $_POST['lastName'], $_POST['mail'], $_POST['phoneNumber']), new Section($_POST['sectionName']));
+        $controller->registerApplication(new Karnevalist(htmlspecialchars($_POST['firstName']), htmlspecialchars($_POST['lastName']), htmlspecialchars($_POST['mail']), htmlspecialchars($_POST['phoneNumber'])), new Section(htmlspecialchars($_POST['sectionName'])));
         echo 'Tack för ansökan ' . $_POST['firstName'];
     } catch (PDOException $e) {
         echo 'Den här epostadressen har redan ansökt till vald sektion.';
@@ -68,7 +68,7 @@ function registerEntry()
     try {
         $controller = new Controller();
         $datetime = date("y-m-d h:i:s");
-        $controller->registerEntry(new Entry($_POST['name'], $_POST['email'], $_POST['comment'], $datetime));
+        $controller->registerEntry(new Entry(htmlspecialchars($_POST['name']), htmlspecialchars($_POST['email']), htmlspecialchars($_POST['comment']), $datetime));
         echo 'Tack för ditt inlägg ' . $_POST['name'];
     } catch (PDOException $e) {
         echo $e->getMessage();
