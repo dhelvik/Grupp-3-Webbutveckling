@@ -16,9 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 function getKarnevalister(){
     try {
-        
         $adminController = new AdminController();
-        $search = $_POST['query'];
+        $search = $_POST['search'];
         header('Content-Type: application/json');
         $karnevalister = $adminController->getKarnevalists($search);
         echo json_encode($karnevalister);

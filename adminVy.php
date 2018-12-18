@@ -13,33 +13,18 @@ session_start();?>
     include("includes/header.php");
     include("includes/nav.php");
     ?>
-    <div class="main" width="80%">
-    <input type="text" name="search" id="search"/>
-    
-	 <div class="container">
-   <br />
-   <h2 align="center">Adminverktyg för Karnevalister</h2><br />
-   <div class="form-group">
-    <div class="input-group">
-     <span class="input-group-addon">Sök</span>
-     <input type="text" name="search_text" id="search_text" placeholder="Namn, mail eller sektion" class="form-control" />
-    </div>
-   </div>
-   <br />
-    <div class="table-responsive">
-   <table id="example" class="table table bordered">
-    <tr>
-     <th>Mail</th>
-     <th>firstName</th>
-     <th>lastName</th>
-     <th>sectionName</th>
-     
-    </tr>
-    
-    </table>
-    
-     </div>
-    </div>
+    <div class="container" width="80%">
+   		<h2 align="center">Adminverktyg för Karnevalister</h2>
+   		<div class="form-group">
+    		<div class="input-group">
+     			<span class="input-group-addon">Sök</span>
+     			<input type="text" name="search_text" id="search_text" placeholder="Namn, mail eller sektion" class="form-control" />
+    		</div>
+  		</div>
+    	<div class="table-responsive">
+   			<table id="example" class="table table bordered">
+   			</table>
+   		</div>
     </div>
     <?php
 	include("includes/footer.php"); 
@@ -53,58 +38,53 @@ function fetchResult(search) {
 		url : "application/adminRequestHandler.php",
 		data : {
 			ACTION : "getKarnevelister",
-			search : search,	
+			search : search	
 		},
 		success : function(result) {
-			$('#example tbody').empty();
-
-		  	
-			   result.forEach(function(item){
-				   
-					$('#example tbody').append('<tr><td>'+item.mail+'</td><td>'+item.firstName+'</td><td>'+item.lastName+'</td><td>'+item.sectionName+'</td>'+
-							'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td>'+
-							'<td><button type="button" class="editbtn">Edit</button></td></tr>')
-				});
+			$('#example').empty();
+			$('#example').append('<tr><th>Mail</th><th>firstName</th><th>lastName</th><th>sectionName</th><th>delete</th><th>edit</th></tr>');
+			result.forEach(populateListItem);
 		},
 		error : function(result) {
 			alert('hej');
 		}
 	});
 }
-
-function populateListItem(student) {
-	$('#example tbody').append('<tr><td>'+student.mail+'</td><td>'+student.firstName+'</td><td>'+student.lastName+'</td><td>'+student.sectionName+'</td>'+
-			'<td><button type="button" name="delete_btn" data-mail3="'+student.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td>'+
-			'<td><button type="button" class="editbtn">Edit</button></td></tr>');
+function populateListItem(item) {
+	$('#example tbody').append(
+			'<tr><td>'+item.mail+'</td><td>'+item.firstName+'</td>'
+			+'<td>'+item.lastName+'</td><td>'+item.sectionName+'</td>'
+			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td>'
+			+'<td><button type="button" class="editbtn">Edit</button></td></tr>');
 }
 function editRow(){
-	$(this).parent().siblings('.editbtn').attr("contenteditable", "true");
+	$(this).parent().siblings().attr("contenteditable", "true");
 }
 $(document).keypress(function(e){
     if(e.which == 13) {
-        fetchResult();
+    	var search = $('#search_text').val();
+    	alert(search); 
+        fetchResult(search);
     }
 })
-$(document).on('click', '.edit', editRow);
-$(document).ready(function(){
-	 fetchResult();
+$(document).on('click', '.editbtn', editRow);
+$(document).ready(fetchResult());
+// $(document).ready(function(){
+// 	 fetchResult();
 
-	 $('#search_text').keyup(function(){
-		  var search = $(this).val();
+// 	 $('#search_text').keyup(function(){
+// 		  var search = $(this).val();
 		  
-		  if(search != '')
-		  {
-		   fetchResult(search);
-		  }
-		  else
-		  {
-		   fetchResult();
-		  }
-		 });
+// 		  if(search != '')
+// 		  {
+// 		   fetchResult(search);
+// 		  }
+// 		  else
+// 		  {
+// 		   fetchResult();
+// 		  }
+// 		 });
 
-	
-	
-	
-});  		
+// });  		
 
 </script>
