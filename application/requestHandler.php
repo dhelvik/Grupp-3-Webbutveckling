@@ -80,6 +80,7 @@ function getEntries()
     try {
         $controller = new Controller();
         $entries = $controller->getEntries();
+        header('Content-Type: application/json');   
         echo json_encode($entries);
     } catch (PDOException $e) {
         echo $e->getMessage();

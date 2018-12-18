@@ -16,11 +16,9 @@
 				method: "POST",
 				url: "application/requestHandler.php", 
 				data: {'ACTION': 'getEntries'},
-				datatype: 'json',
+				datatype: 'application/json',
 				success: function(result){
-					
-					jsonObj = JSON.parse(result);
-					jsonObj.forEach(function(item){
+					result.forEach(function(item){
 							$('#entries tbody').append('<tr><td>'+item.name+'</td><td>'+item.comment+'</td></tr>')
 						});
 					
