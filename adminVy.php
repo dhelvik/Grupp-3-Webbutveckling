@@ -65,19 +65,19 @@ function populateListItem(item) {
 }
 function editRow(){
     if ($(this).html() == 'Edit') {
-    	$('#editbtn').removeClass('btn-info');
-    	$('#editbtn').addClass('btn-success');
+    	$(this).removeClass('btn-info');
+    	$(this).addClass('btn-success');
 		$(this).parent().siblings(".editable").attr("contenteditable", "true");
     }else {	
-		$('#editbtn').addClass('btn-info');
-        $('#editbtn').removeClass('btn-success');
+		$(this).addClass('btn-info');
+        $(this).removeClass('btn-success');
        	$(this).parent().siblings().attr("contenteditable", "false");
         var mail = $(this).parent().siblings().filter(":first").text();
         var firstName = $(this).parent().siblings().filter(":nth(1)").text();
         var lastName = $(this).parent().siblings().filter(":nth(2)").text();
         var sectionName = $(this).parent().siblings().filter(":nth(3)").text();
             
-            updateKarnevalist(firstName, lastName, mail, sectionName);
+        updateKarnevalist(firstName, lastName, mail, sectionName);
             
         	
         	
@@ -103,7 +103,6 @@ function updateKarnevalist(firstName, lastName, mail, sectionName) {
 			sectionName: sectionName,	
 		},
 		success : function(result) {
-			alert(result);
 		},
 		error : function(result) {
 			alert('hej');
@@ -136,7 +135,6 @@ function deleteKarnevalist(mail) {
 $(document).keypress(function(e){
     if(e.which == 13) {
     	var search = $('#search_text').val();
-    	alert(search); 
         fetchResult(search);
     }
 })
