@@ -14,10 +14,10 @@ class AdminController
             
         }
     }
-    public function updateKarnevalist($firstName, $lastName, $mail, $sectionName){
+    public function updateKarnevalist($firstName, $lastName, $mail, $sectionName, $phoneNumber){
         try{
             $dao = new AdminDao();
-            $dao->updateKarnevalist($firstName, $lastName, $mail, $sectionName);
+            $dao->updateKarnevalist($firstName, $lastName, $mail, $sectionName, $phoneNumber);
         }catch(PDOException $e){
             throw $e;
             

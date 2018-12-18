@@ -62,6 +62,7 @@ function populateListItem(item) {
 			+'<td class="editable">'+item.lastName+'</td><td class="editable">'+item.phoneNumber+'</td><td><select disabled="true"><option>'+item.sectionName+'</select></td>'
 			+'<td><button id="editbtn" type="button" class="editbtn btn btn-xs btn-info">Edit</button></td>'
 			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td></tr>');
+	
 }
 function editRow(){
     if ($(this).html() == 'Edit') {
@@ -80,8 +81,9 @@ function editRow(){
         var mail = $(this).parent().siblings().filter(":first").text();
         var firstName = $(this).parent().siblings().filter(":nth(1)").text();
         var lastName = $(this).parent().siblings().filter(":nth(2)").text();
+        var phoneNumber = $(this).parent().siblings().filter(":nth(3)").text();
         var sectionName = $(this).parent().siblings().filter(":nth(4)").text();
-        updateKarnevalist(firstName, lastName, mail, sectionName);
+        updateKarnevalist(firstName, lastName, mail, sectionName, phoneNumber);
             
         	
         	
@@ -94,7 +96,7 @@ function deleteRow(){
 	 deleteKarnevalist(mail);
 	 
 }
-function updateKarnevalist(firstName, lastName, mail, sectionName) {
+function updateKarnevalist(firstName, lastName, mail, sectionName, phoneNumber) {
 	
 	$.ajax({
 		type : "POST",
@@ -104,7 +106,8 @@ function updateKarnevalist(firstName, lastName, mail, sectionName) {
 			mail : mail,
 			firstName: firstName,
 			lastName: lastName,
-			sectionName: sectionName,	
+			sectionName: sectionName,
+			phoneNumber: phoneNumber,
 		},
 		success : function(result) {
 		},

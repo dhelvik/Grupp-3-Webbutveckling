@@ -38,7 +38,8 @@ function updateKarnevalist(){
         $lastName = $_POST['lastName'];
         $mail = $_POST['mail'];
         $sectionName= $_POST['sectionName'];
-        $adminController->updateKarnevalist($firstName, $lastName, $mail, $sectionName);
+        $phoneNumber = $_POST['phoneNumber'];
+        $adminController->updateKarnevalist($firstName, $lastName, $mail, $sectionName, $phoneNumber);
         
     }catch(PDOException $e){
             echo $e->getMessage();
