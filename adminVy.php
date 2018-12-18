@@ -50,7 +50,7 @@ function populateListItem(students) {
 			+"<td><button class='delete' type='button' name='delete_btn'>x</button></td>";
 }
 function editRow(){
-	$(this).siblings('.edit').attr("contenteditable", "true");
+	$(this).parent().siblings('.edit').attr("contenteditable", "true");
 }
 $(document).keypress(function(e){
     if(e.which == 13) {
