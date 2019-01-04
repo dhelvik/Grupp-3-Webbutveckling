@@ -1,54 +1,101 @@
 <?php
-class Karnevalist{
+
+class Karnevalist
+{
+
     public $firstName;
+
     public $lastName;
+
     public $mail;
+
     public $phoneNumber;
-    
-    
-    public function __construct($firstName, $lastName, $mail, $phoneNumber){
+
+    public function __construct($firstName, $lastName, $mail, $phoneNumber)
+    {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->mail = $mail;
         $this->phoneNumber = $phoneNumber;
     }
 }
-class KarnevalistSection{
+
+class KarnevalistSection
+{
+
     public $mail;
+
     public $sectionName;
-    
-    public function __construct($mail, $sectionName){
+
+    public function __construct($mail, $sectionName)
+    {
         $this->mail = $mail;
         $this->sectionName = $sectionName;
     }
 }
-class Section{
+
+class Section
+{
+
     public $sectionName;
-    
-    public function __construct($sectionName){
+
+    public function __construct($sectionName)
+    {
         $this->sectionName = $sectionName;
     }
 }
-class User{
+
+class User
+{
+
     public $username;
+
     public $password;
-    
-    public function __construct($username, $password){
+
+    public function __construct($username, $password)
+    {
         $this->username = $username;
-        $this->password = $password;    
+        $this->password = $password;
     }
 }
-class Entry{
+
+class Entry
+{
+
     public $name;
+
     public $email;
+
     public $comment;
+
     public $datetime;
-    
-    public function __construct($name, $email, $comment, $datetime){
+
+    public function __construct($name, $email, $comment, $datetime)
+    {
         $this->name = $name;
         $this->email = $email;
         $this->comment = $comment;
         $this->datetime = $datetime;
+    }
+}
+
+class Question
+{
+    
+    public $QID;
+    
+    public $name;
+    
+    public $mail;
+    
+    public $question;
+    
+    public function __construct($QID, $name, $mail, $question)
+    {
+        $this->QID = $QID;
+        $this->name = $name;
+        $this->mail = $mail;
+        $this->question = $question;
     }
 }
 ?>

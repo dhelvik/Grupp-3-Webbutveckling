@@ -10,12 +10,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'registerApplication':
             registerApplication();
             break;
+            
         case 'registerEntry':
             registerEntry();
             break;
+            
         case 'getEntries':
             getEntries();
             break;
+            
         case 'checkLogin':
             header('Location: '.checkLogin().'');
             die();
@@ -48,7 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
         case 'reserveTickets':
             reserveTickets();
-            break;   
+            break;
+            
+        case 'registerQuestion':
+            registerQuestion();
+            break;
     }
 }
 
@@ -158,6 +165,18 @@ function reserveTickets()
         
         
         echo $customerName;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+function registerQuestion(){
+    try {
+        $controller = new Controller();
+        $name = $_POST['name'];
+        $mail = $_POST['mail'];
+        $question = $_POST['question'];
+        $controller->registerQuestion($name, $mail, $question);
     } catch (PDOException $e) {
         echo $e->getMessage();
     }

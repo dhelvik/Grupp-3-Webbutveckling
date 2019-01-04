@@ -324,8 +324,7 @@ FROM Event e WHERE e.eventName = :eventName AND e.date = :eventDate");
     public function getRemainingSeats($eventName, $eventDate, $eventTime){
         try {
             $con = $this->createConnection();
-            $stmt = $con->prepare("SELECT(SELECT maxCapacity FROM Event WHERE eventName = :eventName)-(SELECT SUM(ticketQuantity)FROM Event WHERE eventName = :eventName AND eventDate = :eventDate AND eventTime = :eventTime)");   
-
+            $stmt = $con->prepare("SELECT(SELECT maxCapacity FROM Event WHERE eventName = :eventName)-(SELECT SUM(ticketQuantity)FROM Event WHERE eventName = :eventName AND eventDate = :eventDate AND eventTime = :eventTime)");
             $stmt->execute(array(
                 ':eventName' => $eventName,
                 ':eventDate' => $eventDate,
@@ -337,7 +336,22 @@ FROM Event e WHERE e.eventName = :eventName AND e.date = :eventDate");
         } finally{
             $con = null;
         }
-        
+    }
+    public function registerQuestion($name, $mail, $question){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('INSERT INTO Question(name, mail, question) VALUES(:name, :mail, :question)');
+            $stmt->execute(array(
+                ':name' => $name,
+                ':mail' => $mail,
+                ':question' => $question
+            ));
+        } catch (PDOException $e) {
+            throw $e;
+        }
+        finally {
+            $con = null;
+        }
     }
 }
 ?>

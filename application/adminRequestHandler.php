@@ -1,6 +1,6 @@
 <?php
 include 'adminController.php';
-include 'model.php';
+
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {}
 
@@ -14,6 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         case 'deleteKarnevalist':
             deleteKarnevalist();
+            break;
+        case 'sendResponse':
+            sendResponse();
             break;
     }
 }
@@ -31,8 +34,6 @@ function getKarnevalister(){
 }
 function updateKarnevalist(){
     try{
-       
-        
         $adminController = new AdminController();
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
@@ -53,6 +54,20 @@ function deleteKarnevalist(){
     }catch(PDOException $e){
         echo $e->getMessage();
     }
+}
+function sendResponse(){
+    try {
+        $dao = new AdminDao();
+        $QID=$_POST['id'];
+        $answer=$_POST['answer'];
+        $mail =$_POST['mail'];
+        $dao->deleteQuestion($QID);
+        // HAR INTE LÖST SÅ ATT SVARET SKICKAS VIA MAIL
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+        
+
 }
 
 

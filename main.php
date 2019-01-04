@@ -1,13 +1,13 @@
 <div id="main">
     <div id="main-content">
-        <button class="container-shadow">KÖP BILJETTER</button>
+        <button class="main container-shadow">KÖP BILJETTER</button>
     </div>
     <div class="main-info">
         <h1>KARNEVALSVÄNNER</h1>
         <p>Snart är äntligen den långa väntan över och vi får återigen, gammal som ung, fira Lundakarneval tillsammans. Imaginalkarneval 2018 har lagt sig i dåtiden i raden av karnevalsminnen och vi är nu beredda att fantisera om vår Futuralkarneval som tar plats 18-20 maj 2022! Karnevalskommittén har arbetat sedan dess att de blev valda i februari och det intensiva arbetet fortskrider väl. För att göra karnevalen till det oförglömliga minne vi alla strävar efter behöver vi även denna gång ekonomiska garantier. Vi vänder oss nu till Er med önskan om att ni i Er godhet måtte vara med och teckna en sådan garanti. Hittills har karnevalen aldrig behövt ta någon sådan garantisumma i anspråk. Utan stöd av tillräckliga garantier kan vi dock svårligen sjösätta ett projekt av Lundakarnevalens storlek, därför är ert förtroende mycket uppskattat.</p>
     </div>
     <div id="main-map">
-        <button class="container-shadow">HITTA HIT</button>
+        <button class="container-shadow main">HITTA HIT</button>
     </div>
     <div class="main-info">
         <div class="half-div">

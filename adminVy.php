@@ -50,7 +50,7 @@ function fetchResult(search) {
 		},
 		success : function(result) {
 			$('#example').empty();
-			$('#example').append('<tr><th>Mail</th><th>firstName</th><th>lastName</th><th>phoneNumber</th><th>sectionName</th><th>edit</th><th>delete</th></tr>');
+			$('#example').append('<tr><th>Mail</th><th>Förnamn</th><th>Efternamn</th><th>Telefonnummer</th><th>Sektion</th><th>Ändra</th><th>Ta bort</th></tr>');
 			result.forEach(populateListItem);
 		},
 		error : function(result) {

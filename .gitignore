@@ -359,3 +359,6 @@
 .metadata/.plugins/org.eclipse.ltk.ui.refactoring/dialog_settings.xml
 adminView.php
 newView.php
+.settings/.jsdtscope
+.settings/org.eclipse.wst.jsdt.ui.superType.container
+.settings/org.eclipse.wst.jsdt.ui.superType.name

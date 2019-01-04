@@ -87,5 +87,13 @@ class Controller
             throw $e;
         }
     }
+    public function registerQuestion($name, $mail, $question){
+        try {
+            $dal = new DataAccessLayer();
+            $dal->registerQuestion($name, $mail, $question);
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
 }
 ?>
