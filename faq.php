@@ -32,6 +32,7 @@
                     <textarea id="question" name="question" style="width: 100%"></textarea>
                     <input name="ACTION" value="registerQuestion" type="hidden">
                     <input type="submit" value="Skicka">
+                    <label id="answer"></label>
                 </form>
             </div>
         </div>
@@ -45,7 +46,7 @@
 			datatype: 'json',
 			data: $("#faq-form").serialize(), 
 			success: function(result){
-				alert(result);
+				
 			},
 			error: function(xhr, status, error){
 			}
