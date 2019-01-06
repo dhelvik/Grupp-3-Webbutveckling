@@ -102,7 +102,7 @@ a {
     color:#f4376d;
 }
 
-table{
+#question{
 	border-collapse: collapse;
   	width: 100%;
   	background-color: white;
@@ -110,16 +110,16 @@ table{
   	font-size: 14px;
 }
 
-th, td {
+#question th, td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 #question tr:nth-child(4n+2), #question tr:nth-child(4n+3){background-color: #f2f2f2;}
 
-table tr:hover {background-color: #ddd;}
+#question tr:hover {background-color: #ddd;}
 
-table th {
+#question th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
