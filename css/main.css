@@ -101,9 +101,34 @@ button.main:hover {
 a {
     color:#f4376d;
 }
+table{
+	border-collapse: collapse;
+  	width: 100%;
+  	background-color: white;
+  	color: black;
+  	font-size: 14px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+#question tr:nth-child(4n+2), #question tr:nth-child(4n+3){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  
+  background-color: white;
+  color: black;
+}
 
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
     .half-div{
         width: 100%;
     }
