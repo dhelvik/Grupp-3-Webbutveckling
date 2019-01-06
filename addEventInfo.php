@@ -39,6 +39,7 @@ session_start();
 	</form>
 	</tr>
 	</table>
+	<label id="labelResponse"></label>
 	 <script type="text/javascript">
 	$(function(){
 		$("#eventInfo").submit(function(e){
@@ -52,11 +53,18 @@ session_start();
 				processData: false,
 		        contentType: false,
 				success: function(result){
-				
-					alert(result)
+					
+					if(result === 'Success') {
+						$('#labelResponse').empty();
+						$('#labelResponse').append("Information tillagd.");
+						}
+					else{
+						$('#labelResponse').empty();
+						$('#labelResponse').append("Något fel");
+						}
 				},
 				error: function(xhr, status, error){
-					alert(status)
+					
 				}
 			});
 		});

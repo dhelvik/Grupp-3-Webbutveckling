@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'addEventInfo';
             addEventInfo();
             break;
+        case 'sendAdminEmail';
+            sendEmail();
+            break;
     }
 }
 function getKarnevalister(){
@@ -80,7 +83,7 @@ function addEventInfo(){
             $fileName = $_FILES['image']['name'];
             $fileSize = $_FILES['image']['size'];
             $tmpName = $_FILES['image']['tmp_name'];
-            $fileType = $_FILES['image']['type'];
+           // $fileType = $_FILES['image']['type'];
             $fileExt=strtolower(end(explode('.',$_FILES['image']['name'])));
             $filePath = "bilder/".$fileName;
             
@@ -124,6 +127,17 @@ function addEventInfoToDB($imgName, $imgPath){
         echo $e->getMessage();
     }
 }
+function sendEmail(){ 
+    try{
+    $emails = $_POST['emails'];
+    $message = $_POST['message'];
+    
+    sendAdminEmail($message, $emails);
+    
+    
+} catch (Exception $e) {
+    echo $e->getMessage();
+}}
 
 
 ?>

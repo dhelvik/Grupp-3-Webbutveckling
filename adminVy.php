@@ -33,12 +33,68 @@ session_start();
 			<table id="example" class="table table bordered">
 			</table>
 		</div>
+		
+		<button id="showMailArea" class="btn-info" type="button">Skicka Mail</button>
+		<div id="mailArea" style="display:none;align:center;">
+		<textarea id="message" rows="5" cols="60"></textarea>
+		<button id="sendMail" class="btn-success" type="button" action="sendMail">Skicka</button>
+		</div>
 	</div>
     <?php
     include ("includes/footer.php");
     ?>
 </body>
 </html>
+<script>
+	  $("#sendMail").click(function(){
+		  var arr = [];
+		  $("#example tr:not(:first-child)").each(function(){
+			    var mail = $(this).find("td:first").text();
+		      	arr.push(mail);
+		      	
+		  });
+		  var message = $('#message').val();
+		  
+		  $.ajax({
+			  
+				type : "POST",
+				url : "application/adminRequestHandler.php",
+				data : {
+					ACTION : "sendAdminEmail",
+					message : message,
+					emails : arr,	
+				},
+				success : function(result) {
+					alert('gick bra');
+				},
+				error : function(result) {
+					alert('hej');
+				}
+			});
+	  });
+
+</script>
+<script>
+	  $("#showMailArea").click(function(){
+			$('#mailArea').toggle();
+			  
+		if ($(this).html() == 'Skicka Mail') {
+			
+		    	$(this).addClass('btn-danger');
+		    	$(this).removeClass('btn-info');
+		    	$('textarea').val('');
+		    	
+		}else {
+
+			
+			$(this).removeClass('btn-danger');
+	    	$(this).addClass('btn-info');
+		}
+		$(this).html($(this).html() == 'Skicka Mail' ? 'Avbryt' : 'Skicka Mail')
+		
+	  });
+
+</script>
 <script>
 function fetchResult(search) {
 	$.ajax({
