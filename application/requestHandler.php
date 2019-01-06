@@ -29,13 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die();
             break;
             
-        case 'registerEntry':
-            registerEntry();
-            break;
-
-        case 'getEntries':
-            getEntries();
-            break;
+        
 
         case 'getEventTypes':
             getEventTypes();
@@ -55,6 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
         case 'registerQuestion':
             registerQuestion();
+            break;
+            
+        case 'getAside':
+            getAside();
             break;
     }
 }
@@ -177,6 +175,17 @@ function registerQuestion(){
         $mail = $_POST['mail'];
         $question = $_POST['question'];
         $controller->registerQuestion($name, $mail, $question);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+function getAside()
+{
+    try {
+        $controller = new Controller();
+        $aside = $controller->getAside();
+        header('Content-Type: application/json; charset=UTF-8');
+        echo json_encode($aside);
     } catch (PDOException $e) {
         echo $e->getMessage();
     }

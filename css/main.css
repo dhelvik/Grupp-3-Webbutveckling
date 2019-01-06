@@ -101,8 +101,15 @@ button.main:hover {
 a {
     color:#f4376d;
 }
+#main > #login {
+	width:100%;
+	padding-left:10em;
+	padding-right:10em;
+}
 
-
+#login h2{
+	text-align:center;
+}
 @media only screen and (max-width: 1023px) {
     .half-div{
         width: 100%;

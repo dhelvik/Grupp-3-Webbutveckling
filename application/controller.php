@@ -95,5 +95,16 @@ class Controller
             throw $e;
         }
     }
+    public function getAside(){
+        try{
+            $dal = new DataAccessLayer();
+            $aside = $dal->getAside();
+            return $aside;
+            
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+        
 }
 ?>

@@ -353,5 +353,19 @@ FROM Event e WHERE e.eventName = :eventName AND e.date = :eventDate");
             $con = null;
         }
     }
+    public function getAside(){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT heading, eventInfo, imgPath FROM Aside ORDER BY id DESC LIMIT 3');
+            $stmt->execute();
+            $aside = $stmt->fetchAll();
+            return $aside;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+        finally {
+            $con = null;
+        }
+    }
 }
 ?>

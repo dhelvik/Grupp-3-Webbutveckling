@@ -52,5 +52,14 @@ class AdminController
             throw $e;
         }
     }
+    public function addEventInfoToDB($heading, $eventInfo, $imgName, $imgPath)
+    {
+        try {
+            $dao = new AdminDao();
+            $dao->addEventsInfoToDB($heading, $eventInfo, $imgName, $imgPath);
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
 }
 ?>
