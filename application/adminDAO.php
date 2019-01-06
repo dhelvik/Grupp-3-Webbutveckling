@@ -113,5 +113,23 @@ class AdminDao
             throw $e;
         }
     }
+    public function addEventsInfoToDB($heading, $eventInfo, $imgName, $imgPath){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('INSERT INTO Aside (heading, eventInfo, imgName, imgPath) VALUES(:heading, :eventInfo, :imgName, :imgPath)');
+            $stmt->execute(array(
+                ':heading' => $heading,
+                ':eventInfo' => $eventInfo,
+                ':imgName' => $imgName,
+                ':imgPath' => $imgPath
+            ));
+        } catch (PDOException $e) {
+            throw $e;
+        }
+        finally {
+            $con = null;
+        }
+        
+    }
 }
 ?>

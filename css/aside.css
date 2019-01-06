@@ -21,7 +21,7 @@
         height: 20vh;
     }
 
-    #img1 {
+   /* #img1 {
         background-image: url(/bilder/karnevaltag.jpg)
     }
 
@@ -33,7 +33,11 @@
         background-image: url(/bilder/cirkus.jpg)
     }
 
+
     @media only screen and (max-width: 1024px) {
+
+*/
+    @media only screen and (max-width: 1023px) {
         .news img {
             max-width: 50%;
             max-height: auto;
