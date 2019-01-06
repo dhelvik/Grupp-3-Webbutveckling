@@ -46,9 +46,10 @@
 			datatype: 'json',
 			data: $("#faq-form").serialize(), 
 			success: function(result){
-				
+				location.reload();
 			},
 			error: function(xhr, status, error){
+				alert('Något gick fel');
 			}
 		});
     }
