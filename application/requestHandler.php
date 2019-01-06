@@ -159,7 +159,7 @@ function reserveTickets()
         $controller = new Controller();
         $controller->reserveTickets($customerName, $customerEmail, $customerPhoneNbr, $eventName, $eventDate, $eventTime, $ticketQuantity);
         
-        sendEmail($customerName, $customerEmail, $eventName, $eventDate, $eventTime, $ticketQuantity);
+        sendEmailTickets($customerName, $customerEmail, $eventName, $eventDate, $eventTime, $ticketQuantity);
         
         
         echo $customerName;
