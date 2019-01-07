@@ -144,7 +144,7 @@
 		});
 		});
 	</script>
-		
+
 		<script>
 	$(function(){
 		$("#reserveTickets").submit(function(e){

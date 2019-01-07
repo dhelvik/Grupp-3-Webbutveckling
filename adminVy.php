@@ -20,6 +20,7 @@ session_start();
     include ("includes/header.php");
     include ("includes/nav.php");
     ?>
+    
     <div class="container" width="80%">
 		<h2 align="center">Adminverktyg för Karnevalister</h2>
 		<div class="form-group">
@@ -33,12 +34,14 @@ session_start();
 			<table id="example" class="table table bordered">
 			</table>
 		</div>
-		
 		<button id="showMailArea" class="btn-info" type="button">Skicka Mail</button>
 		<div id="mailArea" style="display:none;align:center;">
-		<textarea id="message" rows="5" cols="60"></textarea>
+		
+		<textarea id="message" rows="5" cols="100"></textarea>
 		<button id="sendMail" class="btn-success" type="button" action="sendMail">Skicka</button>
 		</div>
+				<label id="labelResponse"></label>
+		
 	</div>
     <?php
     include ("includes/footer.php");
@@ -65,10 +68,14 @@ session_start();
 					emails : arr,	
 				},
 				success : function(result) {
-					alert('gick bra');
+					$('#labelResponse').empty();
+					$('#labelResponse').append('Mail skickat!');
+					$('textarea').val('');
 				},
 				error : function(result) {
-					alert('hej');
+					$('#labelResponse').empty();
+					$('#labelResponse').append('Något gick fel');
+					
 				}
 			});
 	  });

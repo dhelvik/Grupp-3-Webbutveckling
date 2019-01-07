@@ -127,8 +127,18 @@ a {
   background-color: white;
   color: black;
 }
-
-
+#showMailArea{
+	margin: 2em 0;
+}
+#search_text{
+	margin:0;
+}
+#mailArea{
+	margin-bottom:2em;
+}
+#labelResponse{
+	color: #f4376d;
+}
 @media only screen and (max-width: 1024px) {
 #main > #login {
 	width:100%;
