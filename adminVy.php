@@ -25,14 +25,15 @@ session_start();
 			
 			<table id="example" class="tableGroup">
 			</table>
-		<button id="showMailArea" type="button" class="btn-info">Skicka Mail</button>
+		<button id="showMailArea" type="button" class="btnInfo">Skicka Mail</button>
 		<div id="mailArea" style="display:none;align:center;">
 		
 		<textarea id="message" rows="5" cols="100"></textarea>
-		<button id="sendMail" type="button" action="sendMail" class="btn-success">Skicka</button>
-		<label id="labelResponse"></label>
+		<button id="sendMail" type="button" action="sendMail" class="btnSuccess">Skicka</button>
 		
 	</div>
+			<label id="labelResponse"></label>
+	
 	</div>
     <?php
     include ("includes/aside.php");
@@ -77,15 +78,15 @@ session_start();
 			  
 		if ($(this).html() == 'Skicka Mail') {
 			
-		    	$(this).addClass('btn-danger');
-		    	$(this).removeClass('btn-info');
+		    	$(this).addClass('btnDanger');
+		    	$(this).removeClass('btnInfo');
 		    	$('textarea').val('');
 		    	
 		}else {
 
 			
-			$(this).removeClass('btn-danger');
-	    	$(this).addClass('btn-info');
+			$(this).removeClass('btnDanger');
+	    	$(this).addClass('btnInfo');
 		}
 		$(this).html($(this).html() == 'Skicka Mail' ? 'Avbryt' : 'Skicka Mail')
 		
@@ -114,23 +115,23 @@ function populateListItem(item) {
 	$('#example tbody').append(
 			'<tr><td>'+item.mail+'</td><td class="editable">'+item.firstName+'</td>'
 			+'<td class="editable">'+item.lastName+'</td><td class="editable">'+item.phoneNumber+'</td><td><select id="'+item.sectionName.toUpperCase()+'"disabled="true"><option value="ADMINSTERIT">Adminsterit</option><option value="BILJONSEN">Biljonsen</option><option value="BLÄDDERIET">Blädderiet</option><option value="DANSEN">Dansen</option></select></td>'
-			+'<td><button id="editbtn" type="button" class="editbtn btn btn-xs btn-info">Edit</button></td>'
-			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td></tr>');
+			+'<td><button id="editbtn" type="button" class="editbtn btn btn-xs btnInfo">Edit</button></td>'
+			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btnDanger btn_delete">x</button></td></tr>');
 	$("#"+item.sectionName.toUpperCase()).val(item.sectionName.toUpperCase());
 	
 }
 function editRow(){
     if ($(this).html() == 'Edit') {
-    	$(this).removeClass('btn-info');
-    	$(this).addClass('btn-success');
+    	$(this).removeClass('btnInfo');
+    	$(this).addClass('btnSuccess');
         $(this).parent().siblings().find('select').prop("disabled", false);
     	
 		$(this).parent().siblings(".editable").attr("contenteditable", "true");
     }else {	
         $(this).parent().siblings().find('select').prop("disabled", true);
         
-		$(this).addClass('btn-info');
-        $(this).removeClass('btn-success');
+		$(this).addClass('btnInfo');
+        $(this).removeClass('btnSuccess');
        	$(this).parent().siblings().attr("contenteditable", "false");
         var mail = $(this).parent().siblings().filter(":first").text();
         var firstName = $(this).parent().siblings().filter(":nth(1)").text();

@@ -110,15 +110,15 @@ a {
   	color: black;
   	font-size: 14px;
 }
-.btn-success{
+.btnSuccess{
 	background-color: #4CAF50;
 	color:white;
 	}
-.btn-danger{
+.btnDanger{
 	background-color:#f44336;
 	color:white;
 }
-.btn-info{
+.btnInfo{
 	background-color: #008CBA;
 	color:white;
 }
@@ -147,7 +147,7 @@ a {
 	margin:0;
 }
 #mailArea{
-	margin-bottom:2em;
+	margin-bottom:0.5em;
 }
 #sendMail{
 		display:block;
