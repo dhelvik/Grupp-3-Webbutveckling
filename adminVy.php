@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +19,7 @@ session_start();
     include ("includes/nav.php");
     ?>
     
-    <div class="container" width="80%">
+    <div class="container">
 		<h2 align="center">Adminverktyg för Karnevalister</h2>
 		<div class="form-group">
 			<div class="input-group">

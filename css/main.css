@@ -136,6 +136,10 @@ a {
 #mailArea{
 	margin-bottom:2em;
 }
+#sendMail{
+		display:block;
+	
+}
 #labelResponse{
 	color: #f4376d;
 }
