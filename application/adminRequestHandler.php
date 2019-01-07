@@ -24,6 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'sendAdminEmail';
             sendEmail();
             break;
+        case 'addPost';
+            addPostToDB();
+            break;
     }
 }
 function getKarnevalister(){
@@ -69,23 +72,24 @@ function sendResponse(){
         $mail =$_POST['mail'];
         $dao->deleteQuestion($QID);
         sendEmailFAQ($answer, $mail);
-        // HAR INTE LÖST SÅ ATT SVARET SKICKAS VIA MAIL
+       
+        
     } catch (Exception $e) {
         echo $e->getMessage();
     }
         
 
 }
-function addEventInfo(){
+function savePicture($imgName){
     try{
         if(isset($_FILES['image'])){
             $errors= array();
-            $fileName = $_FILES['image']['name'];
-            $fileSize = $_FILES['image']['size'];
+           
             $tmpName = $_FILES['image']['tmp_name'];
-           // $fileType = $_FILES['image']['type'];
+           
+           
             $fileExt=strtolower(end(explode('.',$_FILES['image']['name'])));
-            $filePath = "bilder/".$fileName;
+            
             
             $expensions= array("jpeg","jpg","png");
             
@@ -93,17 +97,10 @@ function addEventInfo(){
                 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
             }
             
-            if($fileSize > 2097152) {
-                $errors[]='File size must be excately 2 MB';
-            }
-            if (file_exists("/Users/danielhelvik/Documents/T5/Webutveckling/Grupp-3-Webbutveckling/bilder/".$fileName)) {
-               $errors[] = 'File already exists';
-            }
             
             if(empty($errors)==true) {
-                move_uploaded_file($tmpName,"/Users/danielhelvik/Documents/T5/Webutveckling/Grupp-3-Webbutveckling/bilder/".$fileName);
-                addEventInfoToDB($fileName, $filePath);
-                echo "Success";
+                move_uploaded_file($tmpName,"/Users/danielhelvik/Documents/T5/Webutveckling/Grupp-3-Webbutveckling/bilder/".$imgName);
+                echo 'Success';
             }else{
                 echo($errors);
             }
@@ -112,13 +109,30 @@ function addEventInfo(){
         echo $e->getMessage();
     }
 }
-
-function addEventInfoToDB($imgName, $imgPath){
+function addPostToDB(){
+    try{
+        $adminController = new AdminController();
+        $heading = $_POST['heading'];
+        $postText = $_POST['text'];
+        $imgName = $_FILES['image']['name'];
+        $imgPath = "bilder/".$imgName;
+        savePicture($imgName);
+        $adminController->addPostToDB($heading, $postText, $imgName, $imgPath);
+        
+        
+        
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+}
+function addEventInfoToDB(){
     try{
         $adminController = new AdminController();
         $heading = $_POST['heading'];
         $eventInfo = $_POST['text'];
-        
+        $imgName = $_FILES['image']['name'];
+        $imgPath = "bilder/".$imgName;
+        savePicture($imgName);
         $adminController->addEventInfoToDB($heading, $eventInfo, $imgName, $imgPath);
         
         

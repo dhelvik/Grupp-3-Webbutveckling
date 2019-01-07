@@ -119,6 +119,16 @@ class Controller
             throw $e;
         }
     }
+    public function getPosts(){
+        try{
+            $dal = new DataAccessLayer();
+            $posts = $dal->getPosts();
+            return $posts;
+            
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
         
 }
 ?>

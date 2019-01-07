@@ -383,5 +383,19 @@ FROM Event e WHERE e.eventName = :eventName AND e.date = :eventDate");
             $con = null;
         }
     }
+    public function getPosts(){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('SELECT heading, postText, imgPath FROM Post ORDER BY id DESC LIMIT 3');
+            $stmt->execute();
+            $posts = $stmt->fetchAll();
+            return $posts;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+        finally {
+            $con = null;
+        }
+    }
 }
 ?>

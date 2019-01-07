@@ -131,5 +131,23 @@ class AdminDao
         }
         
     }
+    public function addPostToDB($heading, $postText, $imgName, $imgPath){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('INSERT INTO Post (heading, postText, imgName, imgPath) VALUES(:heading, :postText, :imgName, :imgPath)');
+            $stmt->execute(array(
+                ':heading' => $heading,
+                ':postText' => $postText,
+                ':imgName' => $imgName,
+                ':imgPath' => $imgPath
+            ));
+        } catch (PDOException $e) {
+            throw $e;
+        }
+        finally {
+            $con = null;
+        }
+        
+    }
 }
 ?>

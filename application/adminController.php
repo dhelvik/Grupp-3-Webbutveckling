@@ -61,5 +61,14 @@ class AdminController
             throw $e;
         }
     }
+    public function addPostToDB($heading, $postText, $imgName, $imgPath)
+    {
+        try {
+            $dao = new AdminDao();
+            $dao->addPostToDB($heading, $postText, $imgName, $imgPath);
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
 }
 ?>

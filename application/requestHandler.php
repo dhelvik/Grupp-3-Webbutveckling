@@ -56,6 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'getAside':
             getAside();
             break;
+            
+        case 'getPosts':
+            getPosts();
+            break;
     }
 }
 
@@ -199,6 +203,17 @@ function getAside()
         $aside = $controller->getAside();
         header('Content-Type: application/json; charset=UTF-8');
         echo json_encode($aside);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+function getPosts()
+{
+    try {
+        $controller = new Controller();
+        $posts = $controller->getPosts();
+        header('Content-Type: application/json; charset=UTF-8');
+        echo json_encode($posts);
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
