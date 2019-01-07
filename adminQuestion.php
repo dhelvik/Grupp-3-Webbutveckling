@@ -14,6 +14,7 @@ $question = $aCon->getAllQuestions();
     include("includes/section.php");
     ?>
     <div id='main'>
+    <h2 style="text-align:center;">Meddelanden</h2>
     <table id="question" class="tableGroup">
 			<tr>
 				<th>Namn</th>

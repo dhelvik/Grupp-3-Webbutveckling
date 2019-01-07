@@ -12,8 +12,9 @@ session_start();
     include ("includes/nav.php");
     include ("includes/section.php");
     ?>
-    <div id="main">
-<div id="addEventInfo">
+    <div id="main" style="text-align:center;">
+<div id="addEventInfo" style="display:inline-block;">
+<h2>Lägg till evenemang</h2>
 	<form id="eventInfo" name="eventInfo" method="POST" enctype="multipart/form-data">
 		<table>
 			<tr>
