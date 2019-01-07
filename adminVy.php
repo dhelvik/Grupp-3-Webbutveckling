@@ -7,41 +7,35 @@ session_start();
     <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet">
 
 <body>
     <?php
     include ("includes/header.php");
     include ("includes/nav.php");
+    include ("includes/section.php")
     ?>
     
-    <div class="container">
+    <div id="main">
+    
 		<h2 align="center">Adminverktyg för Karnevalister</h2>
-		<div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon">Sök</span> <input type="text"
-					name="search_text" id="search_text"
+		
+				<span>Sök</span> <input type="text"
+					name="searchText" id="searchText"
 					placeholder="Namn, mail eller sektion" class="form-control" />
-			</div>
-		</div>
-		<div class="table-responsive">
-			<table id="example" class="table table bordered">
+			
+			<table id="example" class="tableGroup">
 			</table>
-		</div>
-		<button id="showMailArea" class="btn-info" type="button">Skicka Mail</button>
+		<button id="showMailArea" type="button" class="btn-info">Skicka Mail</button>
 		<div id="mailArea" style="display:none;align:center;">
 		
 		<textarea id="message" rows="5" cols="100"></textarea>
-		<button id="sendMail" class="btn-success" type="button" action="sendMail">Skicka</button>
-		</div>
-				<label id="labelResponse"></label>
+		<button id="sendMail" type="button" action="sendMail" class="btn-success">Skicka</button>
+		<label id="labelResponse"></label>
 		
 	</div>
+	</div>
     <?php
+    include ("includes/aside.php");
     include ("includes/footer.php");
     ?>
 </body>
@@ -78,8 +72,6 @@ session_start();
 			});
 	  });
 
-</script>
-<script>
 	  $("#showMailArea").click(function(){
 			$('#mailArea').toggle();
 			  
@@ -99,8 +91,7 @@ session_start();
 		
 	  });
 
-</script>
-<script>
+
 function fetchResult(search) {
 	$.ajax({
 		type : "POST",
@@ -115,7 +106,7 @@ function fetchResult(search) {
 			result.forEach(populateListItem);
 		},
 		error : function(result) {
-			alert('hej');
+			
 		}
 	});
 }
@@ -173,7 +164,7 @@ function updateKarnevalist(firstName, lastName, mail, sectionName, phoneNumber) 
 		success : function(result) {
 		},
 		error : function(result) {
-			alert('hej');
+			
 		}
 	});
 }
@@ -190,7 +181,7 @@ function deleteKarnevalist(mail) {
 		},
 		success : function(result) {
 			alert("Borttaggen");
-			fetchResult($('#search_text').val());
+			fetchResult($('#searchText').val());
 		},
 		error : function(result) {
 			alert('hej');
@@ -202,7 +193,7 @@ function deleteKarnevalist(mail) {
 }
 $(document).keypress(function(e){
     if(e.which == 13) {
-    	var search = $('#search_text').val();
+    	var search = $('#searchText').val();
         fetchResult(search);
     }
 })

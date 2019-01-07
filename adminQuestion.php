@@ -14,7 +14,7 @@ $question = $aCon->getAllQuestions();
     include("includes/section.php");
     ?>
     <div id='main'>
-    <table id="question">
+    <table id="question" class="tableGroup">
 			<tr>
 				<th>Namn</th>
 				<th>E-post</th>

@@ -10,6 +10,7 @@ session_start();
     <?php
     include ("includes/header.php");
     include ("includes/nav.php");
+    include ("includes/section.php");
     ?>
     <div id="main">
 <div id="addEventInfo">
@@ -74,6 +75,7 @@ session_start();
 </div>
 </div>
  <?php
+    include ("includes/aside.php");
     include ("includes/footer.php");
     ?>
 </body>
