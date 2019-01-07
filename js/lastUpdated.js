@@ -5,7 +5,7 @@ function lastUpdated(){
     var dateTime = new Date(document.lastModified);
     var date = dateTime.getDate();
     var year = dateTime.getFullYear();
-    var month = dateTime.getMonth();
+    var month = dateTime.getMonth()+1;
     x.innerHTML = "Senast uppdaterad: " + date + "/" + month + "-" + year;
 
 }
