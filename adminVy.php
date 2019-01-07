@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,38 +7,36 @@ session_start();
     <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet">
 
 <body>
     <?php
     include ("includes/header.php");
     include ("includes/nav.php");
+    include ("includes/section.php")
     ?>
-    <div class="container" width="80%">
+    
+    <div id="main">
+    
 		<h2 align="center">Adminverktyg för Karnevalister</h2>
-		<div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon">Sök</span> <input type="text"
-					name="search_text" id="search_text"
-					placeholder="Namn, mail eller sektion" class="form-control" />
-			</div>
-		</div>
-		<div class="table-responsive">
-			<table id="example" class="table table bordered">
-			</table>
-		</div>
 		
-		<button id="showMailArea" class="btn-info" type="button">Skicka Mail</button>
+				<span>Sök</span> <input type="text"
+					name="searchText" id="searchText"
+					placeholder="Namn, mail eller sektion" class="form-control" />
+			
+			<table id="example" class="tableGroup">
+			</table>
+		<button id="showMailArea" type="button" class="btnInfo">Skicka Mail</button>
 		<div id="mailArea" style="display:none;align:center;">
-		<textarea id="message" rows="5" cols="60"></textarea>
-		<button id="sendMail" class="btn-success" type="button" action="sendMail">Skicka</button>
-		</div>
+		
+		<textarea id="message" rows="5" cols="100"></textarea>
+		<button id="sendMail" type="button" action="sendMail" class="btnSuccess">Skicka</button>
+		
+	</div>
+			<label id="labelResponse"></label>
+	
 	</div>
     <?php
+    include ("includes/aside.php");
     include ("includes/footer.php");
     ?>
 </body>
@@ -65,37 +61,38 @@ session_start();
 					emails : arr,	
 				},
 				success : function(result) {
-					alert('gick bra');
+					$('#labelResponse').empty();
+					$('#labelResponse').append('Mail skickat!');
+					$('textarea').val('');
 				},
 				error : function(result) {
-					alert('hej');
+					$('#labelResponse').empty();
+					$('#labelResponse').append('Något gick fel');
+					
 				}
 			});
 	  });
 
-</script>
-<script>
 	  $("#showMailArea").click(function(){
 			$('#mailArea').toggle();
 			  
 		if ($(this).html() == 'Skicka Mail') {
 			
-		    	$(this).addClass('btn-danger');
-		    	$(this).removeClass('btn-info');
+		    	$(this).addClass('btnDanger');
+		    	$(this).removeClass('btnInfo');
 		    	$('textarea').val('');
 		    	
 		}else {
 
 			
-			$(this).removeClass('btn-danger');
-	    	$(this).addClass('btn-info');
+			$(this).removeClass('btnDanger');
+	    	$(this).addClass('btnInfo');
 		}
 		$(this).html($(this).html() == 'Skicka Mail' ? 'Avbryt' : 'Skicka Mail')
 		
 	  });
 
-</script>
-<script>
+
 function fetchResult(search) {
 	$.ajax({
 		type : "POST",
@@ -110,7 +107,7 @@ function fetchResult(search) {
 			result.forEach(populateListItem);
 		},
 		error : function(result) {
-			alert('hej');
+			
 		}
 	});
 }
@@ -118,23 +115,23 @@ function populateListItem(item) {
 	$('#example tbody').append(
 			'<tr><td>'+item.mail+'</td><td class="editable">'+item.firstName+'</td>'
 			+'<td class="editable">'+item.lastName+'</td><td class="editable">'+item.phoneNumber+'</td><td><select id="'+item.sectionName.toUpperCase()+'"disabled="true"><option value="ADMINSTERIT">Adminsterit</option><option value="BILJONSEN">Biljonsen</option><option value="BLÄDDERIET">Blädderiet</option><option value="DANSEN">Dansen</option></select></td>'
-			+'<td><button id="editbtn" type="button" class="editbtn btn btn-xs btn-info">Edit</button></td>'
-			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btn-danger btn_delete">x</button></td></tr>');
+			+'<td><button id="editbtn" type="button" class="editbtn btn btn-xs btnInfo">Edit</button></td>'
+			+'<td><button type="button" name="delete_btn" data-mail3="'+item.mail+'" class="btn btn-xs btnDanger btn_delete">x</button></td></tr>');
 	$("#"+item.sectionName.toUpperCase()).val(item.sectionName.toUpperCase());
 	
 }
 function editRow(){
     if ($(this).html() == 'Edit') {
-    	$(this).removeClass('btn-info');
-    	$(this).addClass('btn-success');
+    	$(this).removeClass('btnInfo');
+    	$(this).addClass('btnSuccess');
         $(this).parent().siblings().find('select').prop("disabled", false);
     	
 		$(this).parent().siblings(".editable").attr("contenteditable", "true");
     }else {	
         $(this).parent().siblings().find('select').prop("disabled", true);
         
-		$(this).addClass('btn-info');
-        $(this).removeClass('btn-success');
+		$(this).addClass('btnInfo');
+        $(this).removeClass('btnSuccess');
        	$(this).parent().siblings().attr("contenteditable", "false");
         var mail = $(this).parent().siblings().filter(":first").text();
         var firstName = $(this).parent().siblings().filter(":nth(1)").text();
@@ -168,7 +165,7 @@ function updateKarnevalist(firstName, lastName, mail, sectionName, phoneNumber) 
 		success : function(result) {
 		},
 		error : function(result) {
-			alert('hej');
+			
 		}
 	});
 }
@@ -185,7 +182,7 @@ function deleteKarnevalist(mail) {
 		},
 		success : function(result) {
 			alert("Borttaggen");
-			fetchResult($('#search_text').val());
+			fetchResult($('#searchText').val());
 		},
 		error : function(result) {
 			alert('hej');
@@ -197,7 +194,7 @@ function deleteKarnevalist(mail) {
 }
 $(document).keypress(function(e){
     if(e.which == 13) {
-    	var search = $('#search_text').val();
+    	var search = $('#searchText').val();
         fetchResult(search);
     }
 })

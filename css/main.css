@@ -47,6 +47,7 @@ button.main:hover {
 	text-align: left;
 	width: 85%;	
 }
+
 .question-form{
 	background-color:white;
 	margin: auto;
@@ -102,24 +103,36 @@ a {
     color:#f4376d;
 }
 
-#question{
+.tableGroup{
 	border-collapse: collapse;
   	width: 100%;
   	background-color: white;
   	color: black;
   	font-size: 14px;
 }
+.btnSuccess{
+	background-color: #4CAF50;
+	color:white;
+	}
+.btnDanger{
+	background-color:#f44336;
+	color:white;
+}
+.btnInfo{
+	background-color: #008CBA;
+	color:white;
+}
 
-#question th, td {
+.tableGroup th, td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
-#question tr:nth-child(4n+2), #question tr:nth-child(4n+3){background-color: #f2f2f2;}
+.tableGroup tr:nth-child(4n+2), .tableGroup tr:nth-child(4n+3){background-color: #f2f2f2;}
 
-#question tr:hover {background-color: #ddd;}
+.tableGroup tr:hover {background-color: #ddd;}
 
-#question th {
+.tableGroup th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -127,8 +140,22 @@ a {
   background-color: white;
   color: black;
 }
-
-
+#showMailArea{
+	margin: 2em 0;
+}
+#search_text{
+	margin:0;
+}
+#mailArea{
+	margin-bottom:0.5em;
+}
+#sendMail{
+		display:block;
+	
+}
+#labelResponse{
+	color: #f4376d;
+}
 @media only screen and (max-width: 1024px) {
 #main > #login {
 	width:100%;
