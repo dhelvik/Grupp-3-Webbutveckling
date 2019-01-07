@@ -21,7 +21,7 @@
             <select id='sections' name="sectionName">
             </select>
             <input name="ACTION" value="registerApplication" type="hidden">
-            <input type="submit" value="Apply">
+            <input type="submit" value="Ansök">
         </form>
         <label id="labelRegisterResponse"></label>
     </div>

@@ -109,7 +109,6 @@ function getEntries()
 function checkLogin(){
      $controller = new Controller();
      $user = $controller->signIn(new User($_POST['username'], $_POST['password']));
-
      if(is_null($user)){
         $_SESSION['signInError'] = 'Fel användare eller lösenord.';
         return '/admin.php';
