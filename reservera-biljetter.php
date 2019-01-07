@@ -65,8 +65,7 @@
 			});
 		});
 	
-	</script>
-		<script>
+	
 	$('#event').change(function() {	  
 		$('#date').empty();
 		$('#time').empty();
@@ -103,8 +102,7 @@
 			}
 		});
 		});
-	</script>
-		<script>
+	
 	$('#date').change(function() {	  
 		$('#time').empty();
 		var e = document.getElementById("event");
@@ -143,9 +141,7 @@
 			}
 		});
 		});
-	</script>
-
-		<script>
+	
 	$(function(){
 		$("#reserveTickets").submit(function(e){
 		var ticketsRemaining = $("#time option:selected").attr('id');	
