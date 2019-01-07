@@ -11,6 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             registerApplication();
             break;
             
+        case 'updateVacancies':
+            getVacancies();
+            break;
+            
         case 'registerEntry':
             registerEntry();
             break;
@@ -28,8 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: '.signOut().'');
             die();
             break;
-            
-        
 
         case 'getEventTypes':
             getEventTypes();
@@ -65,6 +67,18 @@ function registerApplication()
         echo 'Tack för ansökan ' . $_POST['firstName'];
     } catch (PDOException $e) {
         echo 'Den här epostadressen har redan ansökt till vald sektion.';
+    }
+}
+
+function getVacancies()
+{
+    try {
+        $controller = new Controller();
+        $list = $controller->getSectionInfo();
+        header('Content-Type: application/json; charset=UTF-8');
+        echo json_encode($list);
+    } catch (Exception $e) {
+        echo 'fel';
     }
 }
 

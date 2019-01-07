@@ -16,6 +16,20 @@ class Controller
             throw $e;
         }
     }
+    
+    public function getSectionInfo(){
+        $dal = new DataAccessLayer();
+        try {
+            $sections = $dal->getSection();
+            foreach ($sections as &$section) {
+                $numOfVacancies = $dal->getRemainingVacancies($section['sectionName']);
+                $section['numOfVacancies'] = $numOfVacancies;
+            }
+            return $sections;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
 
     public function registerEntry($entry)
     {

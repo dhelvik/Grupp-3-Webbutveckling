@@ -22,8 +22,10 @@ class DataAccessLayer
     public function mapToSection($stmt)
     {
         $a = array();
-        while ($row = $stmt->fetch())
+        while ($row = $stmt->fetch()){
+            echo $row['sectionName'];
             array_push($a, new Section($row['sectionName']));
+        }
         return (sizeof($a) <= 1 ? $a[0] : $a);
     }
 
@@ -101,19 +103,33 @@ class DataAccessLayer
         }
     }
 
-    public function getSection($section)
+    public function getSection()
     {
         try {
             $con = $this->createConnection();
-            $stmt = $con->prepare('SELECT * FROM Section WHERE sectionName = :sectionName');
-            $stmt->execute(array(
-                ':sectionName' => $section->sectionName
-            ));
-            $section = $this->mapToSection($stmt);
+            $stmt = $con->prepare('SELECT sectionName FROM Section');
+            $stmt->execute();
+            $section = $stmt->fetchAll();
         } catch (PDOException $e) {
             throw $e;
         } finally{
             return $section;
+            $con = null;
+        }
+    }
+    
+    public function getRemainingVacancies($sectionName){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare("SELECT(SELECT numOfVacancies FROM Section WHERE sectionName = :sectionName)-(SELECT COALESCE(COUNT(mail), 0) FROM KarnevalistSection WHERE sectionName = :sectionName) as vacancies");
+            $stmt->execute(array(
+                ':sectionName' => $sectionName,
+            ));
+            $num = $stmt->fetch();
+        } catch (PDOException $e) {
+            throw $e;;
+        } finally{
+            return $num['vacancies'];
             $con = null;
         }
     }

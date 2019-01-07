@@ -18,11 +18,7 @@
 			<input type="email" name="mail" required placeholder="E-post*">
 			<label>Telefonnummer</label>
 			<input type="text" name="phoneNumber" placeholder="Telefonnummer">
-            <select name="sectionName">
-                <option value="adminsterit">ADMINSTERIT</option>
-                <option value="biljonsen">BILJONSEN</option>
-                <option value="bladderiet">BLÄDDERIET</option>
-                <option value="dansen">DANSEN</option>
+            <select id='sections' name="sectionName">
             </select>
             <input name="ACTION" value="registerApplication" type="hidden">
             <input type="submit" value="Apply">
@@ -53,6 +49,23 @@
 			});
 		});
 	});
+	function updateVacancies(){
+		$.ajax({
+			method: "POST",
+			url: "application/requestHandler.php",
+			datatype: 'json',
+			data: {
+				ACTION : 'updateVacancies',
+			},	
+			success: function(result){
+ 				result.forEach(function(item){
+					$('#sections').append('<option value="'+item.sectionName+'">'+item.sectionName+' - '+item.numOfVacancies+' platser kvar'+'</option>');
+ 				});
+			}
+
+			});
+	}
+	$(document).ready(updateVacancies); 
 	</script>
 </body>
 </html>
