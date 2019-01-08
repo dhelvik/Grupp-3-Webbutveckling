@@ -12,10 +12,24 @@ $user = unserialize($_SESSION['user']);
                         <li><a href="ansok.php">Ansök</a></li>
                         <li><a href="sektioner.php">Sektioner</a>
                             <ul>
-                                <li><a href="administerit.php">AdminsterIT</a></li>
-                                <li><a href="biljonsen.php">Biljonsen</a></li>
-                                <li><a href="bladderiet.php">Blädderiet</a></li>
-                                <li><a href="dansen.php">Dansen</a></li>
+                                <li><a href="sektioner.php#Administerit">AdminsterIT</a></li>
+                                <li><a href="sektioner.php#Biljonsen">Biljonsen</a></li>
+                                <li><a href="sektioner.php#Blädderiet">Blädderiet</a></li>
+                                <li><a href="sektioner.php#Dansen">Dansen</a></li>
+                                <li><a href="sektioner.php#Ekonomi">Ekonomi</a></li>
+                                <li><a href="sektioner.php#Fabriken">Fabriken</a></li>
+                                <li><a href="sektioner.php#Festmästeriet">Festmästeriet</a></li>
+                                <li><a href="sektioner.php#Kommunikationen">Kommunikationen</a></li>
+                                <li><a href="sektioner.php#Mediahuset">Mediahuset</a></li>
+                                <li><a href="sektioner.php#Musiken">Musiken</a></li>
+                                <li><a href="sektioner.php#Nöjessektioner">Nöjessektioner</a></li>
+								<li><a href="sektioner.php#Områdessektionerna">Områdessektionerna</a></li>
+                                <li><a href="sektioner.php#Produktsektionerna">Produktsektionerna</a></li>
+                                <li><a href="sektioner.php#Säkerhetssektionen">Säkerhetssektionen</a></li>
+                                <li><a href="sektioner.php#Tågsektionerna">Tågsektionerna</a></li>
+                                <li><a href="sektioner.php#Vieriet">Vieriet</a></li>
+                                
+                                
                             </ul>
                         </li>
                     </ul>
