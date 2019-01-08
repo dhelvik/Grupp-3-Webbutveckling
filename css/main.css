@@ -156,6 +156,19 @@ a {
 #labelResponse{
 	color: #f4376d;
 }
+#posts h1{
+		 border-bottom-style: solid;
+	
+}
+.posts{
+	margin-bottom:2em;
+	 border-bottom-style: solid;
+}
+.posts img{
+	float:left;
+	width:20%;
+	heigth:auto;
+}
 @media only screen and (max-width: 1024px) {
 #main > #login {
 	width:100%;
