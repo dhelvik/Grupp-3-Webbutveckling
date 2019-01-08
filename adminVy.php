@@ -64,6 +64,7 @@ session_start();
 					$('#labelResponse').empty();
 					$('#labelResponse').append('Mail skickat!');
 					$('textarea').val('');
+					alert(result);
 				},
 				error : function(result) {
 					$('#labelResponse').empty();

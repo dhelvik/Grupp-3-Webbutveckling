@@ -70,5 +70,15 @@ class AdminController
             throw $e;
         }
     }
+    public function changePassword($oldPassword, $newPassword, $username)
+    {
+        try {
+            $dao = new AdminDao();
+            $rowsaffected = $dao->changePassword($oldPassword, $newPassword, $username);
+            return $rowsaffected;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
 }
 ?>

@@ -149,5 +149,24 @@ class AdminDao
         }
         
     }
+    public function changePassword($oldPassword, $newPassword, $username){
+        try {
+            $con = $this->createConnection();
+            $stmt = $con->prepare('UPDATE User SET password = :newPassword WHERE username = :username AND password = :oldPassword');
+            $stmt->execute(array(
+                ':newPassword' => $newPassword,
+                ':oldPassword' => $oldPassword,
+                ':username' => $username
+            ));
+            $rowsaffected = $stmt->rowCount();
+            return $rowsaffected;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+        finally {
+            $con = null;
+        }
+        
+    }
 }
 ?>

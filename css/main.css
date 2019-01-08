@@ -42,6 +42,78 @@ button.main:hover {
     width:100%;
 }
 
+.post {
+	width: 100%;
+	height: 400px;
+	border: none;
+	background-color: white;
+}
+
+.post-img {
+	width: 25%;
+	height: 35vh;
+	float: left;
+	position: relative;
+	background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:30px;
+}
+
+.post-right {
+	width: 75%; 
+	float : left;
+	height: 100%;
+	float: left;
+}
+
+.post-head {
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	position: relative;
+}
+
+.post-text {
+	width: 100%;
+	height: 80%;
+	text-align: center;
+	position: relative;
+	word-spacing: 2px;
+    line-height: 1.8;
+}
+
+.post p {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.post h2{
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.post img {
+	margin: 0;
+	position: absolute;
+	max-width: 100%;
+	max-height: 100%;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
 .faq-form{
 	margin: auto;
 	text-align: left;
@@ -136,7 +208,6 @@ a {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  
   background-color: white;
   color: black;
 }
@@ -165,9 +236,7 @@ a {
 	 border-bottom-style: solid;
 }
 .posts img{
-	float:left;
-	width:20%;
-	heigth:auto;
+	
 }
 @media only screen and (max-width: 1024px) {
 #main > #login {

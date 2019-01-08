@@ -27,6 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'addPost';
             addPostToDB();
             break;
+        case 'changePassword';
+        changePassword();
+        break;
     }
 }
 function getKarnevalister(){
@@ -151,7 +154,20 @@ function sendEmail(){
     
 } catch (Exception $e) {
     echo $e->getMessage();
-}}
-
-
+}
+}
+function changePassword(){
+    try{
+        $newPassword = $_POST['newPassword'];
+        $oldPassword = $_POST['oldPassword'];
+        $user = unserialize($_SESSION['user']);
+        $username = $user->username;
+        $admincontroller = new AdminController();
+        $rowsaffected = $admincontroller->changePassword($oldPassword, $newPassword, $username);
+        
+        echo $rowsaffected;
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+}
 ?>
