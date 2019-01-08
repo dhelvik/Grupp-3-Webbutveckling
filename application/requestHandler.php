@@ -178,8 +178,8 @@ function reserveTickets()
         
         sendEmailTickets($customerName, $customerEmail, $eventName, $eventDate, $eventTime, $ticketQuantity);
         
-        
-        echo $customerName;
+        echo 'Success';
+    
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
