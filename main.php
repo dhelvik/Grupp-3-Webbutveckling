@@ -36,7 +36,9 @@
     <h1>Nyheter</h1>
     <?php foreach ($posts as $post) {?>
         <div class="post">
-        	<div class="post-img" style="background-image: url(<?php echo $post['imgPath'];?>)"></div>
+        	<div class="post-img">
+        		<img src=" <?php echo $post['imgPath'];?>">
+        	</div>
         	<div class="post-right">
         		<div class="post-head">
         			<h2><?php echo $post['heading'];?></h2>
