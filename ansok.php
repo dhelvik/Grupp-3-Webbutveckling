@@ -11,13 +11,13 @@
         <h1>Ansök</h1>
         <form id="registerForm" class="my-form" >
             <label>Förnamn*</label>
-			<input type="text" name="firstName" required placeholder="Förnamn*">
+			<input id="firstName" type="text" name="firstName" required placeholder="Förnamn*">
 			<label>Efternamn*</label>
-			<input type="text" name="lastName" required placeholder="Efternamn*">
+			<input id="lastName" type="text" name="lastName" required placeholder="Efternamn*">
 			<label>E-post*</label>
-			<input type="email" name="mail" required placeholder="E-post*">
+			<input id="email" type="email" name="mail" required placeholder="E-post*">
 			<label>Telefonnummer</label>
-			<input type="text" name="phoneNumber" placeholder="Telefonnummer">
+			<input id="phoneNumber" type="text" name="phoneNumber" placeholder="Telefonnummer">
             <select id='sections' name="sectionName">
             </select>
             <input name="ACTION" value="registerApplication" type="hidden">
@@ -41,6 +41,12 @@
 				success: function(result){
 					$('#labelRegisterResponse').text('');
 					$('#labelRegisterResponse').text(result);
+					$('#firstName').val('');
+					$('#lastName').val('');
+					$('#email').val('');
+					$('#phoneNumber').val('');
+					
+					
 				},
 				error: function(xhr, status, error){
 					$('#labelRegisterResponse').text('');

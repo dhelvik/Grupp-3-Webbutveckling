@@ -5,7 +5,7 @@
 ?>
 <div id="main">
     <div id="main-content">
-        <button class="main container-shadow">KÖP BILJETTER</button>
+        <a href="reservera-biljetter.php"><button class="main container-shadow">KÖP BILJETTER</button></a>
     </div>
     <div class="main-info">
         <h1>KARNEVALSVÄNNER</h1>
