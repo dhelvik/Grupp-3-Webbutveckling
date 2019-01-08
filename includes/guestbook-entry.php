@@ -1,15 +1,17 @@
-<div id="guestBookEntry" style="text-align:center">
-	<form id="guestBookForm" name="guestBookForm" method="post" style="display:inline-block;">
+<div id="guestBookEntry" style="text-align: center">
+	<form id="guestBookForm" name="guestBookForm" method="post"
+		style="display: inline-block;">
 		<table>
 			<tr>
 				<td>Namn:</td>
 				<td>*</td>
-				<td><input id="entryName" name="name" type="text" id="name"required /></td>
+				<td><input id="entryName" name="name" type="text" id="name" required /></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
 				<td>*</td>
-				<td><input id="entryEmail" name="email" type="text" id="email"required /></td>
+				<td><input id="entryEmail" name="email" type="text" id="email"
+					required /></td>
 			</tr>
 			<tr>
 				<td valign="top">Kommentar:</td>
@@ -21,11 +23,12 @@
 				<td>&nbsp;</td>
 				<td><input type="submit" name="Submit" value="Submit" /></td>
 			</tr>
-			<input name="ACTION" value="registerEntry" type="hidden">
+
+		</table>
+		<input name="ACTION" value="registerEntry" type="hidden">
 	</form>
-	</tr>
-	</table>
-	<label id="labelEntryResponse"> <script type="text/javascript">
+	<label id="labelEntryResponse"></label>
+	<script type="text/javascript">
 	$(function(){
 		$("#guestBookForm").submit(function(e){
 		e.preventDefault();
@@ -53,9 +56,4 @@
 		});
 	});
 	</script>
-
 </div>
-
-
-
-
