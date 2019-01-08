@@ -39,7 +39,6 @@
 */
     @media only screen and (max-width: 1023px) {
         .news img {
-            max-width: 50%;
             max-height: auto;
             margin: auto;
         }
