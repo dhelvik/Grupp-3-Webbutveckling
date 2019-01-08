@@ -39,6 +39,7 @@
 			</select> <input type="submit" value="Reservera"> <input
 				name="ACTION" value="reserveTickets" type="hidden">
 		</form>
+		<label id="labelResponse"></label>
 		<script>
 	$(document).ready(function(){
 				$.ajax({
@@ -59,8 +60,7 @@
 				error: function(xhr, status, error){
 					alert(status);
 					alert(error);
-					//$('#labelEntryResponse').text('');
-					//$('#labelEntryResponse').text(status);
+					
 				}
 			});
 		});
@@ -97,8 +97,7 @@
 			error: function(xhr, status, error){
 				alert(status);
 				alert(error);
-				//$('#labelEntryResponse').text('');
-				//$('#labelEntryResponse').text(status);
+			
 			}
 		});
 		});
@@ -145,29 +144,34 @@
 	$(function(){
 		$("#reserveTickets").submit(function(e){
 		var ticketsRemaining = $("#time option:selected").attr('id');	
-		
+		e.preventDefault();
 		if(ticketsRemaining >= $("#ticketQuantity option:selected").val()){
 		
-		e.preventDefault();
 			$.ajax({
 				method: "POST",
 				url: "application/requestHandler.php", 
 				datatype: 'json',
 				data: $("#reserveTickets").serialize(),
 				success: function(result){
-					alert(result);
+					if(result ==='Success'){
+						$('#labelResponse').text('');
+						$('#labelResponse').text('Tack för din reservation!');
+						}else{
+							$('#labelResponse').text('');
+							
+							$('#labelResponse').text('Du har redan reserverat biljetter till valt evenemang');
+							}
 
 				},
 				error: function(xhr, status, error){
-					$('#labelEntryResponse').text('');
-					$('#labelEntryResponse').text(status);
+					$('#labelResponse').text('');
+					$('#labelResponse').text(status);
 				}
 			
 			});
 		} else {
-			e.preventDefault();
-			alert("Det finns bara " + ticketsRemaining + " kvar");
-			}
+			$('#labelResponse').text('');
+			$('#labelResponse').text('Valt antal biljetter finns ej tillgängligt');			}
 		});
 	});
 	</script>

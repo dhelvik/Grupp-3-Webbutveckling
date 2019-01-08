@@ -11,7 +11,7 @@ function sendEmailTickets($customerName, $customerEmail, $eventName, $eventDate,
     $mailer = new PHPMailer(true); // Passing `true` enables exceptions
     try {
         // Server settings
-        $mailer->SMTPDebug = 2; // Enable verbose debug output
+        $mailer->SMTPDebug = 0; // Enable verbose debug output
         $mailer->isSMTP(); // Set mailer to use SMTP
         $mailer->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
         $mailer->SMTPAuth = true; // Enable SMTP authentication
@@ -43,15 +43,15 @@ Bifogat finner du informationen för det event du valt att reservera till.
 </p>
 <br>
 <p align="center">
-Reservationen gäller för x st biljetter. Kom ihåg att komma ca 15 minuter innan föreställningen börjar
+Reservationen gäller för '.$ticketQuantity.'st biljetter. Kom ihåg att komma ca 15 minuter innan föreställningen börjar
 </p>';
-        $mailer->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mailer->AltBody = 'Bekräftelse för din bokning till '.$eventName.' den: '.$eventDate.' klockan: '.$eventTime.'. Antal biljetter: '.$ticketQuantity;
 
         $mailer->send();
 
-        // echo 'Message has been sent';
+       // echo 'Message has been sent';
     } catch (Exception $e) {
-        throw $mailer->ErrorInfo;
+       throw $mailer->ErrorInfo;
     }
 }
 function sendEmailFAQ($answer, $mail)
@@ -88,7 +88,6 @@ Tack för ditt meddelande!
         
         $mailer->send();
         
-        // echo 'Message has been sent';
     } catch (Exception $e) {
         throw $mailer->ErrorInfo;
     }
