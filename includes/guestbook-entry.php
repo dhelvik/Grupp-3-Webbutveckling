@@ -1,5 +1,5 @@
-<div id="guestBookEntry">
-	<form id="guestBookForm" name="guestBookForm" method="post">
+<div id="guestBookEntry" style="text-align:center">
+	<form id="guestBookForm" name="guestBookForm" method="post" style="display:inline-block;">
 		<table>
 			<tr>
 				<td>Namn:</td>
