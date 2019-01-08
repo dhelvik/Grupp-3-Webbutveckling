@@ -135,6 +135,10 @@
     .navClass {
         display: none;
         background-color: #FBBCCC;
+        
+    }
+    .navClass a {
+    	padding: 30px 25px;
     }
 
     /*TOP NAV*/
