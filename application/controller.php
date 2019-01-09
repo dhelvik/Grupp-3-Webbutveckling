@@ -129,6 +129,13 @@ class Controller
             throw $e;
         }
     }
+    function getImgPath()
+    {
+        //Någon annan jävla väg sen 
+        $files = scandir('/Users/jacobtornqvist/Documents/GitHub/Grupp-3-Webbutveckling/bilder/slide');
+        $imgPath = array_diff($files, array('.', '..','.DS_Store'));
+        return $imgPath;
+    }
         
 }
 ?>

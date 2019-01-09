@@ -1,12 +1,9 @@
 <aside id="left">
     <script src="js/slides.js"></script>
-    <div class="karnevalstaget">
-        <img class="imgList" src="bilder\karnevaltag.jpg" alt="Karnevaltåg">
-        <hr>
-    </div>
-    <div class="karnevalstaget">
-        <img class="imgList" src="bilder\karnevaltag1.jpg" alt="Karnevalister" width="460" height="345">
-        <hr>
-    </div>
-    <img id="slide" width="100%" margin="0 auto"/>
+    <h2>Karnevals bilder</h2>
+    <div>
+    	<div class="div-slide"><img id="slide1" class="slide"/></div>
+    	<div class="div-slide"><img id="slide2" class="slide"/></div>
+    	<div class="div-slide"><img id="slide3" class="slide"/></div>
+    </div>  
 </aside>

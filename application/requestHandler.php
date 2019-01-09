@@ -60,6 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'getPosts':
             getPosts();
             break;
+            
+        case 'getImgPath':
+            getImgPath();
+            break;
     }
 }
 
@@ -217,6 +221,13 @@ function getPosts()
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+}
+function getImgPath()
+{
+    $con = new Controller();
+    $imgPath = $con->getImgPath();
+//     header('Content-Type: application/json; charset=UTF-8');
+    echo json_encode($imgPath);
 }
 
 ?>

@@ -1,6 +1,6 @@
 
 <aside id="right">
-    <h1>Kommande Evenemang</h1>
+    <h2>Kommande Evenemang</h2>
 
 <script type="text/javascript">
    	$(document).ready(function(){
